@@ -1,0 +1,397 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  background-image: url("assets/asset 15.jpeg");
+  min-height: 600px;
+  background-size: cover;
+  /* 背景圖片不重複 */
+  background-repeat: no-repeat;
+  /* 固定背景，不受捲軸影響 */
+  background-attachment: fixed;
+}
+
+.header {
+  height: 60px;
+  display: flex;
+  background-color: #222;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+  padding: 0 380px;
+}
+
+.header .tel {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+}
+
+.header .tel img {
+  margin: 0 10px;
+}
+
+.banner {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  justify-content: space-between;
+  background-color: white;
+  padding: 10px 10%;
+  box-sizing: border-box;
+  /* 以下設定黏性布局 */
+  top: 0px;
+  position: sticky;
+  z-index: 100;
+}
+
+.banner .logo {
+  display: flex;
+  align-items: center;
+}
+
+.banner .logo .title {
+  margin: 20px;
+  font-size: 60px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #555;
+}
+
+.banner nav {
+  display: flex;
+  width: 100%;
+}
+
+.banner nav a {
+  margin: 0 20px;
+  text-decoration: none;
+  font-size: 25px;
+  border-bottom: 3px solid white;
+  transition: 0.4s;
+}
+
+.banner nav a:hover {
+  border-bottom: 3px solid orange;
+  cursor: pointer;
+}
+
+.banner .btn-donate button {
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid orange;
+  background-color: white;
+  border-radius: 5px;
+  color: orange;
+  padding: 15px 30px;
+  transition: all 0.5s;
+}
+
+.banner .btn-donate button:hover {
+  background-color: #7777ff;
+  color: white;
+  cursor: pointer;
+}
+
+.donate {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+}
+
+.donate .donate-content {
+  position: absolute;
+  top: 250px;
+  left: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.donate .donate-content .item1 {
+  font-size: 60px;
+  color: #444;
+  font-weight: bold;
+}
+
+.donate .donate-content .item2 {
+  font-size: 80px;
+  color: #55ccff;
+  font-weight: bold;
+}
+
+.donate .donate-content .item3 {
+  font-size: 25px;
+  color: #666;
+}
+
+.donate .donate-content .donate-button .button {
+  font-size: 15px;
+  font-weight: bold;
+
+  border: 0px solid orange;
+  background-color: orange;
+  color: white;
+  padding: 20px 60px;
+  transition: all 0.5s;
+  margin-top: 40px;
+}
+
+.donate .donate-content .donate-button .button:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  padding-top: 80px;
+}
+
+.about img {
+  margin-right: 50px;
+  width: 30%;
+}
+
+.about .about-content {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  vertical-align: middle;
+}
+
+.about .about-content .item1 {
+  font-size: 60px;
+  color: #444;
+  font-weight: bold;
+}
+
+.about .about-content .item2 {
+  margin: 20px 0;
+  font-size: 30px;
+  color: #55ccff;
+}
+
+.about .about-content .item3,
+.about .about-content .item4 {
+  font-size: 15px;
+  color: #666;
+}
+
+.about .about-content .item4 {
+  margin-top: 20px;
+}
+
+.about .about-content .about-button .button {
+  font-size: 15px;
+  font-weight: bold;
+
+  border: 0px solid orange;
+  background-color: orange;
+  color: white;
+  padding: 20px 60px;
+  transition: all 0.5s;
+  margin-top: 40px;
+}
+
+.about .about-content .about-button .button:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.help {
+  width: 100%;
+  padding: 50px 0;
+  background-color: #eee;
+}
+
+.help .help-content .help-txt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.help .help-content .help-txt .item1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #444;
+}
+
+.help .help-content .help-txt .item2 {
+  font-size: 30px;
+  color: #55ccff;
+  margin-bottom: 30px;
+}
+
+.help .help-content .help-img {
+  display: flex;
+  justify-content: center;
+}
+
+.help .help-content .help-img .img1,
+.help .help-content .help-img .img2,
+.help .help-content .help-img .img3 {
+  position: relative;
+  margin: 0 10px;
+  width: 20%;
+}
+
+.help .help-content .help-img .img1 img:hover,
+.help .help-content .help-img .img2 img:hover,
+.help .help-content .help-img .img3 img:hover {
+  background-color: #000;
+}
+
+.help .help-content .help-img .img-txt1,
+.help .help-content .help-img .img-txt2,
+.help .help-content .help-img .img-txt3 {
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  transition: all 0.4s;
+}
+
+.help .help-content .help-img .img-txt1:hover,
+.help .help-content .help-img .img-txt2:hover,
+.help .help-content .help-img .img-txt3:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+.volunteer {
+  width: 100%;
+  padding: 50px 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.volunteer .volunteer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 33px;
+}
+
+.volunteer .volunteer-left img,
+.volunteer .volunteer-right img {
+  width: 90%;
+}
+
+.volunteer .volunteer-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.volunteer .volunteer-left .volunteer-txt {
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #444;
+}
+
+.volunteer .volunteer-right .volunteer-txt {
+  width: 500px;
+  margin: 20px 0;
+  font-size: 15px;
+  color: #666;
+}
+
+.volunteer .volunteer-right .button {
+  border: 0px solid orange;
+  background-color: orange;
+  color: white;
+  font-size: 15px;
+  padding: 20px 60px;
+  transition: all 0.5s;
+}
+
+.volunteer .volunteer-right .button:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.events {
+  width: 100%;
+  background-color: #fff;
+  padding: 50px 0;
+}
+
+.events .events-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.events .events-content img {
+  width: 60%;
+  /* height: 100%; */
+}
+
+.events .events-content .event-area {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.events .events-content .event-area .txt1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #444;
+}
+
+.events .events-content .event-area .txt2 {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #55ccff;
+}
+
+.events .events-content .event-area .txt3 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.events .events-content .event-area .button {
+  border: 0px solid orange;
+  background-color: orange;
+  color: white;
+  font-size: 15px;
+  padding: 20px 60px;
+  margin: 0 10px;
+  transition: all 0.5s;
+}
+
+.events .events-content .event-area .button:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.space {
+  width: 100%;
+  height: 700px;
+  border-bottom: 20px solid orange;
+}
+
+.space2 {
+  width: 100%;
+  height: 600px;
+  background-color: #eee;
+}
