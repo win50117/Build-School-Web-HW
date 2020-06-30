@@ -45,6 +45,7 @@ body {
 
 .back-to-top {
   position: fixed;
+  z-index: 98;
   width: 60px;
   height: 60px;
   right: 20px;
