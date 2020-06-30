@@ -13,6 +13,64 @@ body {
   background-attachment: fixed;
 }
 
+.tel-button {
+  position: fixed;
+  z-index: 99;
+  width: 80px;
+  height: 80px;
+  left: 20px;
+  bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: orange;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.tel-button:hover {
+  cursor: pointer;
+  color: #ffd833;
+}
+
+.tel-button .container {
+  width: 10px;
+  height: 10px;
+  margin: 20px 20px;
+}
+
+.tel-button .container .fas {
+  font-size: 40px;
+  /* color: orange; */
+}
+
+.back-to-top {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  right: 20px;
+  bottom: 80px;
+  background-color: orange;
+  border: 0px solid #ccc;
+  color: #fff;
+  transition: all 0.4s;
+}
+
+.back-to-top:hover {
+  background-color: #00ccff;
+}
+
+.back-to-top .container a {
+  display: block;
+  text-align: center;
+  width: 600x;
+  height: 60px;
+  color: #fff;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+
+
 .header {
   height: 60px;
   display: flex;
