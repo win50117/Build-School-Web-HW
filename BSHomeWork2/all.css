@@ -247,8 +247,13 @@ body {
 .help .help-content .help-img .img2,
 .help .help-content .help-img .img3 {
   position: relative;
-  margin: 0 10px;
-  width: 20%;
+  margin: 0 30px;
+}
+
+.help .help-content .help-img .img1 img,
+.help .help-content .help-img .img2 img,
+.help .help-content .help-img .img3 img {
+  width: 100%;
 }
 
 .help .help-content .help-img .img1 img:hover,
