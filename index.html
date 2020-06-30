@@ -5,27 +5,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <style>
+        .header {
+            /* text-align: center; */
+            background-color: #eee;
+        }
+
+        .header .container {
+            box-sizing: border-box;
+            width: 960px;
+            margin: 0 auto;
+            padding: 15px 15px;
+        }
+
+        .title {
+            color: #00c4c4;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .title h1 {
+            font-size: 40px;
+        }
+
+        .title span {
+            font-size: 25px;
+        }
+
+        .hw-content {
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
         .hw-list {
             font-size: 20px;
+
         }
 
         .hw-list a {
             text-decoration: none;
+            line-height: 2em;
+        }
+
+        .hw-list a:hover {
+            color: purple;
         }
     </style>
 </head>
 
 <body>
-    <h1>Build School作業列表：</h1>
-    <ul class="hw-list">
-        <li>
-            <a href="BSHomeWork1/index.html">作業01：表格課表</a>
-        </li>
-        <li>
-            <a href="BSHomeWork2/index.html">作業02：小貓網站</a>
-        </li>
-    </ul>
+
+    <div class="header">
+        <div class="container">
+            <div class="title">
+                <h1>Build School作業列表</h1>
+                <span>景仁</span>
+            </div>
+        </div>
+    </div>
+    <div class="hw-content">
+        <ul class="hw-list">
+            <li>
+                <a href="BSHomeWork1/index.html" target="_blank">作業01：課表TABLE表格</a>
+            </li>
+            <li>
+                <a href="BSHomeWork2/index.html" target="_blank">作業02：Anilove網站切版</a>
+            </li>
+        </ul>
+    </div>
+
 </body>
 
 </html>
