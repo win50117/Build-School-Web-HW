@@ -13,10 +13,19 @@
         }
 
         .header .container {
+            display: flex;
+            justify-content: space-around;
             box-sizing: border-box;
             width: 960px;
             margin: 0 auto;
             padding: 15px 15px;
+        }
+
+        .header .container .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
         }
 
         .title {
@@ -58,6 +67,7 @@
 
     <div class="header">
         <div class="container">
+            <img src="img/BuildSchool.png" alt="BuildSchool">
             <div class="title">
                 <h1>Build School作業列表</h1>
                 <span>景仁</span>
