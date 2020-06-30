@@ -104,14 +104,19 @@ body {
   position: relative;
   z-index: 0;
   width: 100%;
+  /* height: 100%; */
   height: 700px;
-  overflow: hidden;
+}
+
+.donate img {
+  width: 100%;
+  height: 100%;
 }
 
 .donate .donate-content {
   position: absolute;
-  top: 250px;
-  left: 350px;
+  top: 25%;
+  left: 15%;
   display: flex;
   flex-direction: column;
 }
@@ -394,4 +399,99 @@ body {
   width: 100%;
   height: 600px;
   background-color: #eee;
+}
+
+.news {
+  padding: 50px 0;
+  background-color: #fff;
+}
+
+.news .news-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.news .txt1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #444;
+}
+
+.news .txt2 {
+  font-size: 30px;
+  margin: 10px 0;
+  color: #55ccff;
+}
+
+.news .news-content {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.news .news-content .img1,
+.news .news-content .img2 {
+  position: relative;
+  /* width: 20%; */
+  margin: 0 15px;
+}
+
+.news .news-content .img1 img,
+.news .news-content .img2 img {
+  width: 100%;
+}
+
+.news .news-content .img1 span,
+.news .news-content .img2 span {
+  position: absolute;
+  top: 60%;
+  left: 46%;
+  transform: translate(-40%, -54%);
+  font-size: 30px;
+  color: #fff;
+  width: 350px;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.news .news-content .img1 span:hover,
+.news .news-content .img2 span:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+.awards {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+
+}
+
+.awards img {
+  width: 100%;
+  margin-top: -350px;
+}
+
+.instagram-txt {
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.instagram-txt .txt1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #444;
+}
+
+.img-wall {
+  display: flex;
+  width: 100%;
+}
+
+.img-wall img {
+  width: 25%;
+  height: 100%;
 }
