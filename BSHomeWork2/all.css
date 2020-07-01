@@ -625,3 +625,12 @@ body {
   margin: 10px 0;
   color: orange;
 }
+
+.footer-txt .tel span {
+  transition: 0.4s;
+}
+
+.footer-txt .tel span:hover {
+  color: orange;
+  cursor: pointer;
+}
