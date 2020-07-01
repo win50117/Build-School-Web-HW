@@ -399,14 +399,13 @@ body {
   background-color: #fff;
   display: flex;
   justify-content: center;
-  align-content: center;
 }
 
 .volunteer .volunteer-left {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 0 33px;
+  margin-right: 150px;
 }
 
 .volunteer .volunteer-left img,
