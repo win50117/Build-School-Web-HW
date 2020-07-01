@@ -13,7 +13,7 @@ body {
   background-attachment: fixed;
 }
 
-.tel-button {
+.float-tel-button {
   position: fixed;
   z-index: 99;
   width: 80px;
@@ -27,23 +27,23 @@ body {
   transition: all 0.4s;
 }
 
-.tel-button:hover {
+.float-tel-button:hover {
   cursor: pointer;
   color: #ffd833;
 }
 
-.tel-button .container {
+.float-tel-button .container {
   width: 10px;
   height: 10px;
   margin: 20px 20px;
 }
 
-.tel-button .container .fas {
+.float-tel-button .container .fas {
   font-size: 40px;
   /* color: orange; */
 }
 
-.back-to-top {
+.float-back-to-top {
   position: fixed;
   z-index: 98;
   width: 60px;
@@ -56,11 +56,11 @@ body {
   transition: all 0.4s;
 }
 
-.back-to-top:hover {
+.float-back-to-top:hover {
   background-color: #00ccff;
 }
 
-.back-to-top .container a {
+.float-back-to-top .container a {
   display: block;
   text-align: center;
   width: 60px;
@@ -89,9 +89,62 @@ body {
   font-size: 20px;
 }
 
-.header .tel img {
+.header .fas {
+  color: orange;
   margin: 0 10px;
 }
+
+.header .tel-num {
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+.header .tel-num:link {
+  color: #fff;
+}
+
+.header .tel-num:visited {
+  color: #fff;
+}
+
+.header .tel-num:hover {
+  cursor: pointer;
+  color: orange;
+}
+
+.header .community {
+  display: flex;
+
+}
+
+.header .community .icon {
+  margin: 0 2px;
+
+
+}
+
+
+.header .community .icon .fab {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 50%;
+  border: 0px solid #fff;
+
+
+}
+
+/* .header .community .icon .fa-twitter {
+  color: #000;
+  background-color: #fff;
+}
+
+.header .community .icon .fa-linkedin-in {
+  color: #000;
+  background-color: #fff;
+} */
+
 
 .navi {
   width: 100%;
@@ -102,7 +155,7 @@ body {
   vertical-align: middle;
   /* justify-content: space-between; */
   background-color: white;
-  padding: 10px 10%;
+  padding: 10px 20%;
   box-sizing: border-box;
   /* 以下設定黏性布局 */
   top: 0px;
@@ -132,7 +185,7 @@ body {
 .navi nav a {
   margin: 0 20px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   border-bottom: 3px solid white;
   transition: 0.4s;
 }
@@ -142,18 +195,19 @@ body {
   cursor: pointer;
 }
 
-.navi .btn-donate button {
+.navi .btn-donate .button {
   font-size: 12px;
   font-weight: bold;
-  border: 1px solid orange;
+  border: 2px solid orange;
   background-color: white;
   border-radius: 5px;
   color: orange;
-  padding: 15px 30px;
+  padding: 15px 60px;
   transition: all 0.5s;
 }
 
-.navi .btn-donate button:hover {
+.navi .btn-donate .button:hover {
+  border: 2px solid #7777ff;
   background-color: #7777ff;
   color: white;
   cursor: pointer;
@@ -492,35 +546,48 @@ body {
   justify-content: center;
 }
 
-.news .news-content .img1,
-.news .news-content .img2 {
+.news .news-content .container {
   position: relative;
-  /* width: 20%; */
   margin: 0 15px;
 }
 
-.news .news-content .img1 img,
-.news .news-content .img2 img {
+.news .news-content .container .article img {
+  width: 109px;
+  height: 104px;
+  border-radius: 50%;
+  border: 0px solid #fff;
+  margin-bottom: 10px;
+}
+
+.news .news-content .container .article {
   width: 100%;
-}
-
-.news .news-content .img1 span,
-.news .news-content .img2 span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
-  top: 60%;
-  left: 46%;
-  transform: translate(-40%, -54%);
-  font-size: 30px;
-  color: #fff;
-  width: 350px;
-  text-align: center;
-  transition: all 0.5s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.news .news-content .img1 span:hover,
-.news .news-content .img2 span:hover {
-  color: orange;
+
+.news .news-content .container span {
+  margin: 10px 0;
+  color: #fff;
+  transition: 0.4s;
+}
+
+.news .news-content .container .name:hover,
+.news .news-content .container .title:hover {
   cursor: pointer;
+  color: orange;
+}
+
+.news .news-content .container .title {
+  text-align: center;
+  width: 500px;
+  font-size: 35px;
+  font-weight: bold;
 }
 
 .awards {
