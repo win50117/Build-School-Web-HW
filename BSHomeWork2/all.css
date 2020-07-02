@@ -79,7 +79,7 @@ body {
   justify-content: space-between;
   align-items: center;
   vertical-align: middle;
-  padding: 0 380px;
+  padding: 0 15%;
 }
 
 .header .tel {
@@ -119,43 +119,33 @@ body {
 
 .header .community .icon {
   margin: 0 2px;
-
-
 }
-
 
 .header .community .icon .fab {
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
-  color: #fff;
+  color: #000;
+}
+
+.community .icon {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border: transparent;
+  padding: 3px 3px;
   border-radius: 50%;
-  border: 0px solid #fff;
-
-
+  text-align: center;
+  line-height: 20px;
 }
-
-/* .header .community .icon .fa-twitter {
-  color: #000;
-  background-color: #fff;
-}
-
-.header .community .icon .fa-linkedin-in {
-  color: #000;
-  background-color: #fff;
-} */
-
 
 .navi {
   width: 100%;
   height: 120px;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   vertical-align: middle;
   /* justify-content: space-between; */
   background-color: white;
-  padding: 10px 20%;
+  padding: 10px 10%;
   box-sizing: border-box;
   /* 以下設定黏性布局 */
   top: 0px;
@@ -179,7 +169,7 @@ body {
 .navi nav {
   width: 100%;
   display: flex;
-  margin: 0 50px;
+  margin: 0 10%;
 }
 
 .navi nav a {
