@@ -600,6 +600,7 @@ body {
 
 .awards .bg-img img {
   width: 100%;
+  display: block;
   margin-top: -350px;
 }
 
