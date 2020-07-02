@@ -134,6 +134,11 @@ body {
   border-radius: 50%;
   text-align: center;
   line-height: 20px;
+  transition: 0.4s;
+}
+
+.community .icon:hover {
+  background-color: orange;
 }
 
 .navi {
@@ -177,7 +182,12 @@ body {
   text-decoration: none;
   font-size: 20px;
   border-bottom: 3px solid white;
+  color: #000;
   transition: 0.4s;
+}
+
+.navi nav a:visited {
+  color: #000;
 }
 
 .navi nav a:hover {
