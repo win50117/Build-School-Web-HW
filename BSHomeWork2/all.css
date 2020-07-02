@@ -138,6 +138,7 @@ body {
 }
 
 .community .icon:hover {
+  cursor: pointer;
   background-color: orange;
 }
 
