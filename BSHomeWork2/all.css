@@ -3,8 +3,6 @@
   padding: 0;
 }
 
-
-
 .float-tel-button {
   position: fixed;
   z-index: 99;
@@ -62,8 +60,6 @@
   text-decoration: none;
 }
 
-
-
 .header {
   height: 60px;
   display: flex;
@@ -106,7 +102,6 @@
 
 .header .community {
   display: flex;
-
 }
 
 .header .community .icon {
@@ -360,7 +355,7 @@
 }
 
 .help .help-img img:hover {
-  filter: brightness(.5);
+  filter: brightness(0.5);
 }
 
 .help .help-img .img-txt {
@@ -379,8 +374,8 @@
   cursor: pointer;
 }
 
-.help .help-img .img-txt:hover+img {
-  filter: brightness(.5);
+.help .help-img .img-txt:hover + img {
+  filter: brightness(0.5);
 }
 
 .volunteer {
@@ -564,7 +559,6 @@
   transform: translate(-50%, -50%);
 }
 
-
 .news .news-content .container span {
   margin: 10px 0;
   color: #fff;
@@ -588,7 +582,7 @@
   width: 100%;
   position: relative;
   height: 500px;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .awards .bg-img img {
@@ -605,7 +599,6 @@
   color: #fff;
   display: flex;
   font-size: 25px;
-
 }
 
 .awards .container .item {
@@ -639,9 +632,35 @@
   width: 100%;
 }
 
-.img-wall img {
+.img-wall .photo {
+  position: relative;
   width: 25%;
   height: 100%;
+}
+
+.img-wall .photo img {
+  width: 100%;
+}
+
+.img-wall .photo .fab {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.img-wall .photo .fab:hover {
+  font-size: 50px;
+  color: #fff;
+  background-color: rgba(255, 136, 0, 0.6);
 }
 
 .footer {
