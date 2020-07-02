@@ -665,7 +665,6 @@
 
 .footer {
   width: 100%;
-  margin-bottom: 0;
   position: relative;
 }
 
@@ -725,8 +724,7 @@
   color: #fff;
 }
 
-.footer .footer-content .footer-txt .tel .fas,
-.footer .footer-content .footer-txt .address .fas {
+.footer .footer-content .footer-txt .fas {
   margin: 10px 0;
   color: orange;
 }
