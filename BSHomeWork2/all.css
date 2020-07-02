@@ -3,15 +3,7 @@
   padding: 0;
 }
 
-body {
-  width: 100%;
-  background-image: url("assets/asset 15.jpeg");
-  background-size: cover;
-  /* 背景圖片不重複 */
-  background-repeat: no-repeat;
-  /* 固定背景，不受捲軸影響 */
-  background-attachment: fixed;
-}
+
 
 .float-tel-button {
   position: fixed;
@@ -218,14 +210,11 @@ body {
   position: relative;
   z-index: 0;
   width: 100%;
-  /* height: 100%; */
-  /* height: 700px; */
 }
 
 .donate img {
   display: block;
   width: 100%;
-  /* height: 100%; */
 }
 
 .donate .donate-content {
@@ -337,44 +326,44 @@ body {
   background-color: #eee;
 }
 
-.help .help-content .help-txt {
+.help .help-txt {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.help .help-content .help-txt .item1 {
+.help .help-txt .item1 {
   font-size: 50px;
   font-weight: bold;
   color: #444;
 }
 
-.help .help-content .help-txt .item2 {
+.help .help-txt .item2 {
   font-size: 30px;
   color: #55ccff;
   margin-bottom: 30px;
 }
 
-.help .help-content .help-img {
+.help .help-img {
   display: flex;
   justify-content: center;
 }
 
-.help .help-content .help-img .item {
+.help .help-img .item {
   position: relative;
   margin: 0 30px;
 }
 
-.help .help-content .help-img .item img {
+.help .help-img .item img {
   width: 100%;
   transition: 0.4s;
 }
 
-.help .help-content .help-img img:hover {
+.help .help-img img:hover {
   filter: brightness(.5);
 }
 
-.help .help-content .help-img .img-txt {
+.help .help-img .img-txt {
   font-size: 40px;
   color: white;
   position: absolute;
@@ -385,12 +374,12 @@ body {
   z-index: 10;
 }
 
-.help .help-content .help-img .img-txt:hover {
+.help .help-img .img-txt:hover {
   color: orange;
   cursor: pointer;
 }
 
-.help .help-content .help-img .img-txt:hover+img {
+.help .help-img .img-txt:hover+img {
   filter: brightness(.5);
 }
 
@@ -511,10 +500,15 @@ body {
   border-bottom: 20px solid orange;
 }
 
-.space2 {
+.space {
+  height: 100vh;
   width: 100%;
-  height: 600px;
-  background-color: #eee;
+  background-image: url("assets/asset 15.jpeg");
+  background-size: cover;
+  /* 背景圖片不重複 */
+  background-repeat: no-repeat;
+  /* 固定背景，不受捲軸影響 */
+  background-attachment: fixed;
 }
 
 .news {
@@ -593,10 +587,8 @@ body {
 .awards {
   width: 100%;
   position: relative;
-  /* max-height: 500px; */
   height: 500px;
-  overflow: hidden;
-
+  overflow: hidden
 }
 
 .awards .bg-img img {
