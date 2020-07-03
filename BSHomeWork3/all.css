@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+}
+
+header {
+    width: 100%;
+
+}
+
+header .container {
+    width: 100%;
+}
+
+header .item1 {
+    background-color: #679509;
+    padding: 15px 0;
+}
+
+header .sale-bar,
+header .logo-bar {
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 30px; */
+}
+
+header .sale-bar {
+    color: #fff;
+}
+
+header .header-member {
+    display: flex;
+    align-items: center;
+}
+
+header .header-member>a {
+    padding: 5px 15px;
+    text-decoration: none;
+    color: #fff;
+    border-right: 1px solid #fff;
+    font-size: .75rem;
+    transition: 0.4s;
+}
+
+header .header-member .cart {
+    padding: 0 15px;
+    border-right: 1px solid #fff;
+}
+
+header .header-member .cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: .75rem;
+}
+
+header .header-member .cart i {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+header .header-member a:hover,
+header .header-member .cart i:hover {
+    color: #c7ed79;
+}
+
+
+header .header-member .cart .count {
+    font-size: 1rem;
+    padding: 0 10px;
+}
+
+
+header .item2 {
+    padding: 15px 0;
+    border-bottom: 1px solid red;
+}
+
+header .header-navi a {
+    text-decoration: none;
+    color: #a5a5a5;
+    margin-left: 30px;
+    transition: 0.4s;
+    font-weight: 600;
+}
+
+header .header-member .header-currency {
+    padding-left: 15px;
+}
+
+header .header-navi a:hover {
+    color: #679509;
+}
