@@ -8,12 +8,10 @@ body {
     font-size: 14px;
 }
 
-header {
-    width: 100%;
-
-}
-
-header .container {
+header,
+header .container,
+.shop-onsale,
+.shop-onsale .shop-onsale-bg img {
     width: 100%;
 }
 
@@ -29,7 +27,6 @@ header .logo-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin-bottom: 30px; */
 }
 
 header .sale-bar {
@@ -83,7 +80,6 @@ header .header-member .cart .count {
 
 header .item2 {
     padding: 15px 0;
-    border-bottom: 1px solid red;
 }
 
 header .header-navi a {
@@ -100,4 +96,55 @@ header .header-member .header-currency {
 
 header .header-navi a:hover {
     color: #679509;
+}
+
+.shop-onsale {
+    position: relative;
+}
+
+.shop-onsale .container {
+    width: 1200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.shop-onsale .shop-onsale-title {
+    color: #333;
+    width: 50%;
+}
+
+.shop-onsale .shop-onsale-title h1 {
+    font-size: 82px;
+}
+
+.shop-onsale .shop-onsale-title h1 span {
+    color: #679509;
+}
+
+.shop-onsale .shop-onsale-title h3 {
+    font-size: 30px;
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.shop-onsale .shop-onsale-title a {
+    padding: 22px 42px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 900;
+
+    background: linear-gradient(90deg, #000 168.183px, transparent 168.183px);
+    background-size: 336.366px 62px;
+    background-color: #86ae34;
+    transition: 0.5s;
+    background-position: -168.183px 0px;
+}
+
+.shop-onsale .shop-onsale-title a:hover {
+    /* background: transparent; */
+    background-position: 0px 0px;
 }
