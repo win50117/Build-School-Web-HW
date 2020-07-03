@@ -141,15 +141,20 @@ header .header-navi a:hover {
     color: #fff;
     font-weight: 900;
 
-    background: linear-gradient(90deg, #000 168.183px, transparent 168.183px);
-    background-size: 336.366px 62px;
+    background: linear-gradient(90deg, #000 180.233px, transparent 180.233px);
+    background-size: 360.499px 62px;
     background-color: #86ae34;
     transition: 0.5s;
-    background-position: -168.183px 0px;
+    background-position: -180.233px 0px;
 }
 
 .shop-onsale .shop-onsale-title a:hover {
     background-position: 0px 0px;
+}
+
+.welcome {
+    padding-top: 59px;
+    padding-bottom: 13px;
 }
 
 .welcome .container {
@@ -163,7 +168,7 @@ header .header-navi a:hover {
     font-size: 48px;
     font-family: 'Pacifico', cursive;
     font-weight: 400;
-    margin: 50px 0;
+    margin-bottom: 50px;
 }
 
 .welcome .container .introduction {
@@ -195,7 +200,53 @@ header .header-navi a:hover {
     color: #8b8b8b;
 }
 
-.img-wall {
+.welcome .img-wall {
     display: flex;
     justify-content: center;
 }
+
+.welcome .img-wall .img {
+    width: 100%;
+}
+
+.welcome .img-wall a {
+    position: relative;
+}
+
+.welcome .img-wall .img-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    background-color: rgba(134, 174, 52, 0);
+    transition: 0.35s;
+    z-index: 1;
+}
+
+.welcome .img-wall .img-overlay:hover {
+    background-color: rgba(134, 174, 52, 0.2);
+}
+
+.welcome .img-wall .overlay-line {
+    position: absolute;
+    width: 95%;
+    height: 90%;
+    border: 1px solid #fff;
+    opacity: 0;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    transition: 0.35s;
+}
+
+.welcome .img-wall .img-overlay:hover>.overlay-line {
+    opacity: 1;
+    left: 50%;
+}
+
+/* .welcome .img-wall .overlay-line:hover {
+    border: 1px solid rgba(255, 255, 255, 1);
+} */
