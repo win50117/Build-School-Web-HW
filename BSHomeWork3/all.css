@@ -15,7 +15,8 @@ header,
 header .container,
 .shop-onsale,
 .shop-onsale .shop-onsale-bg img,
-.welcome {
+.welcome,
+.products {
     width: 100%;
 }
 
