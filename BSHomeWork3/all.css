@@ -11,7 +11,8 @@ body {
 header,
 header .container,
 .shop-onsale,
-.shop-onsale .shop-onsale-bg img {
+.shop-onsale .shop-onsale-bg img,
+.welcome {
     width: 100%;
 }
 
@@ -147,4 +148,8 @@ header .header-navi a:hover {
 .shop-onsale .shop-onsale-title a:hover {
     /* background: transparent; */
     background-position: 0px 0px;
+}
+
+.welcome .container {
+    width: 1200px;
 }
