@@ -21,7 +21,8 @@ header .container,
 .products-type,
 .blog,
 .products-wall-2,
-.testimonials {
+.testimonials,
+.subscribe {
     width: 100%;
 }
 
@@ -142,7 +143,8 @@ header .header-navi a:hover {
     margin-bottom: 40px;
 }
 
-.shop-onsale .shop-onsale-title a,
+/*  */
+/* .shop-onsale .shop-onsale-title a,
 .shop-now .shop-content a {
     padding: 22px 42px;
     text-decoration: none;
@@ -159,8 +161,48 @@ header .header-navi a:hover {
 .shop-onsale .shop-onsale-title a:hover,
 .shop-now .shop-content a:hover {
     background-position: 0px 0px;
+} */
+
+/*  */
+.shop-onsale .shop-onsale-title a,
+.shop-now .shop-content a,
+.subscribe .input-group a {
+    padding: 22px 42px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 900;
+
+    background-color: #86ae34;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    transition: 0.5s;
 }
 
+.shop-onsale .shop-onsale-title a::after,
+.shop-now .shop-content a::after,
+.subscribe .input-group a::after {
+    background-color: #1e1d24;
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: all .5s;
+    z-index: -1;
+}
+
+.shop-onsale .shop-onsale-title a:hover::after,
+.shop-now .shop-content a:hover::after,
+.subscribe .input-group a:hover::after {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+/*  */
 .welcome {
     padding-top: 59px;
     padding-bottom: 13px;
@@ -614,4 +656,42 @@ header .header-navi a:hover {
     font-family: Pacifico, handwriting;
     font-size: 32px;
     line-height: 1.344;
+}
+
+.subscribe .container {
+    width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding-top: 57px;
+    padding-bottom: 65px;
+}
+
+.subscribe-title h3 {
+    color: #505050;
+    font-size: 32px;
+    font-family: Pacifico, handwriting;
+    line-height: 1.344;
+    font-weight: 400;
+    padding-bottom: 42px;
+}
+
+.subscribe .input-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.subscribe .input-group input {
+    width: 30%;
+    min-width: 50px;
+    max-width: 100%;
+    padding: 9.5px 20px;
+    margin: 0 15px;
+    border: 1px solid #e3e3e3;
+}
+
+.subscribe .input-group a {
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: 400;
 }
