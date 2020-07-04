@@ -59,6 +59,10 @@ header .header-member>a {
     transition: 0.4s;
 }
 
+header .header-member>a:nth-last-child(1) {
+    border-right: none;
+}
+
 header .header-member .cart {
     padding: 0 15px;
     border-right: 1px solid #fff;
