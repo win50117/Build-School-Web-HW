@@ -18,7 +18,8 @@ header .container,
 .welcome,
 .products,
 .shop-now,
-.products-type {
+.products-type,
+.blog {
     width: 100%;
 }
 
@@ -416,4 +417,99 @@ header .header-navi a:hover {
     color: #8b8b8b;
     margin-top: 15px;
     margin-bottom: 25px;
+}
+
+.blog {
+    background-image: url(img/bg4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 160px 0;
+}
+
+.blog .container {
+    width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.blog .blog-title h3 {
+    color: #333333;
+    font-size: 32px;
+    font-family: Pacifico, handwriting;
+    font-weight: 400;
+    line-height: 1.344;
+    margin-bottom: 42px;
+}
+
+.blog-posts {
+    display: flex;
+}
+
+.blog-posts .blog-artical {
+    padding: 0 15px;
+}
+
+.blog-artical img {
+    width: 100%;
+}
+
+.blog-artical .your-health-btn {
+    display: inline-block;
+    padding: 2px 9px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    background-color: #86ae34;
+    transition: .3s linear;
+    margin: 22px 0;
+}
+
+.blog-artical .your-health-btn:hover {
+    background-color: #000;
+}
+
+.blog-artical a.title {
+    text-decoration: none;
+}
+
+.blog-artical a.title h5 {
+    color: #4f4f4f;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.blog-artical .post-meta {
+    font-size: 12px;
+}
+
+.blog-artical .post-meta a {
+    text-decoration: none;
+    color: #a5a5a5;
+}
+
+.blog-artical .post-meta .datetime a {
+    color: #86ae34;
+    transition: 0.4s;
+}
+
+.blog-artical .post-meta .datetime a:hover {
+    color: #a5a5a5;
+}
+
+.blog-artical .post-meta .comments::before {
+    content: "-";
+    margin: 0 5px;
+}
+
+.blog-artical .post-meta .posted-by::before {
+    content: "-";
+    margin: 0 5px;
+}
+
+.blog-artical .post-meta .posted-by a {
+    transition: 0.4s;
+}
+
+.blog-artical .post-meta .posted-by a:hover {
+    color: #86ae34;
 }
