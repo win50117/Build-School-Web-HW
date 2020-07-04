@@ -19,7 +19,8 @@ header .container,
 .products,
 .shop-now,
 .products-type,
-.blog {
+.blog,
+.products-wall-2 {
     width: 100%;
 }
 
@@ -472,10 +473,15 @@ header .header-navi a:hover {
     text-decoration: none;
 }
 
-.blog-artical a.title h5 {
+.blog-artical h5 a.title {
     color: #4f4f4f;
     font-size: 18px;
     font-weight: 600;
+    transition: 0.6s;
+}
+
+.blog-artical h5 a.title:hover {
+    color: #86ae34;
 }
 
 .blog-artical .post-meta {
@@ -512,4 +518,80 @@ header .header-navi a:hover {
 
 .blog-artical .post-meta .posted-by a:hover {
     color: #86ae34;
+}
+
+.products-wall-2 {
+    padding-bottom: 40px;
+}
+
+.products-wall-2 .container {
+    width: 1200px;
+    margin: auto;
+    display: flex;
+}
+
+.products-wall-2 .widget-container {
+    width: 33.333%;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+.products-wall-2 .widget-container h5 {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.44;
+    font-family: Pacifico, handwriting;
+    color: #4f4f4f;
+    margin-bottom: 44px;
+}
+
+.product-list {
+    list-style: none;
+}
+
+.product-list li .product-list-img {
+    border: 1px solid #f0f0f0;
+    padding: 5px;
+    display: inline-block;
+}
+
+.product-list .list-content a {
+    text-decoration: none;
+    color: #86ae34;
+    transition: 0.6s;
+}
+
+.product-list .list-content a:hover {
+    color: #000;
+}
+
+.product-list a.product-title {
+    display: inline;
+
+    text-decoration: none;
+    color: #333333;
+    transition: 0.6s;
+}
+
+.product-list a.product-title:hover {
+    color: #86ae34;
+}
+
+.product-list li h6 {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.product-list li .price .del {
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 900;
+}
+
+.product-list li .price .now-price {
+    font-size: 20px;
+    color: #86ae34;
+    font-weight: 900;
+    line-height: 1.3;
 }
