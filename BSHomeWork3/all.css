@@ -22,7 +22,8 @@ header .container,
 .blog,
 .products-wall-2,
 .testimonials,
-.subscribe {
+.subscribe,
+footer {
     width: 100%;
 }
 
@@ -694,4 +695,64 @@ header .header-navi a:hover {
     padding: 10px 25px;
     font-size: 16px;
     font-weight: 400;
+}
+
+footer {
+    background-image: url(img/bg4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+}
+
+footer .container {
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    padding-top: 155px;
+    padding-bottom: 91px;
+}
+
+.footer-nav {
+    width: 25%;
+    color: #79787f;
+    font-size: 15px;
+    padding: 0 15px;
+}
+
+.footer-nav .title {
+    font-size: 20px;
+    font-family: Pacifico, handwriting;
+    color: #4f4f4f;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: #79787f;
+    transition: 0.2s;
+}
+
+.footer-nav ul {
+    list-style: none;
+}
+
+.footer-nav ul li {
+    margin-top: 5px;
+}
+
+footer .nav1 ul li a:hover {
+    color: #1e1d24;
+}
+
+footer .nav2 ul li a:hover,
+footer .nav3 ul li a:hover,
+footer .nav4 ul li a:hover {
+    color: #86ae34;
+}
+
+footer .nav4 .fas,
+footer .nav4 .far {
+    color: #86ae34;
+    margin-right: 10px;
 }
