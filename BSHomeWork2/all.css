@@ -374,7 +374,7 @@
   cursor: pointer;
 }
 
-.help .help-img .img-txt:hover + img {
+.help .help-img .img-txt:hover+img {
   filter: brightness(0.5);
 }
 

@@ -17,7 +17,8 @@ header .container,
 .shop-onsale .shop-onsale-bg img,
 .welcome,
 .products,
-.shop-now {
+.shop-now,
+.products-type {
     width: 100%;
 }
 
@@ -121,7 +122,7 @@ header .header-navi a:hover {
 }
 
 .shop-onsale .shop-onsale-title h1,
-.shop-now .shop-contain h1 {
+.shop-now .shop-content h1 {
     font-size: 82px;
     line-height: 1.2;
 }
@@ -131,7 +132,7 @@ header .header-navi a:hover {
 }
 
 .shop-onsale .shop-onsale-title h3,
-.shop-now .shop-contain h3 {
+.shop-now .shop-content h3 {
     font-size: 30px;
     font-family: "Pacifico", cursive;
     font-weight: 400;
@@ -139,7 +140,7 @@ header .header-navi a:hover {
 }
 
 .shop-onsale .shop-onsale-title a,
-.shop-now .shop-contain a {
+.shop-now .shop-content a {
     padding: 22px 42px;
     text-decoration: none;
     color: #fff;
@@ -153,7 +154,7 @@ header .header-navi a:hover {
 }
 
 .shop-onsale .shop-onsale-title a:hover,
-.shop-now .shop-contain a:hover {
+.shop-now .shop-content a:hover {
     background-position: 0px 0px;
 }
 
@@ -375,6 +376,44 @@ header .header-navi a:hover {
     text-align: center;
 }
 
-.shop-now .shop-contain {
+.shop-now .shop-content {
     color: #363636;
+}
+
+.products-type .container {
+    width: 1200px;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 143px 0 100px 0;
+    display: flex;
+}
+
+.products-type-img {
+    width: 62%;
+    padding: 0 15px;
+    /* box-sizing: border-box; */
+}
+
+.products-type-img img {
+    max-width: 100%;
+}
+
+.products-type-content {
+    width: 38%;
+    padding: 0 15px;
+}
+
+.products-type-content .products-type-item h4 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.45;
+    font-family: Pacifico, handwriting;
+    letter-spacing: 0.02em;
+    color: #4f4f4f;
+}
+
+.products-type-content .products-type-item p {
+    color: #8b8b8b;
+    margin-top: 15px;
+    margin-bottom: 25px;
 }
