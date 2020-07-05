@@ -50,7 +50,7 @@ header .header-member {
   align-items: center;
 }
 
-header .header-member > a {
+header .header-member>a {
   padding: 5px 15px;
   text-decoration: none;
   color: #fff;
@@ -59,7 +59,7 @@ header .header-member > a {
   transition: 0.4s;
 }
 
-header .header-member > a:nth-last-child(1) {
+header .header-member>a:nth-last-child(1) {
   border-right: none;
 }
 
@@ -78,6 +78,7 @@ header .header-member .cart i {
   cursor: pointer;
   transition: 0.4s;
 }
+
 header .header-member .cart i span {
   padding-left: 10px;
 }
@@ -118,15 +119,15 @@ header .header-navi a:hover {
 }
 
 .shop-onsale {
-  position: relative;
+  background-image: url(img/bg1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 231px 0px 240px 0px;
 }
 
 .shop-onsale .container {
   width: 1200px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: auto;
   display: flex;
 }
 
@@ -150,6 +151,7 @@ header .header-navi a:hover {
   font-size: 30px;
   font-family: "Pacifico", cursive;
   font-weight: 400;
+  margin-top: 26px;
   margin-bottom: 40px;
 }
 
@@ -172,13 +174,13 @@ header .header-navi a:hover {
 .shop-now .shop-content a:hover {
     background-position: 0px 0px;
 } */
-
 /*  */
 .shop-onsale .shop-onsale-title a,
 .shop-now .shop-content a,
 .subscribe .input-group a {
   padding: 22px 42px;
   font-size: 14px;
+  line-height: 1;
   text-decoration: none;
   font-weight: 900;
 
@@ -187,6 +189,7 @@ header .header-navi a:hover {
   position: relative;
   z-index: 1;
   transition: 0.5s;
+  display: inline-block;
 }
 
 .shop-onsale .shop-onsale-title a::after,
@@ -304,7 +307,7 @@ header .header-navi a:hover {
   transition: 0.35s;
 }
 
-.welcome .img-wall .img-overlay:hover > .overlay-line {
+.welcome .img-wall .img-overlay:hover>.overlay-line {
   opacity: 1;
   left: 50%;
 }
@@ -710,7 +713,6 @@ footer {
   background-image: url(img/bg4.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  display: block;
 }
 
 footer .container {
