@@ -54,13 +54,12 @@ header .header-member>a {
   padding: 5px 15px;
   text-decoration: none;
   color: #fff;
-  border-right: 1px solid #fff;
   font-size: 0.75rem;
   transition: 0.4s;
 }
 
-header .header-member>a:nth-last-child(1) {
-  border-right: none;
+header .header-member>a~a {
+  border-right: 1px solid #fff;
 }
 
 header .header-member .cart {
@@ -267,15 +266,16 @@ header .nav-link:hover {
   justify-content: center;
 }
 
-.welcome .img-wall .img {
+.welcome .img-wall img {
   width: 100%;
+  display: block;
 }
 
 .welcome .img-wall a {
   position: relative;
 }
 
-.welcome .img-wall .img-overlay {
+.welcome .img-overlay {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -288,11 +288,11 @@ header .nav-link:hover {
   overflow: hidden;
 }
 
-.welcome .img-wall .img-overlay:hover {
+.welcome .img-overlay:hover {
   background-color: rgba(134, 174, 52, 0.2);
 }
 
-.welcome .img-wall .overlay-line {
+.welcome .overlay-line {
   position: absolute;
   width: 95%;
   height: 90%;
@@ -305,7 +305,7 @@ header .nav-link:hover {
   transition: 0.35s;
 }
 
-.welcome .img-wall .img-overlay:hover>.overlay-line {
+.welcome .img-overlay:hover>.overlay-line {
   opacity: 1;
   left: 50%;
 }
