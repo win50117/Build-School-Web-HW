@@ -107,6 +107,7 @@ header .header-navi a {
   color: #a5a5a5;
   margin-left: 30px;
   transition: 0.4s;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -179,9 +180,9 @@ header .header-navi a:hover {
 .shop-now .shop-content a,
 .subscribe .input-group a {
   padding: 22px 42px;
+  text-decoration: none;
   font-size: 14px;
   line-height: 1;
-  text-decoration: none;
   font-weight: 900;
 
   background-color: #86ae34;
@@ -203,14 +204,15 @@ header .header-navi a:hover {
   top: 0;
   left: 0;
   transition: all 0.5s;
+  background-clip: content-box;
   z-index: -1;
 }
 
 .shop-onsale .shop-onsale-title a:hover::after,
 .shop-now .shop-content a:hover::after,
 .subscribe .input-group a:hover::after {
-  height: 100%;
   width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
 }
@@ -795,6 +797,7 @@ footer .nav4 .far {
   left: 0;
   transition: 0.5s;
   z-index: -1;
+  background-clip: content-box;
 }
 
 .totop:hover::after {
