@@ -74,26 +74,26 @@ header .header-member .cart {
   font-size: 0.75rem;
 }
 
-header .header-member .cart i {
+header .cart .fas {
   cursor: pointer;
   transition: 0.4s;
 }
 
-header .header-member .cart i span {
+header .fas span {
   padding-left: 10px;
 }
 
 header .header-member a:hover,
-header .header-member .cart i:hover {
+header .header-member .fas:hover {
   color: #c7ed79;
 }
 
-header .header-member .cart span {
+header .cart span {
   font-family: "PT Sans", sans-serif;
   font-weight: 400;
 }
 
-header .header-member .cart .count {
+header .cart-count {
   font-size: 1rem;
   padding: 1.6px 0 1.6px 10px;
 }
@@ -102,7 +102,7 @@ header .item2 {
   padding: 15px 0;
 }
 
-header .header-navi a {
+header .nav-link {
   text-decoration: none;
   color: #a5a5a5;
   margin-left: 30px;
@@ -111,11 +111,7 @@ header .header-navi a {
   font-weight: 600;
 }
 
-header .header-member .header-currency {
-  padding-left: 15px;
-}
-
-header .header-navi a:hover {
+header .nav-link:hover {
   color: #679509;
 }
 
@@ -375,8 +371,8 @@ header .header-navi a:hover {
   border: 1px solid #f0f0f0;
 }
 
-.products-wall .products-item .onsale,
-.products-wall .products-item .featured {
+.products-wall .onsale,
+.products-wall .featured {
   position: absolute;
   top: 20px;
   right: 20px;
