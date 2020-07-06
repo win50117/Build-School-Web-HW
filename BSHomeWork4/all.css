@@ -1,14 +1,15 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
 .five-adv {
-    width: 100%;
-}
-
-.container {
-    width: 1200px;
+    width: 960px;
     margin: auto;
-    margin-bottom: 150px;
 }
 
-.adv-container {
+.adv-boxing {
     text-align: center;
 }
 
@@ -16,6 +17,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .adv-title h2::after {
@@ -25,110 +27,173 @@
     background-color: #000;
 }
 
-.adv-container nav span {
+.adv-boxing {
+    margin-bottom: 150px;
+}
+
+.adv-boxing nav span {
     border: 1px solid gray;
     padding: 10px 20px;
     cursor: pointer;
 }
 
-.adv-container nav span~span {
+.adv-boxing nav span~span {
     margin-left: 10px;
+}
+
+.adv-wall .video-btn>img {
+    display: inline-block;
+}
+
+.info-title span {
+    writing-mode: vertical-lr;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 100px;
+    font-weight: 300;
+}
+
+.info .info-content {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    font-size: 1.1rem;
+}
+
+.text-title {
+    color: #e00;
+    padding: 20px 0;
+}
+
+.text>h3 {
+    background-color: #000;
+    color: #fff;
+    padding: 5px 15px;
+}
+
+.text p {
+    margin: 10px 0;
+    line-height: 1.4rem;
+}
+
+.text p::before {
+    content: '●';
+    color: red;
+}
+
+.adv-wall {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 100px;
 }
 
 /* 動畫疊層圖牆 */
 
-.control-img-wall {
-    width: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid black;
-    position: relative;
-}
-
-.adv-img-wall img {
-    display: block;
-}
-
-.adv-img-wall .main-img {
-    position: relative;
-    /* z-index: 1; */
-}
-
-.fun-title {
+.adv-wall-right .info-title {
     color: #fff;
-}
-
-.fun-title span {
-    writing-mode: vertical-rl;
-    font-size: 60px;
-}
-
-.control-fun {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-top: -500px;
-    margin-left: -650px;
-}
-
-.control-fun .fun-title {
     background-color: #e00;
 }
 
-.control-fun .fun-content {
-    background-color: #000;
-    color: #fff;
+.adv-wall-right .bg-img {
+    background-color: #eee;
+    width: 440px;
+    height: 290px;
+    position: relative;
+    z-index: -1;
+    margin-left: 50%;
+    margin-bottom: -22%;
+
 }
 
-.control-revolution {
+.adv-wall-right .info {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    z-index: 5;
+}
+
+.adv-wall-right .video-btn {
+    margin-left: 10%;
+}
+
+.adv-wall-right .video-btn span {
+    position: relative;
+    display: block;
+    text-align: right;
+    right: -40px;
+    margin-top: -200px;
+}
+
+.adv-wall-right .text {
     display: flex;
     flex-direction: column;
     background-color: #ddd;
     align-items: flex-start;
     width: 682px;
-    line-height: 1;
-    box-sizing: border-box;
+    line-height: 1rem;
     padding: 0 20px;
     font-size: 16px;
-
     position: relative;
-    margin-top: 120px;
-    margin-left: -350px;
+    margin-top: 13%;
+    margin-left: -25%;
 }
 
-.revolution-title {
-    color: #e00;
-}
 
-.revolution-content>h3 {
-    background-color: #000;
+/* 動畫疊層圖牆 left */
+
+.adv-wall-left .info-title {
     color: #fff;
-    display: inline;
-    padding: 5px 15px;
+    background-color: #e00;
+    text-align: right;
 }
 
-.revolution-content p::before {
-    content: '．';
-    color: red;
-}
-
-.bg-img {
+.adv-wall-left .bg-img {
     background-color: #eee;
-    width: 440px;
-    height: 290px;
+    width: 518px;
+    height: 413px;
     position: relative;
-    margin-top: -280px;
-    margin-left: 380px;
     z-index: -1;
+    margin-left: 20%;
+    margin-bottom: -35%;
+
 }
 
-.video-btn {
+.adv-wall-left .info {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 610px;
+    z-index: 5;
+}
+
+.adv-wall-left .video-btn {
+    margin-left: -20%;
+}
+
+.adv-wall-left .video-btn span {
     position: relative;
-    margin-top: 20px;
-    margin-left: 700px;
+    display: block;
+    margin-left: -20px;
+    margin-top: -200px;
+}
 
-
+.adv-wall-left .text {
+    display: flex;
+    flex-direction: column;
+    background-color: #ddd;
+    align-items: flex-start;
+    width: 682px;
+    line-height: 1rem;
+    padding: 0 20px;
+    font-size: 16px;
+    position: relative;
+    margin-top: 13%;
+    margin-left: 25%;
 }
