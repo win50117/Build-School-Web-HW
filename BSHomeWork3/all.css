@@ -654,6 +654,8 @@ header .nav-link:hover {
   background-image: url(img/bg5.jpg);
   padding-top: 186px;
   padding-bottom: 130px;
+  color: #fff;
+
 }
 
 .testimonials .container {
@@ -662,11 +664,33 @@ header .nav-link:hover {
   text-align: center;
 }
 
+.testimonials-title {
+  padding-bottom: 42px;
+}
+
 .testimonials-title h3 {
-  color: #fff;
   font-family: Pacifico, handwriting;
   font-size: 32px;
   line-height: 1.344;
+}
+
+.testimonials-item img {
+  border-radius: 50%;
+  margin-bottom: 27px;
+}
+
+.testimonials-item .title {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.testimonials-item .content {
+  padding-bottom: 5px;
+}
+
+.testimonials-footer .name {
+  font-size: 16px;
+  font-weight: 900;
 }
 
 .subscribe .container {
