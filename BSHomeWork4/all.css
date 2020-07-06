@@ -1,0 +1,134 @@
+.five-adv {
+    width: 100%;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;
+    margin-bottom: 150px;
+}
+
+.adv-container {
+    text-align: center;
+}
+
+.adv-title h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.adv-title h2::after {
+    content: '';
+    width: 50px;
+    height: 5px;
+    background-color: #000;
+}
+
+.adv-container nav span {
+    border: 1px solid gray;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.adv-container nav span~span {
+    margin-left: 10px;
+}
+
+/* 動畫疊層圖牆 */
+
+.control-img-wall {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    position: relative;
+}
+
+.adv-img-wall img {
+    display: block;
+}
+
+.adv-img-wall .main-img {
+    position: relative;
+    /* z-index: 1; */
+}
+
+.fun-title {
+    color: #fff;
+}
+
+.fun-title span {
+    writing-mode: vertical-rl;
+    font-size: 60px;
+}
+
+.control-fun {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: -500px;
+    margin-left: -650px;
+}
+
+.control-fun .fun-title {
+    background-color: #e00;
+}
+
+.control-fun .fun-content {
+    background-color: #000;
+    color: #fff;
+}
+
+.control-revolution {
+    display: flex;
+    flex-direction: column;
+    background-color: #ddd;
+    align-items: flex-start;
+    width: 682px;
+    line-height: 1;
+    box-sizing: border-box;
+    padding: 0 20px;
+    font-size: 16px;
+
+    position: relative;
+    margin-top: 120px;
+    margin-left: -350px;
+}
+
+.revolution-title {
+    color: #e00;
+}
+
+.revolution-content>h3 {
+    background-color: #000;
+    color: #fff;
+    display: inline;
+    padding: 5px 15px;
+}
+
+.revolution-content p::before {
+    content: '．';
+    color: red;
+}
+
+.bg-img {
+    background-color: #eee;
+    width: 440px;
+    height: 290px;
+    position: relative;
+    margin-top: -280px;
+    margin-left: 380px;
+    z-index: -1;
+}
+
+.video-btn {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 700px;
+
+
+}
