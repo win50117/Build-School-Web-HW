@@ -640,6 +640,7 @@
 
 .img-wall .photo img {
   width: 100%;
+  display: block;
 }
 
 .img-wall .photo .fab {
