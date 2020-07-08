@@ -95,6 +95,10 @@
     transition: 0.5s;
 }
 
+.adv-boxing nav span:hover {
+    color: #fff;
+}
+
 .five-adv nav span::after {
     content: '';
     position: absolute;
