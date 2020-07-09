@@ -1,0 +1,348 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body {
+    font-family: Microsoft JhengHei;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div[class^="col-"] {
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+
+#menu-control {
+    display: none;
+}
+
+/* Logo導覽列 */
+.header {
+    background-color: transparent;
+    position: absolute;
+    z-index: 2;
+}
+
+.header .logo-group {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    /* position: relative; */
+}
+
+.header .main-logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.header .main-logo a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.header .main-logo .sub-title {
+    align-self: flex-end;
+    display: none;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+/* 介紹 */
+.info {
+    margin-top: 50px;
+}
+
+.info-content .item {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 40px 20px;
+}
+
+.info-content .item p {
+    font-size: 20px;
+}
+
+.info-content .item .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.info-content .item .title img {
+    max-width: 80%;
+    display: block;
+}
+
+.info-content .item .txt {
+    margin-top: 10px;
+}
+
+.info-content .item .title h2 {
+    font-size: 22px;
+}
+
+/* 桌機以下 */
+@media screen and (max-width: 1199px) {
+    .col-1 {
+        width: 8.333333%;
+    }
+
+    .col-2 {
+        width: 16.666666%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.333333%;
+    }
+
+    .col-5 {
+        width: 41.666666%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-7 {
+        width: 58.333333%;
+    }
+
+    .col-8 {
+        width: 66.666666%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-10 {
+        width: 83.333333%;
+    }
+
+    .col-11 {
+        width: 91.666666%;
+    }
+
+    .col-12 {
+        width: 100%;
+    }
+
+    /* 導覽列 */
+    .header {
+        width: 100vw;
+    }
+
+    .header .main-logo img {
+        display: block;
+        width: 70%;
+    }
+
+    .header .hb {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: 1s;
+        z-index: 3;
+    }
+
+    .header .hb span {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .header .hb span:first-child {
+        transform: translateY(-10px);
+    }
+
+    .header .hb span:last-child {
+        transform: translateY(10px);
+    }
+
+    #menu-control:checked~.container .header .hb {
+        background-color: red;
+        border-radius: 50%;
+    }
+
+    #menu-control:checked~.container .header .hb span:nth-child(2) {
+        display: none;
+    }
+
+    #menu-control:checked~.container .header .hb span:first-child {
+        transform: translateY(0px) rotate(45deg);
+    }
+
+    #menu-control:checked~.container .header .hb span:last-child {
+        transform: translateY(0px) rotate(135deg);
+    }
+
+    /* 選單 */
+    .header .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background-color: #fff;
+        width: 60%;
+        height: 100vh;
+        padding-top: 80px;
+        padding-bottom: 20px;
+        text-align: center;
+        z-index: 2;
+        transition: .5s;
+    }
+
+    .header .nav ul {
+        padding: 0px 40px;
+    }
+
+    .header .nav a {
+        text-decoration: none;
+        color: #000;
+        display: block;
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+
+    .header .nav li~li {
+        border-top: 1px solid #000;
+    }
+
+    #menu-control:checked~.container .header .hb {
+        position: fixed;
+    }
+
+    #menu-control:checked~.container .header .nav {
+        right: 0;
+    }
+
+
+
+}
+
+/* 桌機 */
+@media screen and (min-width: 1200px) {
+    .col-xl-1 {
+        width: 8.333333%;
+    }
+
+    .col-xl-2 {
+        width: 16.666666%;
+    }
+
+    .col-xl-3 {
+        width: 25%;
+    }
+
+    .col-xl-4 {
+        width: 33.333333%;
+    }
+
+    .col-xl-5 {
+        width: 41.666666%;
+    }
+
+    .col-xl-6 {
+        width: 50%;
+    }
+
+    .col-xl-7 {
+        width: 58.333333%;
+    }
+
+    .col-xl-8 {
+        width: 66.666666%;
+    }
+
+    .col-xl-9 {
+        width: 75%;
+    }
+
+    .col-xl-10 {
+        width: 83.333333%;
+    }
+
+    .col-xl-11 {
+        width: 91.666666%;
+    }
+
+    .col-xl-12 {
+        width: 100%;
+    }
+
+    .container {
+        width: 1200px;
+        margin: auto;
+        position: relative;
+    }
+
+    .header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header .logo img {
+        margin-right: 20px;
+    }
+
+    .header .main-logo .sub-title {
+        align-self: flex-end;
+        display: block;
+        margin-top: -15px;
+        font-size: 10px;
+    }
+
+    .header .nav ul {
+        display: flex;
+    }
+
+    .header .nav ul a {
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 20px;
+        border-bottom: 1px dotted #666;
+        transition: .5s;
+    }
+
+    .header .nav ul a:hover {
+        color: #57bbbf;
+    }
+
+    /* 介紹 */
+    .info> :nth-child(odd) {
+        order: 1;
+    }
+}
