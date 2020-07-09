@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="all.css">
+    <link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css">
+</head>
+
+<body>
+    <div class="header"></div>
+
+    <div class="amos">
+        <div class="owl-carousel owl-theme">
+            <div>
+                <img src="https://picsum.photos/1300/300/?random=1">
+                1234
+            </div>
+            <div>
+                <img src="https://picsum.photos/1300/300/?random=2">
+            </div>
+            <div>
+                <img src="https://picsum.photos/1300/300/?random=3">
+            </div>
+            <div>
+                <img src="https://picsum.photos/1300/300/?random=4">
+            </div>
+            <div>
+                <img src="https://picsum.photos/1300/300/?random=5">
+            </div>
+            <div>
+                <img src="https://picsum.photos/1300/300/?random=6">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                loop: true,
+                nav: true,
+                margin: 40,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    768: {
+                        items: 2,
+                    },
+                    1200: {
+                        items: 5,
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
