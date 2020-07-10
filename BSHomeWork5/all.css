@@ -319,6 +319,30 @@ div[class^="col-"] {
     color: #ba181a;
 }
 
+.flow-messenger {
+    text-decoration: none;
+    width: 60px;
+    height: 60px;
+    background-color: #0084ff;
+    border-radius: 50%;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.flow-messenger:hover {
+    box-shadow: 0px 5px 15px #555;
+}
+
+.flow-messenger .fab {
+    font-size: 40px;
+    color: #fff;
+}
+
 
 /* 桌機以下 */
 @media screen and (max-width: 1199px) {
