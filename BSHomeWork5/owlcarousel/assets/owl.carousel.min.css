@@ -95,11 +95,13 @@
     border: none;
     padding: 0 !important;
     font: inherit;
+    color: #fff;
+    font-size: 80px;
 }
 
 /*  */
 .owl-carousel button.owl-dot {
-    position: absolute;
+    /* position: absolute; */
     bottom: 10%;
     transform: scale(.7);
 }
@@ -107,7 +109,7 @@
 .owl-carousel .owl-nav button.owl-next {
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: 10%;
     right: 5%;
     margin: auto;
     width: 50px;
@@ -118,7 +120,7 @@
 .owl-carousel .owl-nav button.owl-prev {
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: 10%;
     left: 5%;
     margin: auto;
     width: 50px;
