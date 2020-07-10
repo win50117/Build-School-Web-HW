@@ -20,14 +20,12 @@ div[class^="col-"] {
     margin-bottom: 20px;
 }
 
-
 #menu-control {
     display: none;
 }
 
-
-
 /* Logo導覽列 */
+
 .header .container {
     background-color: transparent;
     position: absolute;
@@ -83,12 +81,13 @@ div[class^="col-"] {
     right: 5%;
 }
 
-.owl-carousel button.owl-dot {
-    /* position: absolute; */
-    bottom: 10%;
-    transform: scale(.7);
+.owl-dots {
+    position: absolute;
+    transform: scale(.8);
+    bottom: 5%;
+    left: 0;
+    right: 0;
 }
-
 
 .owl-carousel .owl-nav button.owl-prev:focus,
 .owl-carousel .owl-nav button.owl-next:focus {
@@ -97,6 +96,12 @@ div[class^="col-"] {
 
 .bg-1 {
     background-image: url(img/slide-1.png);
+}
+
+.black-layer {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
 }
 
 .bg-2 {
@@ -378,7 +383,7 @@ div[class^="col-"] {
     .header .hb {
         width: 50px;
         height: 50px;
-        background-color: black;
+        /* background-color: black; */
         display: block;
         position: absolute;
         top: 0;
@@ -398,6 +403,7 @@ div[class^="col-"] {
         left: 0;
         right: 0;
         margin: auto;
+        transition: .5s;
     }
 
     .header .hb span:first-child {
@@ -408,9 +414,8 @@ div[class^="col-"] {
         transform: translateY(10px);
     }
 
-    #menu-control:checked~.header .container .hb {
-        background-color: red;
-        border-radius: 50%;
+    #menu-control:checked~.header .container .hb span {
+        background-color: #000;
     }
 
     #menu-control:checked~.header .container .hb span:nth-child(2) {
