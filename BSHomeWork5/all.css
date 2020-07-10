@@ -38,7 +38,6 @@ div[class^="col-"] {
     display: flex;
     align-items: center;
     padding: 10px 10px;
-    /* position: relative; */
 }
 
 .header .main-logo {
@@ -59,6 +58,111 @@ div[class^="col-"] {
 .header .logo {
     display: flex;
     align-items: center;
+}
+
+/* slide 幻燈片 */
+
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev {
+    position: absolute;
+    top: 45%;
+    color: #fff;
+    font-size: 80px;
+}
+
+.owl-carousel .owl-nav button.owl-next:hover,
+.owl-carousel .owl-nav button.owl-prev:hover {
+    color: #aaa;
+}
+
+.owl-prev {
+    left: 5%;
+}
+
+.owl-next {
+    right: 5%;
+}
+
+.owl-carousel button.owl-dot {
+    /* position: absolute; */
+    bottom: 10%;
+    transform: scale(.7);
+}
+
+
+.owl-carousel .owl-nav button.owl-prev:focus,
+.owl-carousel .owl-nav button.owl-next:focus {
+    outline: none;
+}
+
+.bg-1 {
+    background-image: url(img/slide-1.png);
+}
+
+.bg-2 {
+    background-image: url(img/slide-2.png);
+}
+
+.bg-3 {
+    background-image: url(img/slide-3.png);
+}
+
+.bg-4 {
+    background-image: url(img/slide-4.png);
+}
+
+.bg-5 {
+    background-image: url(img/slide-5.png);
+}
+
+.bg-6 {
+    background-image: url(img/slide-6.png);
+}
+
+.bg-7 {
+    background-image: url(img/slide-7.png);
+}
+
+.bg-8 {
+    background-image: url(img/slide-8.png);
+}
+
+.bg-9 {
+    background-image: url(img/slide-9.png);
+}
+
+.img-slide .slide-bg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    height: 700px;
+}
+
+.img-slide .slide-bg .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.img-slide .slide-bg a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(0, 93, 199, 0.507);
+}
+
+.img-slide .bg-2 p,
+.bg-3 h1,
+.bg-4 p,
+.bg-5 h1 {
+    display: inline-block;
+    background-color: rgba(0, 93, 199, 0.507);
+    padding: 10px 10px;
 }
 
 /* 介紹 */
@@ -123,8 +227,6 @@ div[class^="col-"] {
 
 /* 多欄圖文牆 */
 
-
-
 .wall-content .item {
     display: flex;
     flex-direction: column;
@@ -140,7 +242,6 @@ div[class^="col-"] {
     flex-direction: column;
     align-items: center;
 }
-
 
 .wall-content .item .img-area {
     width: 100%;
@@ -266,7 +367,7 @@ div[class^="col-"] {
 
     /* 導覽列 */
     .header .container {
-        width: 100vw;
+        width: 100%;
     }
 
     .header .main-logo img {
@@ -364,6 +465,28 @@ div[class^="col-"] {
         right: 0;
     }
 
+    /* slide 幻燈片 */
+    .img-slide .slide-bg .content {
+        width: 300px;
+    }
+
+    .img-slide .slide-bg p {
+        margin: 20px 0;
+    }
+
+    .img-slide .slide-bg .btn {
+        margin-top: 120px;
+    }
+
+    .img-slide .slide-bg a {
+        padding: 10px 10px;
+        margin: 10px 0px;
+    }
+
+    .img-slide .bg-2 {
+        background-position: -520px center;
+    }
+
     /* company 圖牆 */
     .compony .wall-content .item .img-area {
         height: auto;
@@ -438,6 +561,8 @@ div[class^="col-"] {
         margin: auto;
     }
 
+    /* 導覽列 */
+
     .header .container {
         display: flex;
         justify-content: space-between;
@@ -470,6 +595,35 @@ div[class^="col-"] {
     .header .nav ul a:hover {
         color: #57bbbf;
     }
+
+    /* slide 幻燈片 */
+
+    .img-slide .slide-bg .content {
+        width: 1200px;
+    }
+
+    .img-slide .slide-bg h1 {
+        font-size: 50px;
+    }
+
+    .img-slide .bg-1 h1 {
+        font-size: 80px;
+    }
+
+    .img-slide .slide-bg p {
+        margin: 20px 0;
+        font-size: 24px;
+    }
+
+    .img-slide .slide-bg .btn {
+        margin-top: 80px;
+    }
+
+    .img-slide .slide-bg a {
+        padding: 10px 10px;
+        margin: 0px 30px;
+    }
+
 
     /* 介紹 */
     .info-content:nth-child(1) {
