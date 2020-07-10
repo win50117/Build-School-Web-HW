@@ -25,8 +25,10 @@ div[class^="col-"] {
     display: none;
 }
 
+
+
 /* Logo導覽列 */
-.header {
+.header .container {
     background-color: transparent;
     position: absolute;
     z-index: 2;
@@ -67,7 +69,6 @@ div[class^="col-"] {
 .info-content .item {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     margin: 40px 20px;
 }
@@ -94,6 +95,58 @@ div[class^="col-"] {
 
 .info-content .item .title h2 {
     font-size: 22px;
+}
+
+/* 18-27週 橫幅 */
+.banner {
+    background-image: url(img/banner-city.png);
+    margin: 30px 0;
+
+}
+
+.banner .blue-layer {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 75, 115, .9);
+}
+
+.banner .container {
+    padding: 45px 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.schedule-content .item {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 20px;
+}
+
+.schedule-content .item .pic {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.schedule-content .item img {
+    display: block;
+}
+
+.schedule-content .title {
+    color: red;
+}
+
+.schedule-content ul li {
+    list-style: disc;
+    margin-left: 30px;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
 /* 桌機以下 */
@@ -147,7 +200,7 @@ div[class^="col-"] {
     }
 
     /* 導覽列 */
-    .header {
+    .header .container {
         width: 100vw;
     }
 
@@ -189,20 +242,20 @@ div[class^="col-"] {
         transform: translateY(10px);
     }
 
-    #menu-control:checked~.container .header .hb {
+    #menu-control:checked~.header .container .hb {
         background-color: red;
         border-radius: 50%;
     }
 
-    #menu-control:checked~.container .header .hb span:nth-child(2) {
+    #menu-control:checked~.header .container .hb span:nth-child(2) {
         display: none;
     }
 
-    #menu-control:checked~.container .header .hb span:first-child {
+    #menu-control:checked~.header .container .hb span:first-child {
         transform: translateY(0px) rotate(45deg);
     }
 
-    #menu-control:checked~.container .header .hb span:last-child {
+    #menu-control:checked~.header .container .hb span:last-child {
         transform: translateY(0px) rotate(135deg);
     }
 
@@ -238,11 +291,11 @@ div[class^="col-"] {
         border-top: 1px solid #000;
     }
 
-    #menu-control:checked~.container .header .hb {
+    #menu-control:checked~.header .container .hb {
         position: fixed;
     }
 
-    #menu-control:checked~.container .header .nav {
+    #menu-control:checked~.header .container .nav {
         right: 0;
     }
 
@@ -300,15 +353,19 @@ div[class^="col-"] {
         width: 100%;
     }
 
-    .container {
+    .header {
         width: 1200px;
         margin: auto;
         position: relative;
     }
 
-    .header {
+    .container {
+        width: 1200px;
+        margin: auto;
+    }
+
+    .header .container {
         display: flex;
-        width: 100%;
         justify-content: space-between;
         align-items: center;
     }
@@ -333,7 +390,6 @@ div[class^="col-"] {
         text-decoration: none;
         color: #fff;
         padding: 10px 20px;
-        border-bottom: 1px dotted #666;
         transition: .5s;
     }
 
@@ -342,7 +398,35 @@ div[class^="col-"] {
     }
 
     /* 介紹 */
-    .info> :nth-child(odd) {
+    .info-content:nth-child(1) {
         order: 1;
+    }
+
+    .info-content:nth-child(2) {
+        order: 2;
+    }
+
+    .info-content:nth-child(3) {
+        order: 4;
+    }
+
+    .info-content:nth-child(4) {
+        order: 3;
+    }
+
+    .info-content:nth-child(5) {
+        order: 5;
+    }
+
+    .info-content:nth-child(6) {
+        order: 6;
+    }
+
+    .info-content:nth-child(7) {
+        order: 8;
+    }
+
+    .info-content:nth-child(8) {
+        order: 7;
     }
 }
