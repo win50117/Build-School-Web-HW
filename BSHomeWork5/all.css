@@ -97,7 +97,7 @@ div[class^="col-"] {
     font-size: 22px;
 }
 
-/* 18-27週 橫幅 */
+/* 橫幅 */
 .banner {
     background-image: url(img/banner-city.png);
     margin: 30px 0;
@@ -116,38 +116,103 @@ div[class^="col-"] {
     padding: 45px 20px;
     color: #fff;
     text-align: center;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 900;
     line-height: 1;
 }
 
-.schedule-content .item {
+/* 多欄圖文牆 */
+
+
+
+.wall-content .item {
     display: flex;
     flex-direction: column;
     margin: 40px 20px;
+    /* height: 100%; */
+    /* min-height: 350px; */
+    box-sizing: border-box;
 }
 
-.schedule-content .item .pic {
+.wall-content .item .pic-area {
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.schedule-content .item img {
+
+.wall-content .item .img-area {
+    width: 100%;
+    height: 120px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.wall-content .item img {
     display: block;
+    /* width: 100%; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.schedule-content .title {
+.wall-content .title {
     color: red;
+    margin: 10px 0;
 }
 
-.schedule-content ul li {
+.wall-content ul li {
     list-style: disc;
     margin-left: 30px;
     box-sizing: border-box;
     font-size: 16px;
 }
+
+/* tools 開發工具 */
+.tools .item .title {
+    color: #000;
+}
+
+/* compony 公司企業 logo圖牆 */
+.compony {
+    border-bottom: 5px solid #444;
+}
+
+/* footer */
+
+.footer {
+    background-color: #eee;
+}
+
+.footer .item {
+    padding: 40px 20px;
+}
+
+.footer .item a {
+    text-decoration: none;
+    color: #000;
+    line-height: 2em;
+    margin-right: 20px;
+
+}
+
+.footer .icon-bar .fab {
+    font-size: 40px;
+}
+
+.footer .icon-bar .fa-facebook-square {
+    color: #3d5a98;
+}
+
+.footer .icon-bar .fa-youtube-square {
+    color: #ba181a;
+}
+
 
 /* 桌機以下 */
 @media screen and (max-width: 1199px) {
@@ -299,8 +364,17 @@ div[class^="col-"] {
         right: 0;
     }
 
+    /* company 圖牆 */
+    .compony .wall-content .item .img-area {
+        height: auto;
+        padding: 10px 0;
+    }
 
-
+    /* footer */
+    .footer .date {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 /* 桌機 */
@@ -428,5 +502,11 @@ div[class^="col-"] {
 
     .info-content:nth-child(8) {
         order: 7;
+    }
+
+    /* footer */
+    .footer .icon-bar {
+        display: flex;
+        justify-content: space-between;
     }
 }
