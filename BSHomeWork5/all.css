@@ -319,6 +319,16 @@ div[class^="col-"] {
     color: #ba181a;
 }
 
+.footer .gotop {
+    text-align: center;
+    font-size: 50px;
+}
+
+.footer .gotop a {
+    text-decoration: none;
+    color: #000;
+}
+
 .flow-messenger {
     text-decoration: none;
     width: 60px;
@@ -342,6 +352,7 @@ div[class^="col-"] {
     font-size: 40px;
     color: #fff;
 }
+
 
 
 /* 手機以下 */
