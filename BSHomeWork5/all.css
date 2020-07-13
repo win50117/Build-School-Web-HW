@@ -83,7 +83,7 @@ div[class^="col-"] {
 
 .owl-dots {
     position: absolute;
-    transform: scale(.8);
+    transform: scale(0.8);
     bottom: 5%;
     left: 0;
     right: 0;
@@ -210,7 +210,6 @@ div[class^="col-"] {
 .banner {
     background-image: url(img/banner-city.png);
     margin: 30px 0;
-
 }
 
 .banner .blue-layer {
@@ -218,7 +217,7 @@ div[class^="col-"] {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 75, 115, .9);
+    background-color: rgba(0, 75, 115, 0.9);
 }
 
 .banner .container {
@@ -304,7 +303,6 @@ div[class^="col-"] {
     color: #000;
     line-height: 2em;
     margin-right: 20px;
-
 }
 
 .footer .icon-bar .fab {
@@ -341,7 +339,8 @@ div[class^="col-"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: .3s;
+    transition: 0.3s;
+    z-index: 100;
 }
 
 .flow-messenger:hover {
@@ -352,8 +351,6 @@ div[class^="col-"] {
     font-size: 40px;
     color: #fff;
 }
-
-
 
 /* 手機以下 */
 @media screen and (max-width: 767px) {
@@ -438,7 +435,7 @@ div[class^="col-"] {
         left: 0;
         right: 0;
         margin: auto;
-        transition: .5s;
+        transition: 0.5s;
     }
 
     .header .hb span:first-child {
@@ -478,7 +475,7 @@ div[class^="col-"] {
         padding-bottom: 20px;
         text-align: center;
         z-index: 2;
-        transition: .5s;
+        transition: 0.5s;
     }
 
     .header .nav ul {
@@ -542,7 +539,7 @@ div[class^="col-"] {
 
 /* 手機以上 */
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
     .col-md-1 {
         width: 8.333333%;
     }
@@ -617,7 +614,7 @@ div[class^="col-"] {
         text-decoration: none;
         color: #fff;
         padding: 10px 20px;
-        transition: .5s;
+        transition: 0.5s;
     }
 
     .header .nav ul a:hover {
@@ -651,7 +648,6 @@ div[class^="col-"] {
         padding: 10px 10px;
         margin: 0px 30px;
     }
-
 
     /* 介紹 */
     .info-content:nth-child(1) {
@@ -753,5 +749,4 @@ div[class^="col-"] {
         width: 1200px;
         margin: auto;
     }
-
 }
