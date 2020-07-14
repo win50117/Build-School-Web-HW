@@ -1,0 +1,56 @@
+.header {
+    background-color: #f8f9fa;
+}
+
+.info {
+    .container {
+        .row {
+            text-align: center;
+
+        }
+    }
+}
+
+/* 橫幅 */
+.banner {
+    background-image: url(img/banner-city.png);
+    margin: 30px 0;
+
+    .blue-layer {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0, 75, 115, 0.9);
+
+        .container {
+            padding: 45px 20px;
+            color: #fff;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 900;
+            line-height: 1;
+        }
+    }
+}
+
+.schedule {
+    .container {
+        .wall-content {
+            .item {
+                .pic-area {
+                    .img-area {
+                        height: 100px;
+                        // width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tools {
+    .img-area {
+        height: 60px;
+    }
+}
