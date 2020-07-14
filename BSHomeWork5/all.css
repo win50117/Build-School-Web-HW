@@ -283,8 +283,8 @@ div[class^="col-"] {
     color: #000;
 }
 
-/* compony 公司企業 logo圖牆 */
-.compony {
+/* company 公司企業 logo圖牆 */
+.company {
     border-bottom: 5px solid #444;
 }
 
@@ -525,7 +525,7 @@ div[class^="col-"] {
     }
 
     /* company 圖牆 */
-    .compony .wall-content .item .img-area {
+    .company .wall-content .item .img-area {
         height: auto;
         padding: 10px 0;
     }

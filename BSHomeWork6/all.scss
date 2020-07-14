@@ -1,12 +1,28 @@
 .header {
     background-color: #f8f9fa;
+    // z-index: 1;
+
+    // .navbar {
+    //     background-color: transparent !important;
+
+    //     .nav-link {
+    //         transition: .5s;
+
+    //         &:hover {
+    //             color: #57bbbf !important;
+    //         }
+    //     }
+
+    //     .collapse {
+    //         background-color: #f8f9fa;
+    //     }
+    // }
 }
 
 .info {
     .container {
         .row {
             text-align: center;
-
         }
     }
 }
@@ -35,22 +51,70 @@
 }
 
 .schedule {
-    .container {
-        .wall-content {
-            .item {
-                .pic-area {
-                    .img-area {
-                        height: 100px;
-                        // width: 100%;
-                    }
-                }
-            }
-        }
+    .img-area {
+        height: 100px;
+        // width: 100%;
     }
 }
 
 .tools {
     .img-area {
         height: 60px;
+    }
+}
+
+.company {
+    border-bottom: 5px solid #444444;
+}
+
+
+.footer {
+    background-color: #eeeeee;
+
+    .icon-bar {
+        .icon {
+            .fab {
+                font-size: 40px;
+
+                &.fa-facebook-square {
+                    color: #3d5a98;
+                }
+
+                &.fa-youtube-square {
+                    color: #ba181a;
+                }
+            }
+        }
+    }
+
+    .gotop {
+        font-size: 50px;
+
+        .fas {}
+    }
+}
+
+.flow-messenger {
+    text-decoration: none;
+    width: 60px;
+    height: 60px;
+    background-color: #0084ff;
+    border-radius: 50%;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    z-index: 100;
+
+    &:hover {
+        box-shadow: 0px 5px 15px #555;
+    }
+
+    .fab {
+        font-size: 40px;
+        color: #fff;
     }
 }
