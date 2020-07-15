@@ -2,22 +2,51 @@
     background-color: #f8f9fa;
     // z-index: 1;
 
-    // .navbar {
-    //     background-color: transparent !important;
+    .navbar {
+        background-color: transparent !important;
 
-    //     .nav-link {
-    //         transition: .5s;
+        // .nav-link {
+        //     transition: .5s;
 
-    //         &:hover {
-    //             color: #57bbbf !important;
-    //         }
-    //     }
+        //     &:hover {
+        //         color: #57bbbf !important;
+        //     }
+        // }
 
-    //     .collapse {
-    //         background-color: #f8f9fa;
-    //     }
-    // }
+        // .collapse {
+        //     background-color: #f8f9fa;
+        // }
+        .navbar-toggler {
+            z-index: 2;
+        }
+    }
 }
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        position: absolute;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        width: 100%;
+
+        &.collapsing {
+            height: auto;
+            transition: 0.3s ease;
+            top: 100%;
+            right: -100%;
+        }
+
+        &.show {
+            top: 100%;
+            right: -15px;
+            background-color: red;
+            transition: 0.3s ease-in;
+            z-index: 5;
+        }
+    }
+}
+
 
 .info {
     .container {

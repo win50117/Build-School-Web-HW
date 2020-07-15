@@ -3,6 +3,37 @@
   background-color: #f8f9fa;
 }
 
+.header .navbar {
+  background-color: transparent !important;
+}
+
+.header .navbar .navbar-toggler {
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    position: absolute;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+  }
+  .navbar-collapse.collapsing {
+    height: auto;
+    transition: 0.3s ease;
+    top: 100%;
+    right: -100%;
+  }
+  .navbar-collapse.show {
+    top: 100%;
+    right: -15px;
+    background-color: red;
+    transition: 0.3s ease-in;
+    z-index: 5;
+  }
+}
+
 .info .container .row {
   text-align: center;
 }
