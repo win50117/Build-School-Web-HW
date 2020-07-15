@@ -11,13 +11,13 @@
   z-index: 2;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .navbar-collapse {
     position: absolute;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 15px;
-    width: 100%;
+    width: 80%;
   }
   .navbar-collapse.collapsing {
     height: auto;
@@ -32,6 +32,64 @@
     transition: 0.3s ease-in;
     z-index: 5;
   }
+}
+
+.carousel .carousel-inner .carousel-item {
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+}
+
+.carousel .carousel-inner .carousel-item:nth-child(1) {
+  background-image: url(img/slide-1.png), linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.carousel .carousel-inner .carousel-item:nth-child(2) {
+  background-image: url(img/slide-2.png), linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.carousel .carousel-inner .carousel-item:nth-child(3) {
+  background-image: url(img/slide-3.png), linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.carousel .carousel-inner .carousel-item:nth-child(4) {
+  background-image: url(img/slide-4.png), linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.carousel .carousel-inner .carousel-item:nth-child(5) {
+  background-image: url(img/slide-5.png), linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.carousel .carousel-inner .carousel-item:nth-child(6) {
+  background-image: url(img/slide-6.png);
+}
+
+.carousel .carousel-inner .carousel-item:nth-child(7) {
+  background-image: url(img/slide-7.png);
+}
+
+.carousel .carousel-inner .carousel-item:nth-child(8) {
+  background-image: url(img/slide-8.png);
+}
+
+.carousel .carousel-inner .carousel-item:nth-child(9) {
+  background-image: url(img/slide-9.png), linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.carousel .carousel-inner .carousel-item .content {
+  color: #fff;
+  text-align: center;
+  width: 300px;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.carousel .carousel-inner .carousel-item .content .btn a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgba(0, 93, 199, 0.507);
 }
 
 .info .container .row {
