@@ -11,13 +11,14 @@
   z-index: 2;
 }
 
-@media (max-width: 991px) {
+@media screen and (max-width: 991px) {
   .navbar-collapse {
     position: absolute;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 15px;
-    width: 80%;
+    width: 60%;
+    height: 100vh;
   }
   .navbar-collapse.collapsing {
     height: auto;
@@ -27,10 +28,16 @@
   }
   .navbar-collapse.show {
     top: 100%;
-    right: -15px;
-    background-color: red;
+    right: 0;
+    background-color: #f8f9fa;
     transition: 0.3s ease-in;
     z-index: 5;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .carousel .carousel-inner .btn p {
+    display: inline-block;
   }
 }
 
@@ -39,6 +46,7 @@
   background-size: cover;
   background-position: center;
   height: 700px;
+  position: relative;
 }
 
 .carousel .carousel-inner .carousel-item:nth-child(1) {
@@ -78,11 +86,12 @@
 }
 
 .carousel .carousel-inner .carousel-item .content {
+  position: absolute;
   color: #fff;
   text-align: center;
-  width: 300px;
-  margin: auto;
-  margin-top: 10%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .carousel .carousel-inner .carousel-item .content .btn a {
