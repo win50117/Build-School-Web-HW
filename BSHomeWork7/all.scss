@@ -1,0 +1,95 @@
+.navbar {
+    .navbar-nav {
+        .nav-item {
+            >a {
+                &::before {
+                    content: 'o ';
+                }
+            }
+        }
+
+
+        .dropdown {
+            &:hover {
+                &>.dropdown-menu {
+                    display: block;
+
+                    // &.show {
+                    //     display: none;
+                    // }
+                }
+            }
+
+            .dropdown-menu {
+                >a {
+                    &::before {
+                        content: '▪ ';
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.card {
+    .item {
+        overflow: hidden;
+
+        &:hover {
+            &>img {
+                transform: scale(1.5);
+            }
+
+            &>.card-img-overlay {
+                color: red;
+            }
+        }
+    }
+}
+
+.space {
+    height: 50vh;
+    width: 100%;
+    background-image: url("img/subbnr_01.jpg");
+    background-size: cover;
+    // 背景圖片不重複
+    background-repeat: no-repeat;
+    // 固定背景，不受捲軸影響
+    background-attachment: fixed;
+
+    .container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.img-wall-2 {
+    .card {
+        margin: 15px 0;
+    }
+}
+
+.footer {
+    background-color: #323232;
+    color: #fff;
+
+    a {
+        text-decoration: none;
+    }
+
+    .copyright {
+        background-color: #1e1e1e;
+
+        ul {
+            padding: 0;
+
+            li {
+                list-style: none;
+                padding-left: 15px;
+            }
+        }
+    }
+}

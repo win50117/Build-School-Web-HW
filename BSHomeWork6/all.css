@@ -22,6 +22,7 @@
   }
   .navbar-collapse.collapsing {
     height: auto;
+    -webkit-transition: 0.3s ease;
     transition: 0.3s ease;
     top: 100%;
     right: -100%;
@@ -30,6 +31,7 @@
     top: 100%;
     right: 0;
     background-color: #f8f9fa;
+    -webkit-transition: 0.3s ease-in;
     transition: 0.3s ease-in;
     z-index: 5;
   }
@@ -50,22 +52,27 @@
 }
 
 .carousel .carousel-inner .carousel-item:nth-child(1) {
+  background-image: url(img/slide-1.png), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
   background-image: url(img/slide-1.png), linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .carousel .carousel-inner .carousel-item:nth-child(2) {
+  background-image: url(img/slide-2.png), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
   background-image: url(img/slide-2.png), linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .carousel .carousel-inner .carousel-item:nth-child(3) {
+  background-image: url(img/slide-3.png), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
   background-image: url(img/slide-3.png), linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .carousel .carousel-inner .carousel-item:nth-child(4) {
+  background-image: url(img/slide-4.png), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
   background-image: url(img/slide-4.png), linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .carousel .carousel-inner .carousel-item:nth-child(5) {
+  background-image: url(img/slide-5.png), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
   background-image: url(img/slide-5.png), linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
@@ -82,6 +89,7 @@
 }
 
 .carousel .carousel-inner .carousel-item:nth-child(9) {
+  background-image: url(img/slide-9.png), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
   background-image: url(img/slide-9.png), linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
@@ -91,7 +99,8 @@
   text-align: center;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .carousel .carousel-inner .carousel-item .content .btn a {
@@ -169,18 +178,27 @@
   position: fixed;
   right: 25px;
   bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   z-index: 100;
 }
 
 .flow-messenger:hover {
-  box-shadow: 0px 5px 15px #555;
+  -webkit-box-shadow: 0px 5px 15px #555;
+          box-shadow: 0px 5px 15px #555;
 }
 
 .flow-messenger .fab {
   font-size: 40px;
   color: #fff;
 }
+/*# sourceMappingURL=all.css.map */

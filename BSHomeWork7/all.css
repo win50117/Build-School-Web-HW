@@ -1,0 +1,74 @@
+@charset "UTF-8";
+.navbar .navbar-nav .nav-item > a::before {
+  content: 'o ';
+}
+
+.navbar .navbar-nav .dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.navbar .navbar-nav .dropdown .dropdown-menu > a::before {
+  content: '▪ ';
+}
+
+.card .item {
+  overflow: hidden;
+}
+
+.card .item:hover > img {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+.card .item:hover > .card-img-overlay {
+  color: red;
+}
+
+.space {
+  height: 50vh;
+  width: 100%;
+  background-image: url("img/subbnr_01.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.space .container {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.img-wall-2 .card {
+  margin: 15px 0;
+}
+
+.footer {
+  background-color: #323232;
+  color: #fff;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer .copyright {
+  background-color: #1e1e1e;
+}
+
+.footer .copyright ul {
+  padding: 0;
+}
+
+.footer .copyright ul li {
+  list-style: none;
+  padding-left: 15px;
+}
+/*# sourceMappingURL=all.css.map */
