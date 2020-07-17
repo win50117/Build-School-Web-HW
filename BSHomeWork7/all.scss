@@ -22,7 +22,7 @@ body {
         .dropdown {
             &:hover {
                 &>.dropdown-menu {
-                    display: block;
+                    // display: block;
                     // &.show {
                     //     display: none;
                     // }
@@ -91,6 +91,7 @@ body {
 
                 h1 {
                     font-size: 150px;
+                    font-weight: 700;
                 }
 
                 a {
@@ -313,6 +314,21 @@ body {
                 }
             }
 
+        }
+    }
+}
+
+@media (min-width:960px) {
+    .navbar-nav {
+        .dropdown {
+            &:hover {
+                &>.dropdown-menu {
+                    display: block;
+                    // &.show {
+                    //     display: none;
+                    // }
+                }
+            }
         }
     }
 }

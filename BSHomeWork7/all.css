@@ -17,10 +17,6 @@ body {
   border: 1px solid #fff;
 }
 
-.navbar .navbar-nav .dropdown:hover > .dropdown-menu {
-  display: block;
-}
-
 .navbar .navbar-nav:first-child .dropdown .dropdown-menu {
   background-color: #000;
 }
@@ -55,6 +51,7 @@ body {
 
 .carousel .carousel-inner .carousel-item .carousel-caption h1 {
   font-size: 150px;
+  font-weight: 700;
 }
 
 .carousel .carousel-inner .carousel-item .carousel-caption a {
@@ -249,6 +246,12 @@ body {
   }
   .carousel .carousel-inner .carousel-item .carousel-caption a {
     padding: 10px 30px;
+  }
+}
+
+@media (min-width: 960px) {
+  .navbar-nav .dropdown:hover > .dropdown-menu {
+    display: block;
   }
 }
 /*# sourceMappingURL=all.css.map */
