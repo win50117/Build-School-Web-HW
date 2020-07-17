@@ -58,7 +58,7 @@ body {
   text-decoration: none;
   color: #fff;
   padding: 10px 40px;
-  border: 2px solid #fff;
+  outline: 2px solid #fff;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -139,6 +139,7 @@ body {
 .img-wall-2 .card {
   margin: 15px 0;
   overflow: hidden;
+  border: none;
 }
 
 .img-wall-2 .card > img {
@@ -237,6 +238,12 @@ body {
   color: #888888;
 }
 
+.gotop {
+  position: fixed;
+  right: 30px;
+  bottom: 40px;
+}
+
 @media (max-width: 719px) {
   .carousel .carousel-inner .carousel-item .carousel-caption h5 {
     font-size: 20px;
@@ -246,6 +253,9 @@ body {
   }
   .carousel .carousel-inner .carousel-item .carousel-caption a {
     padding: 10px 30px;
+  }
+  .footer .item {
+    padding: 10px 0;
   }
 }
 

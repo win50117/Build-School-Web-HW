@@ -98,7 +98,7 @@ body {
                     text-decoration: none;
                     color: #fff;
                     padding: 10px 40px;
-                    border: 2px solid #fff;
+                    outline: 2px solid #fff;
                     background-color: rgba(0, 0, 0, 0.5);
 
                     &:hover {
@@ -190,6 +190,7 @@ body {
     .card {
         margin: 15px 0;
         overflow: hidden;
+        border: none;
 
         >img {
             cursor: pointer;
@@ -295,6 +296,13 @@ body {
     }
 }
 
+// gotop按鈕
+.gotop {
+    position: fixed;
+    right: 30px;
+    bottom: 40px;
+}
+
 @media (max-width:719px) {
     .carousel {
         .carousel-inner {
@@ -314,6 +322,12 @@ body {
                 }
             }
 
+        }
+    }
+
+    .footer {
+        .item {
+            padding: 10px 0;
         }
     }
 }
