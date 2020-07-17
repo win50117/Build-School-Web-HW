@@ -1,48 +1,123 @@
 .navbar {
     .navbar-nav {
-        .nav-item {
-            >a {
-                &::before {
-                    content: 'o ';
-                }
-            }
-        }
-
-
         .dropdown {
             &:hover {
                 &>.dropdown-menu {
                     display: block;
-
                     // &.show {
                     //     display: none;
                     // }
                 }
             }
+        }
 
-            .dropdown-menu {
+        &:first-child {
+            .nav-item {
                 >a {
                     &::before {
-                        content: '▪ ';
+                        content: 'o ';
                     }
                 }
+            }
+
+            .dropdown {
+                .dropdown-menu {
+                    >a {
+                        &::before {
+                            content: '▪ ';
+                        }
+                    }
+                }
+            }
+        }
+
+        &:nth-child(2) {
+            img {
+                width: 18px;
             }
         }
     }
 }
 
+// 幻燈片
+.carousel {
+    .carousel-inner {
+        .carousel-item {
+            height: 100vh;
 
+            .carousel-caption {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                // bottom: 50%;
+
+                h5 {
+                    font-size: 40px;
+                }
+
+                h1 {
+                    font-size: 150px;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    padding: 10px 40px;
+                    border: 2px solid #fff;
+                    background-color: rgba(0, 0, 0, 0.5);
+
+                    &:hover {
+                        background-color: #fff;
+                        color: #000;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+// 商品圖牆1
 .card {
     .item {
         overflow: hidden;
 
+        img {
+            transition: .3s;
+        }
+
+        .card-img-overlay {
+
+            span {
+                font-size: 16px;
+                font-weight: bold;
+                color: rgba(0, 0, 0, 0);
+                transition: .3s;
+
+                img {
+                    opacity: 0;
+                }
+            }
+        }
+
         &:hover {
             &>img {
-                transform: scale(1.5);
+                transform: scale(1.1);
+                opacity: .5;
             }
 
             &>.card-img-overlay {
-                color: red;
+                span {
+                    color: rgba(0, 0, 0, 1);
+
+                    &.price {
+                        color: rgb(170, 0, 0);
+                    }
+
+                    img {
+                        opacity: 1;
+                    }
+                }
             }
         }
     }
