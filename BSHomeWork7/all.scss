@@ -1,3 +1,7 @@
+body {
+    font-family: 'Nanum Gothic', sans-serif !important;
+}
+
 .navbar {
     .navbar-nav {
         .dropdown {
@@ -123,6 +127,7 @@
     }
 }
 
+// banner 視差滾動
 .space {
     height: 50vh;
     width: 100%;
@@ -138,12 +143,56 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        h1 {
+            font-size: 120px;
+        }
+
+        h2 {
+            font-size: 45px;
+        }
     }
 }
 
+// 商品圖牆2
 .img-wall-2 {
     .card {
         margin: 15px 0;
+        overflow: hidden;
+
+        >img {
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover {
+                transform: scale(1.1);
+                opacity: .5;
+            }
+        }
+
+        .card-body {
+            .cart {
+                img {
+                    cursor: pointer;
+                }
+            }
+
+            p {
+                font-size: 12px;
+
+                a {
+                    text-decoration: none;
+                    color: #555555;
+                }
+
+                &.price {
+                    color: #0098d9;
+                    font-weight: 700;
+                }
+
+                margin: 0;
+            }
+        }
     }
 }
 
