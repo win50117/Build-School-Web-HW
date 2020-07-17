@@ -161,20 +161,62 @@ body {
   color: #fff;
 }
 
+.footer h6 {
+  color: #d5d5d5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .footer a {
   text-decoration: none;
+  color: #888888;
+}
+
+.footer a:hover {
+  color: #D5D5D5;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.footer > .container {
+  padding: 50px 0;
+  color: #888888;
+}
+
+.footer .icon {
+  margin-bottom: 40px;
+}
+
+.footer .icon img {
+  height: 24px;
+  padding-right: 5px;
+}
+
+.footer .icon img:hover {
+  opacity: .5;
 }
 
 .footer .copyright {
+  padding: 10px 0;
   background-color: #1e1e1e;
 }
 
-.footer .copyright ul {
-  padding: 0;
+.footer .copyright a {
+  font-size: 12px;
 }
 
-.footer .copyright ul li {
-  list-style: none;
-  padding-left: 15px;
+.footer .copyright a ~ a {
+  margin-left: 15px;
+}
+
+.footer .copyright a:hover {
+  color: #D5D5D5;
+}
+
+.footer .copyright p {
+  color: #888888;
 }
 /*# sourceMappingURL=all.css.map */

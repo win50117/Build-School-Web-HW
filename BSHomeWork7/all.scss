@@ -196,24 +196,69 @@ body {
     }
 }
 
+// footer頁尾
 .footer {
     background-color: #323232;
     color: #fff;
 
+    h6 {
+        color: #d5d5d5;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
     a {
         text-decoration: none;
+        color: #888888;
+
+        &:hover {
+            color: #D5D5D5;
+            ;
+        }
+    }
+
+    p {
+        margin: 0;
+        font-size: 12px;
+    }
+
+    &>.container {
+        padding: 50px 0;
+        color: #888888;
+    }
+
+    .icon {
+        margin-bottom: 40px;
+
+        img {
+            height: 24px;
+            padding-right: 5px;
+
+            &:hover {
+                opacity: .5;
+            }
+        }
     }
 
     .copyright {
+        padding: 10px 0;
         background-color: #1e1e1e;
 
-        ul {
-            padding: 0;
+        a {
+            font-size: 12px;
 
-            li {
-                list-style: none;
-                padding-left: 15px;
+            &~a {
+                margin-left: 15px;
             }
+
+            &:hover {
+                color: #D5D5D5;
+                ;
+            }
+        }
+
+        p {
+            color: #888888;
         }
     }
 }
