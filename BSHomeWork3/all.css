@@ -160,6 +160,33 @@ header .features-list .sub-item .list~.list {
   border-left: 1px solid #a5a5a5;
 }
 
+header .features-list .sub-item .list li {
+  position: relative;
+}
+
+header .features-list .sub-item .list li a {
+  transition: .5s;
+}
+
+header .features-list .sub-item .list li:hover a {
+  color: #000;
+  padding-left: 10px;
+}
+
+header .features-list .sub-item .list li::before {
+  position: absolute;
+  left: -20px;
+  font-family: 'FontAwesome';
+  content: '\f105';
+  opacity: 0;
+  transition: .5s;
+}
+
+header .features-list .sub-item .list li:hover::before {
+  opacity: 1;
+  left: 0;
+}
+
 header .nav-link:hover {
   color: #679509;
 }
