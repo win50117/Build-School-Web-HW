@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 body {
@@ -108,10 +109,56 @@ header .cart-count {
 header .nav-link {
   text-decoration: none;
   color: #a5a5a5;
-  margin-left: 30px;
   transition: 0.4s;
   font-size: 14px;
   font-weight: 600;
+}
+
+header .header-navi .item {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+header .features-list {
+  position: relative;
+  border: 1px solid red;
+}
+
+header .features-list .sub-item {
+  box-sizing: border-box;
+  width: 1200px;
+  padding: 30px 50px;
+  background-color: #fff;
+  box-shadow: 0 5px 20px #555;
+  margin-left: 10px;
+  position: absolute;
+  z-index: 5;
+  top: 100%;
+  left: -850px;
+  display: none;
+}
+
+header .features-list:hover .sub-item {
+  display: block;
+}
+
+header .features-list .sub-item a {
+  text-decoration: none;
+  color: #a5a5a5;
+}
+
+header .features-list .sub-item .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .features-list .sub-item .list {
+  width: 25%;
+  padding-left: 30px;
+}
+
+header .features-list .sub-item .list~.list {
+  border-left: 1px solid #a5a5a5;
 }
 
 header .nav-link:hover {
