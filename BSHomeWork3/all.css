@@ -151,6 +151,13 @@ header .features-list .sub-item .container {
   justify-content: space-between;
 }
 
+header .features-list .sub-item .container h3 {
+  font-family: "Pacifico", cursive;
+  color: #4f4f4f;
+  font-size: 17px;
+  font-weight: 400;
+}
+
 header .features-list .sub-item .list {
   width: 25%;
   padding-left: 30px;
@@ -904,6 +911,7 @@ footer .nav4 .far {
   right: 0;
   margin: auto;
   z-index: 9999;
+  display: none;
 }
 
 .popup-container-img {

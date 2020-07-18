@@ -1,16 +1,17 @@
-let html = `
+let html = `           
                 <div class="popup-container-img">
-                        <span class="close-popup">X</span>
-                        <div class="popup-check">
-                            <span>Don't show again</span>
-                        </div>
-                </div>                
-                `;
+                    <span class="close-popup">X</span>
+                    <div class="popup-check">
+                        <span>Don't show again</span>
+                    </div>
+                </div>                           
+            `;
 setTimeout(function () {
-    let Popup = document.querySelector(".popup");
+    let Popup = document.querySelector('.popup');
+    Popup.style.display = 'block';
     Popup.innerHTML = html;
-    let ClosePopup = document.querySelector(".close-popup");
+    let ClosePopup = document.querySelector('.close-popup');
     ClosePopup.onclick = function () {
-        document.querySelector(".popup").style.display = "none";
+        document.querySelector('.popup').style.display = 'none';
     };
 }, 5000); //延遲 5 秒
