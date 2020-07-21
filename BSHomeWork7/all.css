@@ -76,16 +76,10 @@ body {
   transition: .3s;
 }
 
-.card .item .card-img-overlay span {
-  font-size: 16px;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0);
+.card .item .card-img-overlay {
+  opacity: 0;
   -webkit-transition: .3s;
   transition: .3s;
-}
-
-.card .item .card-img-overlay span img {
-  opacity: 0;
 }
 
 .card .item:hover > img {
@@ -94,15 +88,7 @@ body {
   opacity: .5;
 }
 
-.card .item:hover > .card-img-overlay span {
-  color: black;
-}
-
-.card .item:hover > .card-img-overlay span.price {
-  color: #aa0000;
-}
-
-.card .item:hover > .card-img-overlay span img {
+.card .item:hover > .card-img-overlay {
   opacity: 1;
 }
 
