@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>全球肺炎統計表</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>國家</td>
+                <td>確診</td>
+                <td>死亡</td>
+                <td>治癒</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>台灣</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>中國</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>美國</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>全球統計</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        //建立Virus資料，傳入Table中
+        let covid = [{
+                country: '台灣',
+                confirm: 455,
+                recover: 440,
+                death: 7,
+            },
+            {
+                country: '中國',
+                confirm: 85921,
+                recover: 80519,
+                death: 4653
+            },
+            {
+                country: '美國',
+                confirm: 3970000,
+                recover: 1160000,
+                death: 144000
+            },
+            {
+                country: '全球統計',
+                confirm: 4056376,
+                recover: 1240959,
+                death: 148660
+            }
+        ];
+        let confirm = document.querySelectorAll("tbody tr td:nth-child(2)");
+        let recover = document.querySelectorAll("tbody tr td:nth-child(3)");
+        let death = document.querySelectorAll("tbody tr td:nth-child(4)");
+        for (let i = 0; i < covid.length; i++) {
+            confirm[i].innerText = covid[i].confirm;
+            recover[i].innerText = covid[i].recover;
+            death[i].innerText = covid[i].death;
+        }
+        // let totalConfirm = covid.map(x => x.confirm).reduce(function (total, currentValue) {
+        //     return total + currentValue;
+        // });
+
+        // let totalRecover = covid.map(x => x.recover).reduce(function (total, currentValue) {
+        //     return total + currentValue;
+        // });
+
+        // let totalDeath = covid.map(x => x.death).reduce(function (total, currentValue) {
+        //     return total + currentValue;
+        // });
+        // sum[0].innerText = totalConfirm;
+        // sum[1].innerText = totalRecover;
+        // sum[2].innerText = totalDeath;
+    </script>
+</body>
+
+</html>
