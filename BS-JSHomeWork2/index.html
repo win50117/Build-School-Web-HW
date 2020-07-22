@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
         table,
         td {
@@ -53,38 +55,38 @@
         //建立Virus資料，傳入Table中
         let covid = [{
                 country: '台灣',
-                confirm: 455,
+                confirmed: 455,
                 recover: 440,
                 death: 7,
             },
             {
                 country: '中國',
-                confirm: 85921,
+                confirmed: 85921,
                 recover: 80519,
                 death: 4653
             },
             {
                 country: '美國',
-                confirm: 3970000,
+                confirmed: 3970000,
                 recover: 1160000,
                 death: 144000
             },
             {
                 country: '全球統計',
-                confirm: 4056376,
+                confirmed: 4056376,
                 recover: 1240959,
                 death: 148660
             }
         ];
-        let confirm = document.querySelectorAll("tbody tr td:nth-child(2)");
+        let confirmed = document.querySelectorAll("tbody tr td:nth-child(2)");
         let recover = document.querySelectorAll("tbody tr td:nth-child(3)");
         let death = document.querySelectorAll("tbody tr td:nth-child(4)");
         for (let i = 0; i < covid.length; i++) {
-            confirm[i].innerText = covid[i].confirm;
+            confirmed[i].innerText = covid[i].confirmed;
             recover[i].innerText = covid[i].recover;
             death[i].innerText = covid[i].death;
         }
-        // let totalConfirm = covid.map(x => x.confirm).reduce(function (total, currentValue) {
+        // let totalConfirm = covid.map(x => x.confirmed).reduce(function (total, currentValue) {
         //     return total + currentValue;
         // });
 
