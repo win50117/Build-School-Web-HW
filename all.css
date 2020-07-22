@@ -1,0 +1,56 @@
+.header {
+    /* text-align: center; */
+    background-color: #eee;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    width: 960px;
+    margin: 0 auto;
+    padding: 15px 15px;
+}
+
+.header .container .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.title {
+    color: #00c4c4;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.title h1 {
+    font-size: 40px;
+}
+
+.title span {
+    font-size: 25px;
+}
+
+.hw-content {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.hw-list {
+    font-size: 20px;
+}
+
+.hw-list a {
+    text-decoration: none;
+    line-height: 2em;
+    color: #0066ff;
+}
+
+.hw-list a:hover {
+    color: purple;
+}
