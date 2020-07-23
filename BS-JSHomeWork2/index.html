@@ -79,12 +79,12 @@
             }
         ];
         let confirmed = document.querySelectorAll("tbody tr td:nth-child(2)");
-        let recover = document.querySelectorAll("tbody tr td:nth-child(3)");
-        let death = document.querySelectorAll("tbody tr td:nth-child(4)");
+        let death = document.querySelectorAll("tbody tr td:nth-child(3)");
+        let recover = document.querySelectorAll("tbody tr td:nth-child(4)");
         for (let i = 0; i < covid.length; i++) {
             confirmed[i].innerText = covid[i].confirmed;
-            recover[i].innerText = covid[i].recover;
             death[i].innerText = covid[i].death;
+            recover[i].innerText = covid[i].recover;
         }
         // let totalConfirm = covid.map(x => x.confirmed).reduce(function (total, currentValue) {
         //     return total + currentValue;
