@@ -1,0 +1,48 @@
+.shop {
+  font-size: 0;
+}
+
+.shop .row {
+  font-size: 16px;
+}
+
+.shop .row .fa-circle.space {
+  color: #b3b6b9;
+}
+
+.shop .row .fa-circle.silver {
+  color: #e0e2e1;
+}
+
+.shop .row .fa-circle.gold {
+  color: #efd1c3;
+}
+
+.shop .row p {
+  margin-bottom: 0px;
+}
+
+.shop .row .item {
+  width: 100%;
+  padding: 50px;
+  margin: 15px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.shop .row .item:hover {
+  border: 2px solid black;
+}
+/*# sourceMappingURL=all.css.map */
