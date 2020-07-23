@@ -1,4 +1,11 @@
-const iPad = {};
+const iPads = {
+    space_32: {        
+        img: "img/ipad-wifi-select-space-201909_GEO_TW.png",        
+        moveNet:false,
+        getPrice:function(){if }
+        
+    },
+};
 
 let mainPic = document.querySelector(".main-pic");
 let picHtml = "";
