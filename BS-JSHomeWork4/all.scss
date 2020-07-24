@@ -1,0 +1,25 @@
+.game {
+    .select {
+        >.btn {
+            margin: 0 50px;
+            width: 200px;
+        }
+    }
+
+    .list-group {
+        font-weight: 700;
+        font-size: 18px;
+
+        span {
+            background-color: #ff6666;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 10%;
+
+            &.correct {
+                background-color: #66ff66;
+            }
+
+        }
+    }
+}
