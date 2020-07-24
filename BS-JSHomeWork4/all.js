@@ -48,6 +48,7 @@ function guessNum() {
         correctSpan.setAttribute("Class", "correct");
         correct();
     }
+    document.querySelector(".input-guess").value = "";
 }
 
 // 開始遊戲按鈕
