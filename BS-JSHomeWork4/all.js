@@ -25,6 +25,10 @@ function guessNum() {
     }
     let liAnswer = document.createElement("li");
 
+    if (quest == 0) {
+        alert("遊戲還沒開始！");
+        return;
+    }
     let regex = /^(?!\d*?(\d)\d*?\1)\d{4}$/;
     if (!regex.test(answer)) {
         alert("請輸入不重複的四位數字");
@@ -53,6 +57,12 @@ function guessNum() {
 
 // 開始遊戲按鈕
 btnStart.addEventListener("click", function () {
+    gameSet();
+    this.disabled = true;
+});
+
+// 遊戲設定funciton
+function gameSet() {
     quest = [];
     let number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     for (let i = 0; i < number.length; i++) {
@@ -64,8 +74,7 @@ btnStart.addEventListener("click", function () {
     for (let i = 0; i < 4; i++) {
         quest.push(number[i]);
     }
-    this.disabled = true;
-});
+}
 
 // 查看答案按鈕
 document.querySelector(".btn-quest").addEventListener("click", function () {
@@ -75,6 +84,7 @@ document.querySelector(".btn-quest").addEventListener("click", function () {
 
 // 放棄重來按鈕
 document.querySelector(".btn-reset").addEventListener("click", function () {
+    document.querySelector(".modal-body h2").textContent = quest.join("");
     quest = [];
     btnStart.disabled = false;
     ulAnswer.innerHTML = "";
