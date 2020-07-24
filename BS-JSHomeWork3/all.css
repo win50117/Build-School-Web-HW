@@ -39,10 +39,19 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border: 1px solid #aaa;
   cursor: pointer;
 }
 
 .shop .row .item:hover {
-  border: 2px solid black;
+  border: 1px solid black;
+}
+
+.shop .row input {
+  display: none;
+}
+
+.shop .row input:checked + .item {
+  border: 1px solid red;
 }
 /*# sourceMappingURL=all.css.map */
