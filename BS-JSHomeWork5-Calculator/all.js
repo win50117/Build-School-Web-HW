@@ -27,7 +27,7 @@ btnClick.addEventListener("click", function (e) {
             }
             break;
         case "%":
-            if (allInput.value.length !== 0) {
+            if (allInput.value.length !== 0 && subInput.value !== "") {
                 let pNum = subInput.value;
                 let oper = allInput.value[allInput.value.length - 1];
                 allInput.value = allInput.value.substr(
@@ -44,6 +44,9 @@ btnClick.addEventListener("click", function (e) {
         case "-":
         case "*":
         case "/":
+            if (subInput.value[subInput.value.length - 1] === ".") {
+                return;
+            }
             if (allInput.value.length === 0) {
                 allInput.value += subInput.value + e.target.textContent;
                 subInput.value = "";
