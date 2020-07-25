@@ -111,5 +111,5 @@ function equal() {
 
 function Calc() {
     subInput.value = "";
-    allInput.value = eval(allInput.value).toFixed(5);
+    allInput.value = eval(allInput.value);
 }
