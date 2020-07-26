@@ -1,3 +1,20 @@
+.products .products-list {
+  padding: 10px 0px;
+  width: 200px;
+  background-color: #444;
+  color: #fff;
+  margin: 0 15px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.products .products-list:active {
+  background-color: #777;
+}
+
 .shop {
   font-size: 0;
 }
@@ -16,6 +33,30 @@
 
 .shop .row .fa-circle.gold {
   color: #efd1c3;
+}
+
+.shop .row .fa-circle.white {
+  color: #f9f6ef;
+}
+
+.shop .row .fa-circle.black {
+  color: #1f2120;
+}
+
+.shop .row .fa-circle.green {
+  color: #ade0cd;
+}
+
+.shop .row .fa-circle.yellow {
+  color: #ffe681;
+}
+
+.shop .row .fa-circle.purple {
+  color: #d1cddb;
+}
+
+.shop .row .fa-circle.red {
+  color: #ba0c2f;
 }
 
 .shop .row p {

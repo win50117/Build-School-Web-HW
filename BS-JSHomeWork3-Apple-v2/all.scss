@@ -1,3 +1,19 @@
+.products {
+    .products-list {
+        padding: 10px 0px;
+        width: 200px;
+        background-color: #444;
+        color: #fff;
+        margin: 0 15px;
+        cursor: pointer;
+        user-select: none;
+
+        &:active {
+            background-color: #777;
+        }
+    }
+}
+
 .shop {
     font-size: 0;
 
@@ -14,6 +30,30 @@
 
         .fa-circle.gold {
             color: #efd1c3;
+        }
+
+        .fa-circle.white {
+            color: #f9f6ef;
+        }
+
+        .fa-circle.black {
+            color: #1f2120;
+        }
+
+        .fa-circle.green {
+            color: #ade0cd;
+        }
+
+        .fa-circle.yellow {
+            color: #ffe681;
+        }
+
+        .fa-circle.purple {
+            color: #d1cddb;
+        }
+
+        .fa-circle.red {
+            color: #ba0c2f;
         }
 
         p {

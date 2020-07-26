@@ -17,6 +17,14 @@
 </head>
 
 <body>
+    <div class="products">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="IPads products-list text-center">IPads</div>
+                <div class="IPhone products-list text-center">IPhone</div>
+            </div>
+        </div>
+    </div>
     <div class="shop">
         <div class="container">
             <div class="row">
@@ -26,8 +34,8 @@
                 <div class="col-12 col-lg-6">
                     <div class="container">
                         <h1>顏色</h1>
-                        <div class="row">
-                            <div class="col-6 col-lg-6">
+                        <div class="row color-select">
+                            <!-- <div class="col-6 col-lg-6">
                                 <div class="item item-space text-center">
                                     <i class="fas fa-circle fa-3x space"></i>
                                     <p>太空灰</p>
@@ -44,60 +52,40 @@
                                     <i class="fas fa-circle fa-3x gold"></i>
                                     <p>金色</p>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <h1>儲存裝置</h1>
 
-                        <div class="row">
-                            <div class="col-6 col-lg-6">
-                                <input type="radio" name="storage" id="gb32" value="32GB"">
-                                <label class=" item storage-32 text-center" for="gb32">
-                                <p>32GB</p>
-                                <!-- <p class="price">NT$10900</p> -->
-                                </label>
-                                <!-- <div class="item price-32 text-center">
-                                    <p>32GB</p>
-                                    <p class="price">NT$10900</p>
-                                </div> -->
+                        <div class="row storage-select">
+                            <!-- <div class="col-6 col-lg-6">
+                                <input type="radio" name="storage" id="gb32" value="32GB">
+                                <label class="item storage-32 text-center" for="gb32">
+                                    <p>32GB</p>                                 
+                                </label>                              
                             </div>
                             <div class="col-6 col-lg-6">
                                 <input type="radio" name="storage" id="gb128" value="128GB">
                                 <label class="item storage-128 text-center" for="gb128">
-                                    <p>128GB</p>
-                                    <!-- <p class="price">NT$13900</p> -->
-                                </label>
-                                <!-- <div class="item price-128 text-center">
-                                    <p>128GB</p>
-                                    <p class="price">NT$13900</p>
-                                </div> -->
-                            </div>
+                                    <p>128GB</p>                                  
+                                </label>                              
+                            </div> -->
                         </div>
 
-                        <h1>連線能力</h1>
+                        <h1 class="network-title">連線能力</h1>
 
-                        <div class="row">
+                        <div class="row network-select">
                             <div class="col-6 col-lg-6">
                                 <input type="radio" name="network" id="wifi">
                                 <label class="item wifi text-center" for="wifi">
                                     <p>Wi-Fi</p>
-                                    <!-- <p class="price">NT$10900</p> -->
                                 </label>
-                                <!-- <div class="item wifi text-center">
-                                    <p>Wi-Fi</p>
-                                    <p class="price">NT$10900</p>
-                                </div> -->
                             </div>
                             <div class="col-6 col-lg-6">
                                 <input type="radio" name="network" id="mobiNet">
                                 <label class="item mobiNet text-center" for="mobiNet">
                                     <p>Wi-Fi + 行動網路</p>
-                                    <!-- <p class="price">NT$10900</p> -->
                                 </label>
-                                <!-- <div class="item wifimobi text-center">
-                                    <p>Wi-Fi + 行動網路</p>
-                                    <p class="price">NT$15400</p>
-                                </div> -->
                             </div>
                         </div>
                         <h1>價格試算:<span class="sum-price"></span></h1>
