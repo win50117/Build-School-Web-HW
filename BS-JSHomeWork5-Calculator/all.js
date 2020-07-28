@@ -89,6 +89,8 @@ btnClick.addEventListener("click", function (e) {
                 subInput.value = e.target.dataset.num;
             } else if (subInput.value.includes(".")) {
                 subInput.value += e.target.dataset.num;
+            } else if (/1|2|3|4|5|6|7|8|9+/.test(subInput.value)) {
+                subInput.value += e.target.dataset.num;
             }
             break;
         case "1":
@@ -100,7 +102,7 @@ btnClick.addEventListener("click", function (e) {
         case "7":
         case "8":
         case "9":
-            if (subInput.value === "") {
+            if (subInput.value === "" || subInput.value === "0") {
                 subInput.value = "";
                 subInput.value += e.target.dataset.num;
             } else {
