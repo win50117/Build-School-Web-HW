@@ -54,6 +54,12 @@ btnClick.addEventListener("click", function (e) {
             if (!/\d+/.test(subInput.value)) {
                 return;
             }
+            // if (subInput.value.includes("-") && e.target.textContent === "-") {
+            //     subInput.value[0] = "+";
+            //     allInput.value += subInput.value;
+            //     subInput.value = "";
+            //     return;
+            // }
             if (allInput.value.length === 0) {
                 allInput.value += subInput.value + e.target.textContent;
                 subInput.value = "";
