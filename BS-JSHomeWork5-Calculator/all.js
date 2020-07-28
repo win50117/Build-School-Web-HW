@@ -77,11 +77,20 @@ btnClick.addEventListener("click", function (e) {
             }
             break;
         case ".":
+            if (!subInput.value.includes(".") && subInput.value.length === 0) {
+                subInput.value = "0.";
+            }
             if (!subInput.value.includes(".")) {
                 subInput.value += ".";
             }
             break;
         case "0":
+            if (subInput.value.length === 0 && !subInput.value.includes(".")) {
+                subInput.value = e.target.dataset.num;
+            } else if (subInput.value.includes(".")) {
+                subInput.value += e.target.dataset.num;
+            }
+            break;
         case "1":
         case "2":
         case "3":
@@ -97,6 +106,8 @@ btnClick.addEventListener("click", function (e) {
             } else {
                 subInput.value += e.target.dataset.num;
             }
+
+            break;
         default:
             break;
     }
@@ -114,5 +125,5 @@ function equal() {
 
 function Calc() {
     subInput.value = "";
-    allInput.value = eval(allInput.value);
+    allInput.value = Math.abs(eval(allInput.value));
 }
