@@ -44,7 +44,14 @@ btnClick.addEventListener("click", function (e) {
         case "-":
         case "*":
         case "/":
+            if (subInput.value.length === 0 && e.target.textContent === "-") {
+                subInput.value = e.target.textContent;
+                return;
+            }
             if (subInput.value[subInput.value.length - 1] === ".") {
+                return;
+            }
+            if (!/\d+/.test(subInput.value)) {
                 return;
             }
             if (allInput.value.length === 0) {
@@ -127,5 +134,5 @@ function equal() {
 
 function Calc() {
     subInput.value = "";
-    allInput.value = Math.abs(eval(allInput.value));
+    allInput.value = eval(allInput.value);
 }
