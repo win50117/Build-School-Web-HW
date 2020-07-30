@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>口罩地圖</title>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-eObv-SeP0DUErpbkqNEDOQHTZDTgM3g&callback=initMap&libraries=&v=weekly"
+        defer>
+    </script>
+    <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+    <link rel="stylesheet" href="all.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row h-100">
+            <div class="col-2 col-lg-2">
+                <!-- <div class="text-center">
+                    <input id="pac-input" class="controls" type="text" placeholder="地址搜尋" />
+                </div> -->
+                <div class="area">
+                    <select class="selectCounty">
+                        <option value="" style="display: none">請選擇行政區域...</option>
+                    </select>
+                    <select class="selectTown">
+                        <option value="" style="display: none">請選擇鄉鎮...</option>
+                    </select>
+                </div>
+                <div class="list">
+                </div>
+            </div>
+            <div class="col-10 col-lg-10">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+    <template id="list-temp">
+        <div class="list-item">
+            <h4 class="list-title"></h4>
+            <p class="list-address"></p>
+            <p class="list-phone"></p>
+            <span class="list-adult"></span>
+            <br>
+            <span class="list-child"></span>
+        </div>
+    </template>
+    <!-- <div class="area">
+        <select class="selectCounty">
+            <option value="" style="display: none">請選擇行政區域...</option>
+        </select>
+        <select class="selectTown">
+            <option value="" style="display: none">請選擇鄉鎮...</option>
+        </select>
+    </div> -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+
+    <script src="all.js"></script>
+</body>
+
+</html>

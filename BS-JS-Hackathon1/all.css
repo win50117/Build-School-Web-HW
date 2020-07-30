@@ -1,0 +1,58 @@
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+html .container-fluid,
+body .container-fluid {
+  height: 100vh;
+}
+
+html .container-fluid #map,
+body .container-fluid #map {
+  height: 100%;
+}
+
+html .container-fluid .area,
+body .container-fluid .area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 20vh;
+}
+
+html .container-fluid .area select,
+body .container-fluid .area select {
+  margin: 15px 0;
+}
+
+html .container-fluid .list,
+body .container-fluid .list {
+  height: 80vh;
+  overflow: auto;
+}
+
+html .container-fluid .list-item,
+body .container-fluid .list-item {
+  border-top: 1px solid #000;
+}
+
+html .container-fluid .list-item .list-adult,
+body .container-fluid .list-item .list-adult {
+  padding: 0px 10px;
+  background-color: #44ffaa;
+}
+
+html .container-fluid .list-item .list-child,
+body .container-fluid .list-item .list-child {
+  padding: 0px 10px;
+  background-color: #eeff44;
+}
+/*# sourceMappingURL=all.css.map */
