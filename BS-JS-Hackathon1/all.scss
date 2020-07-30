@@ -29,6 +29,7 @@ body {
         }
 
         .list-item {
+            cursor: pointer;
             border-top: 1px solid #000;
 
             .list-adult {
@@ -39,7 +40,10 @@ body {
             .list-child {
                 padding: 0px 10px;
                 background-color: #eeff44;
+            }
 
+            &:hover {
+                background-color: #ddd;
             }
         }
     }

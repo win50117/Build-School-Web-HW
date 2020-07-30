@@ -41,6 +41,7 @@ body .container-fluid .list {
 
 html .container-fluid .list-item,
 body .container-fluid .list-item {
+  cursor: pointer;
   border-top: 1px solid #000;
 }
 
@@ -54,5 +55,10 @@ html .container-fluid .list-item .list-child,
 body .container-fluid .list-item .list-child {
   padding: 0px 10px;
   background-color: #eeff44;
+}
+
+html .container-fluid .list-item:hover,
+body .container-fluid .list-item:hover {
+  background-color: #ddd;
 }
 /*# sourceMappingURL=all.css.map */
