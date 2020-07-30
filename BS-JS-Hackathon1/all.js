@@ -268,3 +268,16 @@ function initAutocomplete() {
         map.fitBounds(bounds);
     });
 }
+
+function searchPlace(geocoder, map, marker, cityCircle) {
+    geocoder.geocode({ address: vm.location.address }, function (
+        results,
+        status
+    ) {
+        if (status === google.maps.GeocoderStatus.OK) {
+            geocodeAddress(results[0], map, marker, cityCircle);
+        } else {
+            alert("此位置無法定址");
+        }
+    });
+}
