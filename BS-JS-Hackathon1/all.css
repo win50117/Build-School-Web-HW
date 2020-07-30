@@ -10,6 +10,11 @@ body .container-fluid {
   height: 100vh;
 }
 
+html .container-fluid #pac-input,
+body .container-fluid #pac-input {
+  width: 100%;
+}
+
 html .container-fluid #map,
 body .container-fluid #map {
   height: 100%;
