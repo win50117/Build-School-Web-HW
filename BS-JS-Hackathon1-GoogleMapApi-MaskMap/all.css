@@ -10,18 +10,18 @@ body .container-fluid {
   height: 100vh;
 }
 
-html .container-fluid #pac-input,
-body .container-fluid #pac-input {
+html .container-fluid .select-bar,
+body .container-fluid .select-bar {
+  background-color: #eee;
+}
+
+html .container-fluid .select-bar #pac-input,
+body .container-fluid .select-bar #pac-input {
   width: 100%;
 }
 
-html .container-fluid #map,
-body .container-fluid #map {
-  height: 100%;
-}
-
-html .container-fluid .area,
-body .container-fluid .area {
+html .container-fluid .select-bar .area,
+body .container-fluid .select-bar .area {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,15 +33,80 @@ body .container-fluid .area {
   height: 20vh;
 }
 
-html .container-fluid .area select,
-body .container-fluid .area select {
+html .container-fluid .select-bar .area select,
+body .container-fluid .select-bar .area select {
   margin: 15px 0;
 }
 
-html .container-fluid .list,
-body .container-fluid .list {
+html .container-fluid .select-bar .card-list,
+body .container-fluid .select-bar .card-list {
   height: 80vh;
   overflow: auto;
+}
+
+html .container-fluid .select-bar .card-list .card,
+body .container-fluid .select-bar .card-list .card {
+  width: 95%;
+  margin: auto;
+  padding: auto;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 10px #222;
+          box-shadow: 0px 0px 10px #222;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+html .container-fluid .select-bar .card-list .card .card-body .mask-left,
+body .container-fluid .select-bar .card-list .card .card-body .mask-left {
+  width: 45%;
+  padding: 10px 15px;
+  border-radius: 25px 5px 25px 5px;
+  color: #fff;
+}
+
+html .container-fluid .select-bar .card-list .card .card-body .mask-left .left-num,
+body .container-fluid .select-bar .card-list .card .card-body .mask-left .left-num {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+html .container-fluid .select-bar .card-list .card .card-body .mask-left.gray,
+body .container-fluid .select-bar .card-list .card .card-body .mask-left.gray {
+  background-color: #d4d6d7;
+}
+
+html .container-fluid .select-bar .card-list .card .card-body .mask-left.orange,
+body .container-fluid .select-bar .card-list .card .card-body .mask-left.orange {
+  background-color: #e67e22;
+}
+
+html .container-fluid .select-bar .card-list .card .card-body .mask-left.green,
+body .container-fluid .select-bar .card-list .card .card-body .mask-left.green {
+  background-color: #11787a;
+}
+
+html .container-fluid .select-bar .card-list .card .card-body .card-title,
+body .container-fluid .select-bar .card-list .card .card-body .card-title {
+  margin-top: 15px;
+  padding-left: 15px;
+  border-left: 5px solid #00ffaa;
+}
+
+html .container-fluid .map-box,
+body .container-fluid .map-box {
+  padding-left: 0px;
+}
+
+html .container-fluid .map-box #map,
+body .container-fluid .map-box #map {
+  height: 100%;
+}
+
+html .container-fluid .map-box #map .loading,
+body .container-fluid .map-box #map .loading {
+  width: 5rem;
+  height: 5rem;
+  color: red;
 }
 
 html .container-fluid .list-item,

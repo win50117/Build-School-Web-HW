@@ -28,6 +28,7 @@ window.onload = function () {
             alert(error);
         });
 };
+
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         center: {
@@ -47,19 +48,13 @@ function initMap() {
         let name = maskdata.features[i].properties.name;
         let latP = maskdata.features[i].geometry.coordinates[1];
         let lngP = maskdata.features[i].geometry.coordinates[0];
-        let iconPic = "";
-        if (masksLeft !== 0 && childMasksLeft !== 0) {
-            iconPic = "img/hospital.png";
-        }
-        if (
-            (masksLeft === 0 && childMasksLeft !== 0) ||
-            (masksLeft !== 0 && childMasksLeft === 0)
-        ) {
-            iconPic = "img/alert.png";
-        }
-        if (masksLeft === 0 && childMasksLeft === 0) {
-            iconPic = "img/close.png";
-        }
+        let count = masksLeft + childMasksLeft;
+        let iconPic =
+            count < 1000
+                ? "img/close.png"
+                : count < 2000
+                ? "img/alert.png"
+                : "img/hospital.png";
         //加入標示點群組
         markers[i] = new google.maps.Marker({
             position: {
@@ -158,8 +153,9 @@ function addTownList(e) {
 
 function renderList(city, town) {
     let ary = maskdata.features;
-    let list = document.querySelector(".list");
+    let list = document.querySelector(".card-list");
     let listItem = document.querySelector("#list-temp");
+    let cardItem = document.querySelector("#card-template");
     list.innerHTML = "";
 
     for (var i = 0; i < ary.length; i++) {
@@ -175,22 +171,51 @@ function renderList(city, town) {
             ary[i].properties.county == city &&
             ary[i].properties.town == town
         ) {
-            let cloneContent = listItem.content.cloneNode(true);
-            let item = cloneContent.querySelector(".list-item");
-            item.setAttribute("data-lat", lat);
-            item.setAttribute("data-lng", lng);
+            let cloneContent = cardItem.content.cloneNode(true);
+            let card = cloneContent.querySelector(".card");
+            let adultMaskLeft = cloneContent.querySelector(".adult-mask");
+            let childMaskLeft = cloneContent.querySelector(".child-mask");
+            card.setAttribute("data-lat", lat);
+            card.setAttribute("data-lng", lng);
 
-            cloneContent.querySelector(".list-title").innerText = pharmacyName;
-            cloneContent.querySelector(".list-address").innerText = address;
-            cloneContent.querySelector(".list-phone").innerText = phone;
-            cloneContent.querySelector(
-                ".list-adult"
-            ).innerText = `成人口罩：${maskAdult}`;
-            cloneContent.querySelector(
-                ".list-child"
-            ).innerText = `兒童口罩：${maskChild}`;
+            adultMaskLeft.setAttribute(
+                "class",
+                `adult-mask mask-left ${
+                    maskAdult == 0
+                        ? "gray"
+                        : maskAdult <= 1000
+                        ? "orange"
+                        : "green"
+                }`
+            );
 
-            item.addEventListener("click", function (e) {
+            childMaskLeft.setAttribute(
+                "class",
+                `child-left mask-left ${
+                    maskChild == 0
+                        ? "gray"
+                        : maskChild <= 1000
+                        ? "orange"
+                        : "green"
+                }`
+            );
+
+            cloneContent.querySelector(
+                ".mask-left .adult-left"
+            ).innerText = maskAdult;
+            cloneContent.querySelector(
+                ".mask-left .child-left"
+            ).innerText = maskChild;
+
+            cloneContent.querySelector(".card-title").innerText = pharmacyName;
+            cloneContent.querySelector(
+                ".card-address"
+            ).innerText = `地址：${address}`;
+            cloneContent.querySelector(
+                ".card-phone"
+            ).innerText = `電話：${phone}`;
+
+            card.addEventListener("click", function (e) {
                 Lat = Number(e.currentTarget.dataset.lat);
                 Lng = Number(e.currentTarget.dataset.lng);
 
@@ -198,10 +223,43 @@ function renderList(city, town) {
 
                 //zoom要先調整 再移動作標 才會正常顯示出地圖
                 //點選列表 定位到地圖中央
-                map.zoom = 22;
+                map.zoom = 16;
                 map.panTo(center);
             });
             list.append(cloneContent);
         }
+
+        // if (
+        //     ary[i].properties.county == city &&
+        //     ary[i].properties.town == town
+        // ) {
+        //     let cloneContent = listItem.content.cloneNode(true);
+        //     let item = cloneContent.querySelector(".list-item");
+        //     item.setAttribute("data-lat", lat);
+        //     item.setAttribute("data-lng", lng);
+
+        //     cloneContent.querySelector(".list-title").innerText = pharmacyName;
+        //     cloneContent.querySelector(".list-address").innerText = address;
+        //     cloneContent.querySelector(".list-phone").innerText = phone;
+        //     cloneContent.querySelector(
+        //         ".list-adult"
+        //     ).innerText = `成人口罩：${maskAdult}`;
+        //     cloneContent.querySelector(
+        //         ".list-child"
+        //     ).innerText = `兒童口罩：${maskChild}`;
+
+        //     item.addEventListener("click", function (e) {
+        //         Lat = Number(e.currentTarget.dataset.lat);
+        //         Lng = Number(e.currentTarget.dataset.lng);
+
+        //         let center = new google.maps.LatLng(Lat, Lng);
+
+        //         //zoom要先調整 再移動作標 才會正常顯示出地圖
+        //         //點選列表 定位到地圖中央
+        //         map.zoom = 22;
+        //         map.panTo(center);
+        //     });
+        //     list.append(cloneContent);
+        // }
     }
 }
