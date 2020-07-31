@@ -56,6 +56,11 @@ body .container-fluid .select-bar .card-list .card {
   cursor: pointer;
 }
 
+html .container-fluid .select-bar .card-list .card:hover,
+body .container-fluid .select-bar .card-list .card:hover {
+  background-color: #eee;
+}
+
 html .container-fluid .select-bar .card-list .card .card-body .mask-left,
 body .container-fluid .select-bar .card-list .card .card-body .mask-left {
   width: 45%;
@@ -89,7 +94,21 @@ html .container-fluid .select-bar .card-list .card .card-body .card-title,
 body .container-fluid .select-bar .card-list .card .card-body .card-title {
   margin-top: 15px;
   padding-left: 15px;
-  border-left: 5px solid #00ffaa;
+  border-left: 5px solid #00ddaa;
+  color: #00aabb;
+  font-weight: 700;
+}
+
+html .container-fluid .select-bar .card-list .card .card-body .card-address i,
+body .container-fluid .select-bar .card-list .card .card-body .card-address i {
+  color: #5500aa;
+  margin-right: 10px;
+}
+
+html .container-fluid .select-bar .card-list .card .card-body .card-phone i,
+body .container-fluid .select-bar .card-list .card .card-body .card-phone i {
+  color: #5500aa;
+  margin-right: 10px;
 }
 
 html .container-fluid .map-box,
@@ -109,100 +128,31 @@ body .container-fluid .map-box #map .loading {
   color: red;
 }
 
-html .container-fluid .list-item,
-body .container-fluid .list-item {
-  cursor: pointer;
-  border-top: 1px solid #000;
+html .container-fluid .map-box #content p,
+body .container-fluid .map-box #content p {
+  font-size: 16px;
 }
 
-html .container-fluid .list-item .list-adult,
-body .container-fluid .list-item .list-adult {
-  padding: 0px 10px;
-  background-color: #44ffaa;
+html .container-fluid .map-box #content .info-title,
+body .container-fluid .map-box #content .info-title {
+  color: #00aabb;
 }
 
-html .container-fluid .list-item .list-child,
-body .container-fluid .list-item .list-child {
-  padding: 0px 10px;
-  background-color: #eeff44;
+html .container-fluid .map-box #content .pop-adult,
+html .container-fluid .map-box #content .pop-child,
+body .container-fluid .map-box #content .pop-adult,
+body .container-fluid .map-box #content .pop-child {
+  color: #e67e22;
 }
 
-html .container-fluid .list-item:hover,
-body .container-fluid .list-item:hover {
-  background-color: #ddd;
+html .container-fluid .map-box #content i,
+body .container-fluid .map-box #content i {
+  color: #5500aa;
+  margin-right: 10px;
 }
 
-#description {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-}
-
-#infowindow-content .title {
-  font-weight: bold;
-}
-
-#infowindow-content {
-  display: none;
-}
-
-#map #infowindow-content {
-  display: inline;
-}
-
-.pac-card {
-  margin: 10px 10px 0 0;
-  border-radius: 2px 0 0 2px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  outline: none;
-  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
-  font-family: Roboto;
-}
-
-#pac-container {
-  padding-bottom: 12px;
-  margin-right: 12px;
-}
-
-.pac-controls {
-  display: inline-block;
-  padding: 5px 11px;
-}
-
-.pac-controls label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
-}
-
-#pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 400px;
-}
-
-#pac-input:focus {
-  border-color: #4d90fe;
-}
-
-#title {
-  color: #fff;
-  background-color: #4d90fe;
-  font-size: 25px;
-  font-weight: 500;
-  padding: 6px 12px;
-}
-
-#target {
-  width: 345px;
+html .container-fluid .map-box #content .pop-address,
+body .container-fluid .map-box #content .pop-address {
+  color: #00aabb;
 }
 /*# sourceMappingURL=all.css.map */

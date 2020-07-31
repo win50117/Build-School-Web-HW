@@ -1,21 +1,11 @@
 let map;
 let maskdata; //口罩JSON資料
-let points = []; //全部座標
 var markers = [];
 var infoWindows = [];
 
 window.onload = function () {
-    // let xhr = new XMLHttpRequest();
     const url =
         "https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json?fbclid=IwAR03QVRRMDHgQC_XBIR62wBKePkGVs5kRyTMdaCpP032CjtFdu6uiA3m-Gc";
-
-    // xhr.onload = function () {
-    //     maskdata = JSON.parse(this.responseText);
-    //     initMap();
-    //     addCountyList();
-    // };
-    // xhr.open("GET", url);
-    // xhr.send();
 
     fetch(url)
         .then((response) => response.json())
@@ -48,6 +38,10 @@ function initMap() {
         let name = maskdata.features[i].properties.name;
         let latP = maskdata.features[i].geometry.coordinates[1];
         let lngP = maskdata.features[i].geometry.coordinates[0];
+        let address = maskdata.features[i].properties.address;
+        let phone = maskdata.features[i].properties.phone;
+        let note = maskdata.features[i].properties.note;
+        let update = maskdata.features[i].properties.updated;
         let count = masksLeft + childMasksLeft;
         let iconPic =
             count < 1000
@@ -65,22 +59,35 @@ function initMap() {
             map: map,
         });
         let contentString = `
-        <div id="content">
-            <div id="siteNotice"></div>
-            <h2 id="firstHeading" class="firstHeading">${name}</h2>
+        <div id="content">            
+            <h2 class="info-title">${name}</h2>
             <div id="bodyContent">
-                <p>
+                <p class="pop-adult">
                     <b>成人口罩數量：</b>${masksLeft}
                 </p>
-                <p>
+                <p class="pop-child">
                     <b>兒童口罩數量：</b>${childMasksLeft}
+                </p>
+                <p class="pop-address">
+                    <i class="fas fa-hospital-alt"></i>${address}
+                </p>
+                <p class="pop-phone">
+                    <i class="fas fa-phone-alt"></i>${phone}
+                </p>
+                <p class="pop-note">
+                    <i class="fas fa-comment-medical"></i>${note}
+                </p>
+                <p class="pop-update">
+                    <b>資料更新時間：${update}</b>
                 </p>
             </div>
         </div>
+        
         `;
         // 加入點擊標示彈跳視窗事件
         let infowindow = new google.maps.InfoWindow({
             content: contentString,
+            maxWidth: 450,
         });
         markers[i].addListener("click", () => {
             infowindow.open(map, markers[i]);
@@ -90,25 +97,10 @@ function initMap() {
     let markerCluster = new MarkerClusterer(map, markers, {
         imagePath:
             "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+        gridSize: 130, //群集網格內的像素數
+        maxZoom: 16,
     });
 }
-
-// function setPoint() {
-//     maskdata.features.forEach(function (item) {
-//         let latP = Number(item.geometry.coordinates[1]);
-//         let lngP = Number(item.geometry.coordinates[0]);
-//         let titleP = item.properties.name;
-//         let maskLeftP = item.properties.masksLeft;
-//         let childMaskLeftP = item.properties.childMasksLeft;
-//         points.push({
-//             lat: latP,
-//             lng: lngP,
-//             title: titleP,
-//             maskLeft: maskLeftP,
-//             childMaskLeft: childMaskLeftP,
-//         });
-//     });
-// }
 
 //縣市選單
 let countySelector = document.querySelector(".selectCounty");
@@ -159,13 +151,13 @@ function renderList(city, town) {
     list.innerHTML = "";
 
     for (var i = 0; i < ary.length; i++) {
-        var pharmacyName = ary[i].properties.name; //藥局名稱
-        var maskAdult = ary[i].properties.mask_adult; //成人口罩數量
-        var maskChild = ary[i].properties.mask_child; //兒童口罩數量
-        var lat = ary[i].geometry.coordinates[1]; //經度
-        var lng = ary[i].geometry.coordinates[0]; //緯度
-        var address = ary[i].properties.address; //地址
-        var phone = ary[i].properties.phone; //電話
+        let pharmacyName = ary[i].properties.name; //藥局名稱
+        let maskAdult = ary[i].properties.mask_adult; //成人口罩數量
+        let maskChild = ary[i].properties.mask_child; //兒童口罩數量
+        let lat = ary[i].geometry.coordinates[1]; //經度
+        let lng = ary[i].geometry.coordinates[0]; //緯度
+        let address = ary[i].properties.address; //地址
+        let phone = ary[i].properties.phone; //電話
 
         if (
             ary[i].properties.county == city &&
@@ -183,7 +175,7 @@ function renderList(city, town) {
                 `adult-mask mask-left ${
                     maskAdult == 0
                         ? "gray"
-                        : maskAdult <= 1000
+                        : maskAdult < 1000
                         ? "orange"
                         : "green"
                 }`
@@ -194,7 +186,7 @@ function renderList(city, town) {
                 `child-left mask-left ${
                     maskChild == 0
                         ? "gray"
-                        : maskChild <= 1000
+                        : maskChild < 1000
                         ? "orange"
                         : "green"
                 }`
@@ -210,10 +202,10 @@ function renderList(city, town) {
             cloneContent.querySelector(".card-title").innerText = pharmacyName;
             cloneContent.querySelector(
                 ".card-address"
-            ).innerText = `地址：${address}`;
+            ).innerHTML = `<i class="fas fa-hospital-alt"></i>${address}`;
             cloneContent.querySelector(
                 ".card-phone"
-            ).innerText = `電話：${phone}`;
+            ).innerHTML = `<i class="fas fa-phone-alt"></i>${phone}`;
 
             card.addEventListener("click", function (e) {
                 Lat = Number(e.currentTarget.dataset.lat);
@@ -223,43 +215,10 @@ function renderList(city, town) {
 
                 //zoom要先調整 再移動作標 才會正常顯示出地圖
                 //點選列表 定位到地圖中央
-                map.zoom = 16;
+                map.zoom = 18;
                 map.panTo(center);
             });
             list.append(cloneContent);
         }
-
-        // if (
-        //     ary[i].properties.county == city &&
-        //     ary[i].properties.town == town
-        // ) {
-        //     let cloneContent = listItem.content.cloneNode(true);
-        //     let item = cloneContent.querySelector(".list-item");
-        //     item.setAttribute("data-lat", lat);
-        //     item.setAttribute("data-lng", lng);
-
-        //     cloneContent.querySelector(".list-title").innerText = pharmacyName;
-        //     cloneContent.querySelector(".list-address").innerText = address;
-        //     cloneContent.querySelector(".list-phone").innerText = phone;
-        //     cloneContent.querySelector(
-        //         ".list-adult"
-        //     ).innerText = `成人口罩：${maskAdult}`;
-        //     cloneContent.querySelector(
-        //         ".list-child"
-        //     ).innerText = `兒童口罩：${maskChild}`;
-
-        //     item.addEventListener("click", function (e) {
-        //         Lat = Number(e.currentTarget.dataset.lat);
-        //         Lng = Number(e.currentTarget.dataset.lng);
-
-        //         let center = new google.maps.LatLng(Lat, Lng);
-
-        //         //zoom要先調整 再移動作標 才會正常顯示出地圖
-        //         //點選列表 定位到地圖中央
-        //         map.zoom = 22;
-        //         map.panTo(center);
-        //     });
-        //     list.append(cloneContent);
-        // }
     }
 }
