@@ -7,65 +7,27 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <style>
-        .card {
-            border: 1px solid black;
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
+    <script src="https://kit.fontawesome.com/6f7f75ad47.js" crossorigin="anonymous"></script>
 
-        .headshot {
-            overflow: hidden;
-        }
-
-        .card-title {
-            color: white;
-            background-color: black;
-            display: inline-block;
-            border-radius: 5px;
-            padding: 5px 15px 5px 15px;
-        }
-
-        .card-body {
-            background-color: #ffbf67;
-        }
-
-        .card:hover {
-            box-shadow: 8px 8px 15px #808080;
-            transform: translate(5px, 5px);
-        }
-
-        .card:hover img {
-            transform: scale(1.2);
-            transition: transform 0.5s;
-        }
-
-        .card:not(:hover) img {
-            transform: scale(1, 1);
-            transition: transform 0.3s;
-        }
-
-        .card:hover .card-body {
-            background-color: lightgreen !important;
-        }
-
-        .card:hover .card-title {
-            color: black;
-            background-color: white !important;
-        }
-    </style>
+    <link rel="stylesheet" href="all.css">
 </head>
 
 <body>
-    <div class='container-fluid'>
-        <div class='jumbotron'>Pizza Template</div>
-        <div class='row'>
+    <div class="header">
+        <div class="container">
+            <div class="title"></div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <!-- cardPizza template插入位置 -->
         </div>
     </div>
 
-    <template id='cardPizza'>
-        <div class="card" style="width: 18rem;">
-            <img src="" class="card-img-top" alt="...">
+    <template id="cardPizza">
+        <div class="card col-12 col-sm-6 col-lg-4">
+            <img src="" class=" card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title"></h5>
                 <h5 class="card-eng-title"></h5>
