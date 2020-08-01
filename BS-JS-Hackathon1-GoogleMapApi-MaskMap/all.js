@@ -1,11 +1,9 @@
 let map;
 let maskdata; //口罩JSON資料
-let markers = [];
+let markers = []; //標示點集合
+let stepMarkers = []; //導航標示點集合
 let infoWindows = [];
 let userPos;
-// 載入路線服務與路線顯示圖層
-let directionsService = new google.maps.DirectionsService();
-let directionsDisplay = new google.maps.DirectionsRenderer();
 
 window.onload = function () {
     const url =
@@ -14,7 +12,6 @@ window.onload = function () {
     fetch(url)
         .then((response) => response.json())
         .then((data) => {
-            console.log("好慢啊");
             maskdata = data;
             initMap();
             addCountyList();
@@ -128,6 +125,10 @@ function initMap() {
 
 // 兩地點導航
 function directionGuide(originPos, destinationPos) {
+    let stepInfowindows = [];
+    // 載入路線服務與路線顯示圖層
+    let directionsService = new google.maps.DirectionsService();
+    let directionsDisplay = new google.maps.DirectionsRenderer();
     // 放置路線圖層
     directionsDisplay.setMap(map);
 
@@ -138,11 +139,35 @@ function directionGuide(originPos, destinationPos) {
         travelMode: "DRIVING",
     };
 
+    // for (var i = 0; i < markers.length; i++) {
+    //     stepMarkers[i].setMap(null);
+    // }
+    // stepMarkers = [];
     // 繪製路線
     directionsService.route(request, function (result, status) {
+        // 清空導航標示點
+        if (stepMarkers.length !== 0) {
+            for (let i = 0; i < stepMarkers.length; i++) {
+                stepMarkers[i].setMap(null);
+            }
+            stepMarkers = [];
+        }
+
         if (status == "OK") {
             // 回傳路線上每個步驟的細節
-            console.log(result.routes[0].legs[0].steps);
+            let steps = result.routes[0].legs[0].steps;
+            steps.forEach((e, i) => {
+                // 加入地圖標記
+                stepMarkers[i] = new google.maps.Marker({
+                    position: {
+                        lat: e.start_location.lat(),
+                        lng: e.start_location.lng(),
+                    },
+                    map: map,
+                    label: { text: i + "", color: "#fff" },
+                });
+            });
+
             directionsDisplay.setDirections(result);
         } else {
             console.log(status);
