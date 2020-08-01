@@ -173,4 +173,9 @@ html .container-fluid .map-box #content .pop-address,
 body .container-fluid .map-box #content .pop-address {
   color: #00aabb;
 }
+
+html .container-fluid .map-box .card,
+body .container-fluid .map-box .card {
+  bottom: 50px;
+}
 /*# sourceMappingURL=all.css.map */

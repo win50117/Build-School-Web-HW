@@ -3,7 +3,11 @@ let maskdata; //口罩JSON資料
 let markers = []; //標示點集合
 let stepMarkers = []; //導航標示點集合
 let infoWindows = [];
+let stepinfoWindows = [];
 let userPos;
+// 載入路線服務與路線顯示圖層
+let directionsService = new google.maps.DirectionsService();
+let directionsDisplay = new google.maps.DirectionsRenderer();
 
 window.onload = function () {
     const url =
@@ -126,10 +130,9 @@ function initMap() {
 // 兩地點導航
 function directionGuide(originPos, destinationPos) {
     let stepInfowindows = [];
-    // 載入路線服務與路線顯示圖層
-    let directionsService = new google.maps.DirectionsService();
-    let directionsDisplay = new google.maps.DirectionsRenderer();
-    // 放置路線圖層
+
+    // 清除上次的路線、放置路線圖層
+    directionsDisplay.setMap(null);
     directionsDisplay.setMap(map);
 
     // 路線相關設定
@@ -166,8 +169,19 @@ function directionGuide(originPos, destinationPos) {
                     map: map,
                     label: { text: i + "", color: "#fff" },
                 });
+                // 加入資訊視窗
+                stepinfoWindows[i] = new google.maps.InfoWindow({
+                    content: e.instructions,
+                });
+                // 加入地圖標記點擊事件
+                stepMarkers[i].addListener("click", function () {
+                    if (stepinfoWindows[i].anchor) {
+                        stepinfoWindows[i].close();
+                    } else {
+                        stepinfoWindows[i].open(map, stepMarkers[i]);
+                    }
+                });
             });
-
             directionsDisplay.setDirections(result);
         } else {
             console.log(status);
