@@ -9,11 +9,12 @@ let directionsDisplay = new google.maps.DirectionsRenderer();
 
 window.onload = function () {
     const url =
-        "https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json?fbclid=IwAR03QVRRMDHgQC_XBIR62wBKePkGVs5kRyTMdaCpP032CjtFdu6uiA3m-Gc";
+        "https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json";
 
     fetch(url)
         .then((response) => response.json())
         .then((data) => {
+            console.log("好慢啊");
             maskdata = data;
             initMap();
             addCountyList();
