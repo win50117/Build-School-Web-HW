@@ -45,6 +45,8 @@ function initMap() {
             lng: maskdata.features[i].geometry.coordinates[0],
         });
         let idNum = maskdata.features[i].properties.id;
+        let countyName = maskdata.features[i].properties.county;
+        let TownName = maskdata.features[i].properties.town;
         let address = maskdata.features[i].properties.address;
         let phone = maskdata.features[i].properties.phone;
         let note = maskdata.features[i].properties.note;
@@ -62,6 +64,8 @@ function initMap() {
             icon: iconPic,
             map: map,
             id: idNum,
+            county: countyName,
+            town: TownName,
         });
         let contentString = `
         <div id="content">            
@@ -94,12 +98,20 @@ function initMap() {
             content: contentString,
             maxWidth: 450,
         });
+        // 標示點 點擊事件
         markers[i].addListener("click", () => {
+            let county = document.querySelector(".selectCounty");
+            let town = document.querySelector(".selectTown");
+            //打開info視窗
             infowindow.open(map, markers[i]);
-            // if (userPos !== undefined) {
-            //     directionGuide(userPos, myLatLng);
-            // }
-            console.log(markers[i].id);
+            //點擊標示 切換城市、鄉鎮選單，並強制觸發change事件
+            county.value = markers[i].county;
+            let event = new Event("change");
+            county.dispatchEvent(event);
+            town.value = markers[i].town;
+            town.dispatchEvent(event);
+
+            //列表滾動到和標示點相同的藥局card位置
             document.getElementById(markers[i].id).scrollIntoView();
         });
     }
@@ -174,9 +186,11 @@ let townSelector = document.querySelector(".selectTown");
 
 //縣市選單變換監聽事件
 document.querySelector(".selectCounty").addEventListener("change", addTownList);
-document.querySelector(".selectTown").addEventListener("change", function (e) {
+document.querySelector(".selectTown").addEventListener("change", changeTown);
+
+function changeTown(e) {
     renderList(countySelector.value, e.target.value);
-});
+}
 
 //加入縣市選單
 function addCountyList() {
@@ -290,6 +304,7 @@ function renderList(city, town) {
 
             let routeIcon = cloneContent.querySelector(".card-title i");
 
+            // 導航圖示點擊事件
             routeIcon.addEventListener("click", function (e) {
                 let Lat = Number(card.dataset.lat);
                 let Lng = Number(card.dataset.lng);
@@ -297,6 +312,7 @@ function renderList(city, town) {
                     lat: Lat,
                     lng: Lng,
                 });
+                // 執行設置導航路徑
                 if (userPos !== undefined) {
                     directionGuide(userPos, myLatLng);
                 }
