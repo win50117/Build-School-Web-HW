@@ -1,7 +1,11 @@
 let map;
 let maskdata; //口罩JSON資料
-var markers = [];
-var infoWindows = [];
+let markers = [];
+let infoWindows = [];
+let userPos;
+// 載入路線服務與路線顯示圖層
+let directionsService = new google.maps.DirectionsService();
+let directionsDisplay = new google.maps.DirectionsRenderer();
 
 window.onload = function () {
     const url =
@@ -36,8 +40,11 @@ function initMap() {
         let masksLeft = maskdata.features[i].properties.mask_adult;
         let childMasksLeft = maskdata.features[i].properties.mask_child;
         let name = maskdata.features[i].properties.name;
-        let latP = maskdata.features[i].geometry.coordinates[1];
-        let lngP = maskdata.features[i].geometry.coordinates[0];
+        let myLatLng = new google.maps.LatLng({
+            lat: maskdata.features[i].geometry.coordinates[1],
+            lng: maskdata.features[i].geometry.coordinates[0],
+        });
+        let idNum = maskdata.features[i].properties.id;
         let address = maskdata.features[i].properties.address;
         let phone = maskdata.features[i].properties.phone;
         let note = maskdata.features[i].properties.note;
@@ -51,12 +58,10 @@ function initMap() {
                 : "img/hospital.png";
         //加入標示點群組
         markers[i] = new google.maps.Marker({
-            position: {
-                lat: latP,
-                lng: lngP,
-            },
+            position: myLatLng,
             icon: iconPic,
             map: map,
+            id: idNum,
         });
         let contentString = `
         <div id="content">            
@@ -91,6 +96,11 @@ function initMap() {
         });
         markers[i].addListener("click", () => {
             infowindow.open(map, markers[i]);
+            // if (userPos !== undefined) {
+            //     directionGuide(userPos, myLatLng);
+            // }
+            console.log(markers[i].id);
+            document.getElementById(markers[i].id).scrollIntoView();
         });
     }
     // 群組化
@@ -100,6 +110,62 @@ function initMap() {
         gridSize: 130, //群集網格內的像素數
         maxZoom: 16,
     });
+    getUserLocation();
+}
+
+// 兩地點導航
+function directionGuide(originPos, destinationPos) {
+    // 放置路線圖層
+    directionsDisplay.setMap(map);
+
+    // 路線相關設定
+    let request = {
+        origin: originPos,
+        destination: destinationPos,
+        travelMode: "DRIVING",
+    };
+
+    // 繪製路線
+    directionsService.route(request, function (result, status) {
+        if (status == "OK") {
+            // 回傳路線上每個步驟的細節
+            console.log(result.routes[0].legs[0].steps);
+            directionsDisplay.setDirections(result);
+        } else {
+            console.log(status);
+        }
+    });
+}
+
+// 取得使用者位置
+function getUserLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                userPos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+
+                let marker = new google.maps.Marker({
+                    position: userPos,
+                    icon:
+                        "http://maps.google.com/mapfiles/kml/paddle/red-circle.png",
+                    map: map,
+                });
+
+                map.setCenter(userPos);
+            },
+            function () {
+                console.log("無法取得位置");
+                // handleLocationError(true, infoWindow, map.getCenter());
+            }
+        );
+    } else {
+        console.log("未支援定位功能");
+        // Browser doesn't support Geolocation
+        // handleLocationError(false, infoWindow, map.getCenter());
+    }
 }
 
 //縣市選單
@@ -146,11 +212,11 @@ function addTownList(e) {
 function renderList(city, town) {
     let ary = maskdata.features;
     let list = document.querySelector(".card-list");
-    let listItem = document.querySelector("#list-temp");
     let cardItem = document.querySelector("#card-template");
     list.innerHTML = "";
 
     for (var i = 0; i < ary.length; i++) {
+        let idNum = ary[i].properties.id;
         let pharmacyName = ary[i].properties.name; //藥局名稱
         let maskAdult = ary[i].properties.mask_adult; //成人口罩數量
         let maskChild = ary[i].properties.mask_child; //兒童口罩數量
@@ -169,6 +235,7 @@ function renderList(city, town) {
             let childMaskLeft = cloneContent.querySelector(".child-mask");
             card.setAttribute("data-lat", lat);
             card.setAttribute("data-lng", lng);
+            card.setAttribute("id", idNum);
 
             adultMaskLeft.setAttribute(
                 "class",
@@ -199,7 +266,9 @@ function renderList(city, town) {
                 ".mask-left .child-left"
             ).innerText = maskChild;
 
-            cloneContent.querySelector(".card-title").innerText = pharmacyName;
+            cloneContent.querySelector(
+                ".card-title"
+            ).innerHTML = `${pharmacyName}<i class="fas fa-route"></i>`;
             cloneContent.querySelector(
                 ".card-address"
             ).innerHTML = `<i class="fas fa-hospital-alt"></i>${address}`;
@@ -208,8 +277,8 @@ function renderList(city, town) {
             ).innerHTML = `<i class="fas fa-phone-alt"></i>${phone}`;
 
             card.addEventListener("click", function (e) {
-                Lat = Number(e.currentTarget.dataset.lat);
-                Lng = Number(e.currentTarget.dataset.lng);
+                let Lat = Number(e.currentTarget.dataset.lat);
+                let Lng = Number(e.currentTarget.dataset.lng);
 
                 let center = new google.maps.LatLng(Lat, Lng);
 
@@ -218,6 +287,22 @@ function renderList(city, town) {
                 map.zoom = 18;
                 map.panTo(center);
             });
+
+            let routeIcon = cloneContent.querySelector(".card-title i");
+
+            routeIcon.addEventListener("click", function (e) {
+                let Lat = Number(card.dataset.lat);
+                let Lng = Number(card.dataset.lng);
+                let myLatLng = new google.maps.LatLng({
+                    lat: Lat,
+                    lng: Lng,
+                });
+                if (userPos !== undefined) {
+                    directionGuide(userPos, myLatLng);
+                }
+                e.stopPropagation();
+            });
+
             list.append(cloneContent);
         }
     }

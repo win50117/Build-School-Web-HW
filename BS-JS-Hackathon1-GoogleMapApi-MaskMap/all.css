@@ -42,6 +42,8 @@ html .container-fluid .select-bar .card-list,
 body .container-fluid .select-bar .card-list {
   height: 80vh;
   overflow: auto;
+  scroll-behavior: auto;
+  scroll-behavior: smooth;
 }
 
 html .container-fluid .select-bar .card-list .card,
@@ -97,6 +99,22 @@ body .container-fluid .select-bar .card-list .card .card-body .card-title {
   border-left: 5px solid #00ddaa;
   color: #00aabb;
   font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+html .container-fluid .select-bar .card-list .card .card-body .card-title i,
+body .container-fluid .select-bar .card-list .card .card-body .card-title i {
+  color: #00aabb;
+}
+
+html .container-fluid .select-bar .card-list .card .card-body .card-title i:hover,
+body .container-fluid .select-bar .card-list .card .card-body .card-title i:hover {
+  color: #5500aa;
 }
 
 html .container-fluid .select-bar .card-list .card .card-body .card-address i,
