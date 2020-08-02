@@ -4,6 +4,7 @@ let markers = []; //標示點集合
 let stepMarkers = []; //導航標示點集合
 let infoWindows = [];
 let stepinfoWindows = [];
+let userMarkers = [];
 let userPos;
 // 載入路線服務與路線顯示圖層
 let directionsService = new google.maps.DirectionsService();
@@ -131,6 +132,7 @@ function initMap() {
         maxZoom: 16,
     });
     getUserLocation();
+    initAutocomplete();
 }
 
 // 兩地點導航
@@ -165,6 +167,8 @@ function directionGuide(originPos, destinationPos) {
         if (status == "OK") {
             // 回傳路線上每個步驟的細節
             let steps = result.routes[0].legs[0].steps;
+            // 兩點導航路徑距離（公尺）
+            console.log(result.routes[0].legs[0].distance.value);
             steps.forEach((e, i) => {
                 // 加入地圖標記
                 stepMarkers[i] = new google.maps.Marker({
@@ -194,6 +198,66 @@ function directionGuide(originPos, destinationPos) {
         }
     });
 }
+// 使用者輸入地址，取得定位座標
+function initAutocomplete() {
+    // Create the search box and link it to the UI element.
+    const input = document.getElementById("pac-input");
+    const searchBox = new google.maps.places.SearchBox(input);
+    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener("bounds_changed", () => {
+        searchBox.setBounds(map.getBounds());
+    });
+    let searchmarkers = [];
+    // Listen for the event fired when the user selects a prediction and retrieve
+    // more details for that place.
+    searchBox.addListener("places_changed", () => {
+        const places = searchBox.getPlaces();
+
+        if (places.length == 0) {
+            return;
+        }
+        // Clear out the old markers.
+        userMarkers.forEach((marker) => {
+            marker.setMap(null);
+        });
+        userMarkers = [];
+        // For each place, get the icon, name and location.
+        const bounds = new google.maps.LatLngBounds();
+        places.forEach((place) => {
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+            // const icon = {
+            //     url: place.icon,
+            //     size: new google.maps.Size(71, 71),
+            //     origin: new google.maps.Point(0, 0),
+            //     anchor: new google.maps.Point(17, 34),
+            //     scaledSize: new google.maps.Size(25, 25),
+            // };
+            // Create a marker for each place.
+            userMarkers.push(
+                new google.maps.Marker({
+                    map,
+                    icon:
+                        "http://maps.google.com/mapfiles/kml/paddle/red-circle.png",
+                    title: place.name,
+                    position: place.geometry.location,
+                })
+            );
+            userPos = place.geometry.location;
+
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+        map.fitBounds(bounds);
+    });
+}
 
 // 取得使用者位置
 function getUserLocation() {
@@ -205,12 +269,14 @@ function getUserLocation() {
                     lng: position.coords.longitude,
                 };
 
-                let marker = new google.maps.Marker({
-                    position: userPos,
-                    icon:
-                        "http://maps.google.com/mapfiles/kml/paddle/red-circle.png",
-                    map: map,
-                });
+                userMarkers.push(
+                    new google.maps.Marker({
+                        position: userPos,
+                        icon:
+                            "http://maps.google.com/mapfiles/kml/paddle/red-circle.png",
+                        map: map,
+                    })
+                );
 
                 map.setCenter(userPos);
             },
@@ -225,6 +291,11 @@ function getUserLocation() {
         // handleLocationError(false, infoWindow, map.getCenter());
     }
 }
+
+// 地圖中央回到使用者位置
+document.querySelector(".move-back").addEventListener("click", function () {
+    map.panTo(userPos);
+});
 
 //縣市選單
 let countySelector = document.querySelector(".selectCounty");

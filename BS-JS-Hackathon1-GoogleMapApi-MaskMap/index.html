@@ -13,13 +13,9 @@
     <title>口罩地圖</title>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <!-- <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-eObv-SeP0DUErpbkqNEDOQHTZDTgM3g&libraries=&v=weekly"
-        defer>
-    </script> -->
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-eObv-SeP0DUErpbkqNEDOQHTZDTgM3g&libraries=places">
     </script>
-
     <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
     <script src="https://kit.fontawesome.com/6f7f75ad47.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="all.css">
@@ -28,13 +24,16 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row h-100">
+        <div class="row">
             <div class="col-3 col-lg-3 select-bar">
-
                 <div class="area">
-                    <!-- <div class="text-center">
-                    <input id="pac-input" class="controls" type="text" placeholder="地址搜尋" />
-                </div> -->
+                    <div class="input-group d-flex">
+                        <input id="pac-input" class="controls" type="text" class="form-control"
+                            placeholder="   如網路定位不精準，請輸入所在位置" aria-label="Recipient's username"
+                            aria-describedby="button-addon2">
+                        <button class="btn move-back btn-outline-secondary" type="button" id="button-addon2"><i
+                                class="fas fa-street-view"></i></button>
+                    </div>
                     <select class="selectCounty browser-default custom-select">
                         <option value="" style="display: none">請選擇行政區域...</option>
                     </select>

@@ -9,24 +9,49 @@ body {
 
         .select-bar {
             background-color: #eee;
+            height: 100vh;
 
             #pac-input {
-                width: 100%;
+                width: 85%;
             }
+
+            .move-back {
+                width: 15%;
+                background-color: #fff;
+                border: 1px solid #ced4da;
+
+
+                i {
+                    font-size: 22px;
+                    color: orange;
+                }
+            }
+
 
             .area {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                height: 20vh;
+                height: 180px;
+
+                .input-group {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+
+                    input {
+                        height: calc(1.5em + .75rem + 2px);
+                        border: 1px solid #ced4da;
+                    }
+                }
 
                 select {
-                    margin: 15px 0;
+                    margin: 10px 0;
                 }
             }
 
             .card-list {
-                height: 80vh;
+                // height: 80vh;
+                height: calc(100vh - 180px);
                 overflow: auto;
                 scroll-behavior: auto;
                 scroll-behavior: smooth;
