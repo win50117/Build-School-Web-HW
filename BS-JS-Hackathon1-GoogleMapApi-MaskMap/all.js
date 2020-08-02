@@ -26,6 +26,7 @@ window.onload = function () {
 };
 
 function initMap() {
+    let infowindow = new google.maps.InfoWindow();
     map = new google.maps.Map(document.getElementById("map"), {
         center: {
             lat: 25.0415956,
@@ -58,7 +59,7 @@ function initMap() {
             count < 1000
                 ? "img/triangle-red.png"
                 : count < 2000
-                ? "img/triangle-yellow.png"
+                ? "img/triangle-orange.png"
                 : "img/triangle-green.png";
         //加入標示點群組
         markers[i] = new google.maps.Marker({
@@ -95,15 +96,20 @@ function initMap() {
         </div>
         
         `;
-        // 加入點擊標示彈跳視窗事件
-        let infowindow = new google.maps.InfoWindow({
-            content: contentString,
-            maxWidth: 450,
-        });
+        // let infowindow = new google.maps.InfoWindow({
+        //     content: contentString,
+        //     maxWidth: 450,
+        // });
+
         // 標示點 點擊事件
         markers[i].addListener("click", () => {
             let county = document.querySelector(".selectCounty");
             let town = document.querySelector(".selectTown");
+            // 設定info視窗
+            infowindow.setOptions({
+                content: contentString,
+                maxWidth: 450,
+            });
             //打開info視窗
             infowindow.open(map, markers[i]);
             //點擊標示 切換城市、鄉鎮選單，並強制觸發change事件
