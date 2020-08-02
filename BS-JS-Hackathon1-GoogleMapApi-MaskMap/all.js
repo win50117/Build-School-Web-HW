@@ -56,10 +56,10 @@ function initMap() {
         let count = masksLeft + childMasksLeft;
         let iconPic =
             count < 1000
-                ? "img/close.png"
+                ? "img/triangle-red.png"
                 : count < 2000
-                ? "img/alert.png"
-                : "img/hospital.png";
+                ? "img/triangle-yellow.png"
+                : "img/triangle-green.png";
         //加入標示點群組
         markers[i] = new google.maps.Marker({
             position: myLatLng,
@@ -113,7 +113,7 @@ function initMap() {
             town.value = markers[i].town;
             town.dispatchEvent(event);
 
-            //列表滾動到和標示點相同的藥局card位置
+            //列表滾動到和標示點相同的藥局card位置 要加上css效果
             document.getElementById(markers[i].id).scrollIntoView();
         });
     }
