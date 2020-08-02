@@ -45,6 +45,23 @@ body {
   color: #ec2e12;
 }
 
+.modal .modal-dialog .modal-header .modal-title {
+  color: #007642;
+}
+
+.modal .modal-dialog .modal-body .comment {
+  color: #df600f;
+  font-size: 24px;
+}
+
+.modal .modal-dialog .modal-body .comment i {
+  margin-right: 15px;
+}
+
+.modal .modal-dialog .modal-body #description {
+  color: #5d5d5d;
+}
+
 .card {
   border: 1px solid black;
   overflow: hidden;

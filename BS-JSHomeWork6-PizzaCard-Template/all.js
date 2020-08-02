@@ -49,12 +49,14 @@ function setCard() {
                 this.setAttribute("data-toggle", "modal");
                 this.setAttribute("data-target", "#exampleModal");
                 let modal = $g("#exampleModal");
-                modal.querySelector("h5").innerText =
+                modal.querySelector("h4.modal-title").innerText =
                     pizzaObject.products[i].name;
+                modal.querySelector("h5.modal-engtitle").innerText =
+                    pizzaObject.products[i].engname;
                 modal.querySelector("#pizzaImage").src =
                     pizzaObject.products[i].picture;
                 modal.querySelector("#description").innerText =
-                    pizzaObject.products[i].name;
+                    pizzaObject.products[i].Description;
             });
         row.append(cloneContent);
     }

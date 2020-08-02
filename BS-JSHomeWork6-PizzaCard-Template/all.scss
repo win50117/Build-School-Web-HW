@@ -57,6 +57,31 @@ body {
     }
 }
 
+.modal {
+    .modal-dialog {
+        .modal-header {
+            .modal-title {
+                color: #007642;
+            }
+        }
+
+        .modal-body {
+            .comment {
+                color: #df600f;
+                font-size: 24px;
+
+                i {
+                    margin-right: 15px;
+                }
+            }
+
+            #description {
+                color: #5d5d5d;
+            }
+        }
+    }
+}
+
 .card {
     border: 1px solid black;
     overflow: hidden;
