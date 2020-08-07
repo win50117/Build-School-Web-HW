@@ -18,7 +18,7 @@
 <body>
 
     <div class="container">
-        <div class="row justify-content-between">
+        <div class="d-flex justify-content-between calender-header">
             <button class="prev">＜</button>
             <div class="calendar-date text-center">
                 <h1 class="calendar-month"></h1>
@@ -48,46 +48,56 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">新增代辦事項</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
+                        <p>標題：</p>
                         <input type="text" class="todo-title">
-                        <input type="text" class="things">
-                        <input type="text" class="color">
+                        <p>內容：</p>
+                        <textarea class="form-control things" rows="4"></textarea>
+
+                        <!-- <input type="text" class="things"> -->
+                        <p>標籤顏色：</p>
+                        <input type="color" class="color" id="head" name="head" value="#39C5BB">
+
+                        <!-- <input type="text" class="color"> -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary btn-todo-save" data-dismiss="modal">Save
-                            changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                        <button type="button" class="btn btn-primary btn-todo-save" data-dismiss="modal">新增</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal -->
+        <!-- todoINFO Modal -->
         <div class="modal fade" id="todoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <input type="text" class="todo-title">
+                        <!-- <h4 class="todo-title">Modal title</h4> -->
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div id="info-area" class="modal-body">
                         <div class="todo-list">
-                            <h4 class="todo-title">Modal title</h4>
                             <h5>代辦內容：</h5>
-                            <p class="todo-things"></p>
-                            <p class="todo-color"></p>
+                            <textarea class="form-control todo-things" rows="4"></textarea>
+                            <!-- <p class="todo-things"></p> -->
+                            <input type="color" class="todo-color" id="head" name="head" value="#39C5BB">
+
+                            <!-- <p class="todo-color"></p> -->
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary btn-todo-save" data-dismiss="modal">Save
-                            changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                        <button type="button" class="btn btn-primary btn-todo-edit" data-dismiss="modal">修改</button>
+                        <button type="button" class="btn btn-primary btn-todo-delete" data-dismiss="modal">刪除</button>
                     </div>
                 </div>
             </div>
