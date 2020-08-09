@@ -21,12 +21,27 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="col-6">
+                <h4>資料載入：成功</h4>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="col-6">
+                <h4>資料載入：失敗</h4>
+                <canvas id="barChart2"></canvas>
+                <div class="error text-danger position-absolute">載入失敗</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
                 <h4>資料延遲載入：成功</h4>
                 <div class="spinner-border position-absolute loading" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <canvas id="barChart"></canvas>
+                <canvas id="barChart3"></canvas>
+            </div>
+            <div class="col-6">
+                <h4>資料更新</h4>
+                <canvas id="barChart4"></canvas>
             </div>
         </div>
     </div>

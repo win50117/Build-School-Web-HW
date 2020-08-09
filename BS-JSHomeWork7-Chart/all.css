@@ -8,4 +8,12 @@
   height: 5rem;
   color: red;
 }
+
+.container-fluid .row .error {
+  font-size: 60px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
 /*# sourceMappingURL=all.css.map */

@@ -10,5 +10,12 @@
             height: 5rem;
             color: red;
         }
+
+        .error {
+            font-size: 60px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     }
 }
