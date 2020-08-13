@@ -10,6 +10,7 @@ function readFile() {
     reader.readAsDataURL(file); //轉化為base64資料型別
     reader.onload = function (e) {
         puzzleImg.src = this.result;
+        console.log(e);
         // drawToCanvas(this.result);
     };
 }
@@ -71,14 +72,17 @@ let b = [];
 let imgBase = 2;
 
 puzzleImg.onload = function (e) {
+    puzzleArea.innerHTML = "";
     let maxWitdh = 540;
     let maxHeight = 540;
     let pWidth = puzzleImg.width / imgBase;
     let pHeight = puzzleImg.height / imgBase;
+    console.log(puzzleImg.width);
+    console.log(puzzleImg.height);
     if (puzzleImg.width > maxWitdh || puzzleImg.height > maxHeight) {
         //現有圖片只有寬或高超了預設值就進行js控制
-        w = puzzleImg.width / maxWitdh;
-        h = puzzleImg.height / maxHeight;
+        let w = puzzleImg.width / maxWitdh;
+        let h = puzzleImg.height / maxHeight;
 
         if (w > h) {
             //比值比較大==>寬比高大
@@ -115,8 +119,8 @@ puzzleImg.onload = function (e) {
                     pHeight
                 );
                 canvas.setAttribute("class", "white");
-                canvas.setAttribute("id", `b${imgBase * 2}`);
-                canvas.setAttribute("data-num", imgBase * 2);
+                canvas.setAttribute("id", `b${imgBase * imgBase}`);
+                canvas.setAttribute("data-num", imgBase * imgBase);
             } else {
                 canvasContent.drawImage(
                     puzzleImg,
@@ -137,6 +141,7 @@ puzzleImg.onload = function (e) {
             puzzleArea.appendChild(canvas);
         }
     }
+    document.querySelector(".custom-file-input").disabled = true;
 };
 
 //window onload ?? (當圖都長完才抓得到canvas)
@@ -154,14 +159,25 @@ window.onload = function () {
         });
     }
 };
-// for(let item of puzzleItems)
-// {
-//   item.width = 500;
-//   item.height = 500;
 
-//   let cxt = item.getContext("2d");
 
-//   console.log(cxt);
-//   //cxt.clearRect(0, 0, 100, 100);
-//   cxt.drawImage(puzzleImg, 0, 0);
-// }
+function move(id){
+    let i =1;
+    for(i=1;i<10;i++)
+}
+
+兩個陣列一個保存答案的固定位置
+另一個保存要移動的格子位置
+
+移動判斷陣列0位置
+row等於總數/幾成幾數字
+
+// 可移動的空白格子上方就是 空白格字的index-row index從0開始
+// 如果 空白的index%row 不等於1 (最左邊那排) 可以向右移動的意思
+//     空白格子左邊就有可移動格子就是index-1 ，取得這個方塊DOM作操作
+// 如果 空白的index%row 不等於0 (最右邊那排) 可以向左移動的意思
+//     空白格子右邊就有可移動格子就是index+1 
+// 如果 空白的index/row 不等於0 (最上邊那排) 可以向下移動的意思
+//     空白格子上邊就有可移動格子就是index-row 
+// 如果 空白的index/row 不等於(row-1) (最下邊那排) 可以向上移動的意思
+//     空白格子下邊就有可移動格子就是index+row 

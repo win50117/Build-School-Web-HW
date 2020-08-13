@@ -1,4 +1,4 @@
-.container .row #myCanvas {
-  border: 1px solid #000;
+.container #puzzle-area canvas {
+  vertical-align: bottom;
 }
 /*# sourceMappingURL=all.css.map */
