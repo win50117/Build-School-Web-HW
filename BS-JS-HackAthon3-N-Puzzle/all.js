@@ -164,13 +164,53 @@ function addBlockEvent() {
     }
 }
 
-function move(id) {
+function move(clickId) {
+    let row = imgBase;
     let whiteBlock = document.querySelector(".white");
-    let clickBlock = document.querySelector(`#b${id}`);
-    let clickBLockIndex = localBlock.indexOf(Number(id));
+    let clickBlock = document.querySelector(`#b${clickId}`);
+    let clickBLockIndex = localBlock.indexOf(Number(clickId));
+    let whiteBlockIndex = localBlock.indexOf(Number(imgBase * imgBase - 1));
 
-    console.log(index);
-    // if(localBlock[]);
+    console.log(clickBLockIndex);
+    console.log(whiteBlockIndex);
+    if (
+        clickBLockIndex / row !== 0 &&
+        clickBLockIndex - row === whiteBlockIndex
+    ) {
+        //點擊方塊不在最上排，且上面是空白方塊，可向上移動
+        changeBlock(clickBLockIndex, whiteBlockIndex);
+    }
+    if (
+        clickBLockIndex / row !== row - 1 &&
+        clickBLockIndex + row === whiteBlockIndex
+    ) {
+        //點擊方塊不在最下排，且下面是空白方塊，可向下移動
+        changeBlock(clickBLockIndex, whiteBlockIndex);
+    }
+    if (
+        clickBLockIndex % row !== 0 &&
+        clickBLockIndex - 1 === whiteBlockIndex
+    ) {
+        //點擊方塊不在最左排，且左面是空白方塊，可向左移動
+        changeBlock(clickBLockIndex, whiteBlockIndex);
+    }
+    if (
+        clickBLockIndex % row !== row - 1 &&
+        clickBLockIndex + 1 === whiteBlockIndex
+    ) {
+        //點擊方塊不在最右排，且右面是空白方塊，可向右移動
+        changeBlock(clickBLockIndex, whiteBlockIndex);
+    }
+}
+
+function changeBlock(clickBLockIndex, whiteBlockIndex) {
+    // let whiteBlock = document.querySelector(".white");
+    // let clickBlock = document.querySelector(`#b${clickId}`);
+    let temp;
+    temp = localBlock[clickBLockIndex];
+    localBlock[clickBLockIndex] = localBlock[whiteBlockIndex];
+    localBlock[whiteBlockIndex] = temp;
+    console.log(localBlock);
 }
 
 // 兩個陣列一個保存答案的固定位置
