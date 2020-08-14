@@ -5,12 +5,12 @@ document.querySelector(".file-input").addEventListener("change", readFile);
 
 function readFile() {
     let file = this.files[0]; //取得input輸入的圖片
-    console.log(file);
+    // console.log(file);
     let reader = new FileReader();
     reader.readAsDataURL(file); //轉化為base64資料型別
     reader.onload = function (e) {
         puzzleImg.src = this.result;
-        console.log(e);
+        // console.log(e);
         // drawToCanvas(this.result);
     };
 }
@@ -29,7 +29,8 @@ whiteImg.src = "img/white.png";
 //---取得父元素
 var puzzleArea = document.getElementById("puzzle-area");
 
-let baseBlock = [0, 1, 2, 3, 4, 5, 6, 7, 8, 0]; //大區塊的編號，index0不使用第9為空白格 3*3
+let baseBlock = [0, 1, 2, 3]; //大區塊的編號，第8為空白格 3*3
+let localBlock = [0, 1, 2, 3];
 let baseBlock22 = [0, 1, 2, 3, 0];
 //每個區塊可移動的位置
 let blockCanMove = new Array(
@@ -77,8 +78,8 @@ puzzleImg.onload = function (e) {
     let maxHeight = 540;
     let pWidth = puzzleImg.width / imgBase;
     let pHeight = puzzleImg.height / imgBase;
-    console.log(puzzleImg.width);
-    console.log(puzzleImg.height);
+    // console.log(puzzleImg.width);
+    // console.log(puzzleImg.height);
     if (puzzleImg.width > maxWitdh || puzzleImg.height > maxHeight) {
         //現有圖片只有寬或高超了預設值就進行js控制
         let w = puzzleImg.width / maxWitdh;
@@ -95,7 +96,7 @@ puzzleImg.onload = function (e) {
         }
     }
     ///////////////
-    let d = 1;
+    let d = 0;
     for (let i = 0; i < imgBase; i++) {
         for (let j = 0; j < imgBase; j++) {
             let canvas = document.createElement("canvas");
@@ -119,8 +120,8 @@ puzzleImg.onload = function (e) {
                     pHeight
                 );
                 canvas.setAttribute("class", "white");
-                canvas.setAttribute("id", `b${imgBase * imgBase}`);
-                canvas.setAttribute("data-num", imgBase * imgBase);
+                canvas.setAttribute("id", `b${imgBase * imgBase - 1}`);
+                canvas.setAttribute("data-num", imgBase * imgBase - 1);
             } else {
                 canvasContent.drawImage(
                     puzzleImg,
@@ -142,15 +143,18 @@ puzzleImg.onload = function (e) {
         }
     }
     document.querySelector(".custom-file-input").disabled = true;
+    addBlockEvent();
 };
 
 //window onload ?? (當圖都長完才抓得到canvas)
-window.onload = function () {
-    var canvasBlocks = document.getElementsByTagName(".moveable");
+function addBlockEvent() {
+    var canvasBlocks = document.querySelectorAll(".moveable");
     console.log(canvasBlocks);
 
     for (let block of canvasBlocks) {
         block.addEventListener("click", function () {
+            console.log(this.dataset.num);
+            move(this.dataset.num);
             //判斷是否可以被移動
             //--1.判斷自己是否在白色塊上下左右???
             //移動方法
@@ -158,26 +162,29 @@ window.onload = function () {
             //判斷輸贏
         });
     }
-};
-
-
-function move(id){
-    let i =1;
-    for(i=1;i<10;i++)
 }
 
-兩個陣列一個保存答案的固定位置
-另一個保存要移動的格子位置
+function move(id) {
+    let whiteBlock = document.querySelector(".white");
+    let clickBlock = document.querySelector(`#b${id}`);
+    let clickBLockIndex = localBlock.indexOf(Number(id));
 
-移動判斷陣列0位置
-row等於總數/幾成幾數字
+    console.log(index);
+    // if(localBlock[]);
+}
+
+// 兩個陣列一個保存答案的固定位置
+// 另一個保存要移動的格子位置
+
+// 移動判斷陣列0位置
+// row等於總數/幾成幾數字
 
 // 可移動的空白格子上方就是 空白格字的index-row index從0開始
 // 如果 空白的index%row 不等於1 (最左邊那排) 可以向右移動的意思
 //     空白格子左邊就有可移動格子就是index-1 ，取得這個方塊DOM作操作
 // 如果 空白的index%row 不等於0 (最右邊那排) 可以向左移動的意思
-//     空白格子右邊就有可移動格子就是index+1 
+//     空白格子右邊就有可移動格子就是index+1
 // 如果 空白的index/row 不等於0 (最上邊那排) 可以向下移動的意思
-//     空白格子上邊就有可移動格子就是index-row 
+//     空白格子上邊就有可移動格子就是index-row
 // 如果 空白的index/row 不等於(row-1) (最下邊那排) 可以向上移動的意思
-//     空白格子下邊就有可移動格子就是index+row 
+//     空白格子下邊就有可移動格子就是index+row
