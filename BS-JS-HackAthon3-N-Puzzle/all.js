@@ -1,5 +1,6 @@
 // 上傳圖片
-document.querySelector(".file-input").addEventListener("change", readFile);
+let inputImg = document.querySelector(".file-input");
+inputImg.addEventListener("change", readFile);
 
 function readFile() {
     let file = this.files[0]; //取得input輸入的圖片
@@ -127,7 +128,7 @@ puzzleImg.onload = function (e) {
     puzzleArea.style.display = "block";
     puzzleArea.style.width = `${AreaWidth * imgBase}px`;
     puzzleArea.style.height = `${AreaHeight * imgBase}px`;
-    document.querySelector(".custom-file-input").disabled = true;
+    inputImg.disabled = true;
     document.querySelector("#shuffleBtn").disabled = false;
     document.querySelector("#startBtn").disabled = false;
 };
@@ -197,8 +198,13 @@ function chageCanvas(clickBlock, whiteBlock) {
 //判斷完成拼圖
 function checkWinGame() {
     if (localBlock.toString() == baseBlock.toString()) {
-        alert("過關");
+        // alert("過關");
+        Swal.fire("過關!", `恭喜完成${imgBase} X ${imgBase}拼圖`, "success");
     }
+    inputImg.value = ""; //清空input的value，這樣選同一張圖片才能觸發change事件
+    inputImg.disabled = false;
+    puzzleImg = "";
+    puzzleImg = new Image();
 }
 
 //洗亂按鈕事件
