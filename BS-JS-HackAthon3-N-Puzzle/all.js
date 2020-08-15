@@ -4,19 +4,17 @@ inputImg.addEventListener("change", readFile);
 
 function readFile() {
     let file = this.files[0]; //取得input輸入的圖片
-    // console.log(file);
     let reader = new FileReader();
     reader.readAsDataURL(file); //轉化為base64資料型別
     reader.onload = function (e) {
-        puzzleImg.src = this.result;
+        setPuzzleImg(this.result);
+        // puzzleImg.src = this.result;
         // console.log(e);
         // drawToCanvas(this.result);
     };
 }
 
-//拼圖設定
 //---1. 設定原始圖
-var puzzleImg = new Image();
 // puzzleImg.src = "./star_540.jpg";
 var whiteImg = new Image();
 whiteImg.src = "img/white.png";
@@ -47,91 +45,96 @@ document
         console.log(localBlock);
     });
 
-puzzleImg.onload = function (e) {
+function setPuzzleImg(imgSrc) {
     puzzleArea.innerHTML = "";
-    let maxWitdh = 540;
-    let maxHeight = 540;
-    let pWidth = puzzleImg.width / imgBase;
-    let pHeight = puzzleImg.height / imgBase;
-    // console.log(puzzleImg.width);
-    // console.log(puzzleImg.height);
-    if (puzzleImg.width > maxWitdh || puzzleImg.height > maxHeight) {
-        //現有圖片只有寬或高超了預設值就進行js控制
-        let w = puzzleImg.width / maxWitdh;
-        let h = puzzleImg.height / maxHeight;
+    //拼圖設定
+    var puzzleImg = new Image();
+    puzzleImg.src = imgSrc;
+    //確保圖片onload後才繪製到canvas上，才不會報錯
+    puzzleImg.onload = function () {
+        let maxWitdh = 540;
+        let maxHeight = 540;
+        let pWidth = puzzleImg.width / imgBase;
+        let pHeight = puzzleImg.height / imgBase;
+        // console.log(puzzleImg.width);
+        // console.log(puzzleImg.height);
+        if (puzzleImg.width > maxWitdh || puzzleImg.height > maxHeight) {
+            //現有圖片只有寬或高超了預設值就進行js控制
+            let w = puzzleImg.width / maxWitdh;
+            let h = puzzleImg.height / maxHeight;
 
-        if (w > h) {
-            //比值比較大==>寬比高大
-            puzzleImg.width = maxWitdh; //定下寬度為width的寬度
-            puzzleImg.height = puzzleImg.height / w; //以下為計算高度
-        } else {
-            //高比寬大
-            puzzleImg.height = maxHeight; //定下寬度為height高度
-            puzzleImg.width = puzzleImg.width / h; //以下為計算高度
-        }
-    }
-    ///////////////
-    let d = 0;
-    for (let i = 0; i < imgBase; i++) {
-        for (let j = 0; j < imgBase; j++) {
-            let canvas = document.createElement("canvas");
-            canvas.width = puzzleImg.width / imgBase;
-            canvas.height = puzzleImg.height / imgBase;
-            AreaWidth = canvas.width; //之後的座標寬
-            AreaHeight = canvas.height; //之後的座標高
-            canvasContent = canvas.getContext("2d");
-            //白色區塊的位置
-            if (i == imgBase - 1 && j == imgBase - 1) {
-                //我先寫死
-                canvasContent.drawImage(
-                    whiteImg,
-                    j * pWidth,
-                    i * pHeight,
-                    pWidth,
-                    pHeight,
-                    0,
-                    0,
-                    pWidth,
-                    pHeight
-                );
-                canvas.setAttribute("class", "white");
-                canvas.setAttribute("id", `b${imgBase * imgBase - 1}`);
-                canvas.setAttribute("data-num", imgBase * imgBase - 1);
+            if (w > h) {
+                //比值比較大==>寬比高大
+                puzzleImg.width = maxWitdh; //定下寬度為width的寬度
+                puzzleImg.height = puzzleImg.height / w; //以下為計算高度
             } else {
-                canvasContent.drawImage(
-                    puzzleImg,
-                    j * pWidth,
-                    i * pHeight,
-                    pWidth,
-                    pHeight,
-                    0,
-                    0,
-                    canvas.width,
-                    canvas.height
-                );
-                canvas.setAttribute("class", "moveable");
-                canvas.setAttribute("id", `b${d}`);
-                canvas.setAttribute("data-num", d);
-                canvas.addEventListener("click", function () {
-                    move(this.dataset.num);
-                });
-
-                d++;
+                //高比寬大
+                puzzleImg.height = maxHeight; //定下寬度為height高度
+                puzzleImg.width = puzzleImg.width / h; //以下為計算高度
             }
-            //設定canvas絕對定位的xy軸
-            canvas.style.top = `${canvas.height * i}px`;
-            canvas.style.left = `${canvas.width * j}px`;
-            puzzleArea.appendChild(canvas);
+            console.log(puzzleImg.width);
+            console.log(puzzleImg.height);
         }
-    }
-    //設定拼圖區域的整體寬高，顯示border用
-    puzzleArea.style.display = "block";
-    puzzleArea.style.width = `${AreaWidth * imgBase}px`;
-    puzzleArea.style.height = `${AreaHeight * imgBase}px`;
-    inputImg.disabled = true;
-    document.querySelector("#shuffleBtn").disabled = false;
-    document.querySelector("#startBtn").disabled = false;
-};
+        ///////////////
+        let d = 0;
+        for (let i = 0; i < imgBase; i++) {
+            for (let j = 0; j < imgBase; j++) {
+                let canvas = document.createElement("canvas");
+                canvas.width = puzzleImg.width / imgBase;
+                canvas.height = puzzleImg.height / imgBase;
+                AreaWidth = canvas.width; //之後的座標寬
+                AreaHeight = canvas.height; //之後的座標高
+                canvasContent = canvas.getContext("2d");
+                //白色區塊的位置
+                if (i == imgBase - 1 && j == imgBase - 1) {
+                    canvasContent.drawImage(
+                        whiteImg,
+                        j * pWidth,
+                        i * pHeight,
+                        pWidth,
+                        pHeight,
+                        0,
+                        0,
+                        pWidth,
+                        pHeight
+                    );
+                    canvas.setAttribute("class", "white");
+                    canvas.setAttribute("id", `b${imgBase * imgBase - 1}`);
+                    canvas.setAttribute("data-num", imgBase * imgBase - 1);
+                } else {
+                    canvasContent.drawImage(
+                        puzzleImg,
+                        j * pWidth,
+                        i * pHeight,
+                        pWidth,
+                        pHeight,
+                        0,
+                        0,
+                        canvas.width,
+                        canvas.height
+                    );
+                    canvas.setAttribute("class", "moveable");
+                    canvas.setAttribute("id", `b${d}`);
+                    canvas.setAttribute("data-num", d);
+                    canvas.addEventListener("click", function () {
+                        move(this.dataset.num);
+                    });
+
+                    d++;
+                }
+                //設定canvas絕對定位的xy軸
+                canvas.style.top = `${canvas.height * i}px`;
+                canvas.style.left = `${canvas.width * j}px`;
+                puzzleArea.appendChild(canvas);
+            }
+        }
+        //設定拼圖區域的整體寬高，顯示border用
+        puzzleArea.style.display = "block";
+        puzzleArea.style.width = `${AreaWidth * imgBase}px`;
+        puzzleArea.style.height = `${AreaHeight * imgBase}px`;
+        document.querySelector("#shuffleBtn").disabled = false;
+    };
+}
 
 function move(clickId) {
     let row = imgBase;
@@ -178,6 +181,7 @@ function move(clickId) {
     checkWinGame();
 }
 
+//方塊交換
 function changeBlock(clickBLockIndex, whiteBlockIndex) {
     let temp;
     temp = localBlock[clickBLockIndex];
@@ -185,6 +189,7 @@ function changeBlock(clickBLockIndex, whiteBlockIndex) {
     localBlock[whiteBlockIndex] = temp;
 }
 
+//方塊的canvas畫布圖片位置交換
 function chageCanvas(clickBlock, whiteBlock) {
     let temp;
     temp = clickBlock.style.top;
@@ -198,64 +203,62 @@ function chageCanvas(clickBlock, whiteBlock) {
 //判斷完成拼圖
 function checkWinGame() {
     if (localBlock.toString() == baseBlock.toString()) {
-        // alert("過關");
         Swal.fire("過關!", `恭喜完成${imgBase} X ${imgBase}拼圖`, "success");
+        // inputImg.value = ""; //清空input的value，這樣選同一張圖片才能觸發change事件
+        inputImg.disabled = false;
     }
-    inputImg.value = ""; //清空input的value，這樣選同一張圖片才能觸發change事件
-    inputImg.disabled = false;
-    puzzleImg = "";
-    puzzleImg = new Image();
 }
 
 //洗亂按鈕事件
-document.querySelector("#shuffleBtn").addEventListener("click", function () {
+document.querySelector("#shuffleBtn").addEventListener("click", shuffle);
+
+//洗亂
+function shuffle() {
     let row = imgBase;
     let whiteBlock = document.querySelector(".white");
-
-    let canvas = document.querySelectorAll("canvas");
-
     let shuffleTimes = Math.pow(imgBase, 2) * 10;
 
     for (let i = 0; i < shuffleTimes; i++) {
         let whiteBlockIndex = localBlock.indexOf(Number(imgBase * imgBase - 1));
+        let moveBlockIndex;
+        let moveBlock;
         let randomNum = Math.floor(Math.random() * 4); // 0上 1下 2左 3右
         //上
         if (randomNum === 0 && whiteBlockIndex - row >= 0) {
-            let topBlock = document.querySelector(
-                `#b${localBlock[whiteBlockIndex - row]}`
+            moveBlockIndex = whiteBlockIndex - row;
+            moveBlock = document.querySelector(
+                `#b${localBlock[moveBlockIndex]}`
             );
-            changeBlock(whiteBlockIndex - row, whiteBlockIndex);
-            chageCanvas(topBlock, whiteBlock);
         }
         //下
         else if (
             randomNum === 1 &&
             whiteBlockIndex + row <= Math.pow(row, 2) - 1
         ) {
-            let bottomBlock = document.querySelector(
-                `#b${localBlock[whiteBlockIndex + row]}`
+            moveBlockIndex = whiteBlockIndex + row;
+            moveBlock = document.querySelector(
+                `#b${localBlock[moveBlockIndex]}`
             );
-            changeBlock(whiteBlockIndex + row, whiteBlockIndex);
-            chageCanvas(bottomBlock, whiteBlock);
         }
         //左
         else if (randomNum === 2 && whiteBlockIndex % row !== 0) {
-            let leftBlock = document.querySelector(
-                `#b${localBlock[whiteBlockIndex - 1]}`
+            moveBlockIndex = whiteBlockIndex - 1;
+            moveBlock = document.querySelector(
+                `#b${localBlock[moveBlockIndex]}`
             );
-            changeBlock(whiteBlockIndex - 1, whiteBlockIndex);
-            chageCanvas(leftBlock, whiteBlock);
         }
         //右
         else if (randomNum === 3 && whiteBlockIndex % row !== row - 1) {
-            let rightBlock = document.querySelector(
-                `#b${localBlock[whiteBlockIndex + 1]}`
+            moveBlockIndex = whiteBlockIndex + 1;
+            moveBlock = document.querySelector(
+                `#b${localBlock[moveBlockIndex]}`
             );
-            changeBlock(whiteBlockIndex + 1, whiteBlockIndex);
-            chageCanvas(rightBlock, whiteBlock);
         } else {
             i--;
+            continue;
         }
+        changeBlock(moveBlockIndex, whiteBlockIndex);
+        chageCanvas(moveBlock, whiteBlock);
 
         //如果洗排後和答案一樣則重洗。
         if (
@@ -265,4 +268,9 @@ document.querySelector("#shuffleBtn").addEventListener("click", function () {
             i = 0;
         }
     }
+}
+
+//使用預設圖片按鈕
+document.querySelector("#startBtn").addEventListener("click", function () {
+    setPuzzleImg("img/Capoo1.jpg");
 });
