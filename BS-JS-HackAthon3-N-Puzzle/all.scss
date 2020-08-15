@@ -2,13 +2,10 @@ body {
     background-color: #39c5bb;
 
     .container {
-
-
         #puzzle-area {
             display: none;
             position: relative;
             border: 1px solid #aaa;
-
 
             canvas {
                 box-sizing: border-box;
