@@ -276,4 +276,5 @@ function shuffle() {
 //使用預設圖片按鈕
 document.querySelector("#startBtn").addEventListener("click", function () {
     setPuzzleImg("img/Capoo1.jpg");
+    imgSrc = "img/Capoo1.jpg";
 });
