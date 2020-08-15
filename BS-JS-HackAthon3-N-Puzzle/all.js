@@ -1,5 +1,6 @@
 // 上傳圖片
 let inputImg = document.querySelector(".file-input");
+let imgSrc = "";
 inputImg.addEventListener("change", readFile);
 
 function readFile() {
@@ -7,15 +8,13 @@ function readFile() {
     let reader = new FileReader();
     reader.readAsDataURL(file); //轉化為base64資料型別
     reader.onload = function (e) {
-        setPuzzleImg(this.result);
+        imgSrc = this.result;
+        setPuzzleImg(imgSrc);
         // puzzleImg.src = this.result;
-        // console.log(e);
-        // drawToCanvas(this.result);
     };
 }
 
 //---1. 設定原始圖
-// puzzleImg.src = "./star_540.jpg";
 var whiteImg = new Image();
 whiteImg.src = "img/white.png";
 
@@ -43,8 +42,12 @@ document
         }
         console.log(baseBlock);
         console.log(localBlock);
+        if (imgSrc.length !== 0) {
+            setPuzzleImg(imgSrc);
+        }
     });
 
+//設定拼圖
 function setPuzzleImg(imgSrc) {
     puzzleArea.innerHTML = "";
     //拼圖設定
