@@ -3,8 +3,9 @@ body {
 }
 
 body .container #puzzle-area {
+  display: none;
   position: relative;
-  border: 1px solid #000;
+  border: 1px solid #aaa;
 }
 
 body .container #puzzle-area canvas {
@@ -14,5 +15,9 @@ body .container #puzzle-area canvas {
   position: absolute;
   -webkit-transition: .3s;
   transition: .3s;
+}
+
+body .container #puzzle-area canvas.moveable {
+  border: 1px solid #aaa;
 }
 /*# sourceMappingURL=all.css.map */

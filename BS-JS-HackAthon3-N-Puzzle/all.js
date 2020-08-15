@@ -29,8 +29,6 @@ whiteImg.src = "img/white.png";
 //---取得父元素
 var puzzleArea = document.getElementById("puzzle-area");
 
-let baseBlock = [0, 1, 2, 3]; //大區塊的編號，第8為空白格 3*3
-let localBlock = [0, 1, 2, 3];
 // let baseBlock22 = [0, 1, 2, 3, 0];
 // //每個區塊可移動的位置
 // let blockCanMove = new Array(
@@ -71,6 +69,23 @@ let AreaWidth; //座標高
 
 //---設定幾乘幾
 let imgBase = 2;
+let baseBlock = [0, 1, 2, 3]; //拼圖尺寸預設2X2大小，編號
+let localBlock = [0, 1, 2, 3];
+document
+    .querySelector(".puzzle-size-select")
+    .addEventListener("change", function () {
+        imgBase = Number(this.value);
+        let allPuzzle = Math.pow(imgBase, 2);
+        baseBlock.length = 0;
+        localBlock.length = 0;
+
+        for (let i = 0; i < allPuzzle; i++) {
+            baseBlock.push(i);
+            localBlock.push(i);
+        }
+        console.log(baseBlock);
+        console.log(localBlock);
+    });
 
 puzzleImg.onload = function (e) {
     puzzleArea.innerHTML = "";
@@ -149,10 +164,10 @@ puzzleImg.onload = function (e) {
             puzzleArea.appendChild(canvas);
         }
     }
+    //設定拼圖區域的整體寬高，顯示border用
+    puzzleArea.style.display = "block";
     puzzleArea.style.width = `${AreaWidth * imgBase}px`;
     puzzleArea.style.height = `${AreaHeight * imgBase}px`;
-    console.log(puzzleArea.style.width);
-    console.log(puzzleArea.style.height);
     document.querySelector(".custom-file-input").disabled = true;
     // addBlockEvent();
 };
@@ -181,12 +196,19 @@ function move(clickId) {
     let whiteBlock = document.querySelector(".white");
     let clickBLockIndex = localBlock.indexOf(Number(clickId));
     let whiteBlockIndex = localBlock.indexOf(Number(imgBase * imgBase - 1));
+    console.log(row);
+    console.log(clickBLockIndex);
+    console.log(clickBLockIndex / row);
+    console.log(clickBLockIndex + row);
+
+    console.log(whiteBlockIndex);
 
     if (
         //點擊方塊不在最上排，且上面是空白方塊，可向上移動
         clickBLockIndex / row !== 0 &&
         clickBLockIndex - row === whiteBlockIndex
     ) {
+        console.log("向上移動");
         changeBlock(clickBLockIndex, whiteBlockIndex);
         chageCanvas(clickBlock, whiteBlock);
     } else if (
@@ -194,6 +216,7 @@ function move(clickId) {
         clickBLockIndex / row !== row - 1 &&
         clickBLockIndex + row === whiteBlockIndex
     ) {
+        console.log("向下移動");
         changeBlock(clickBLockIndex, whiteBlockIndex);
         chageCanvas(clickBlock, whiteBlock);
     } else if (
@@ -201,6 +224,7 @@ function move(clickId) {
         clickBLockIndex % row !== 0 &&
         clickBLockIndex - 1 === whiteBlockIndex
     ) {
+        console.log("向左移動");
         changeBlock(clickBLockIndex, whiteBlockIndex);
         chageCanvas(clickBlock, whiteBlock);
     } else if (
@@ -208,6 +232,7 @@ function move(clickId) {
         clickBLockIndex % row !== row - 1 &&
         clickBLockIndex + 1 === whiteBlockIndex
     ) {
+        console.log("向右移動");
         changeBlock(clickBLockIndex, whiteBlockIndex);
         chageCanvas(clickBlock, whiteBlock);
     } else {
@@ -221,7 +246,6 @@ function changeBlock(clickBLockIndex, whiteBlockIndex) {
     temp = localBlock[clickBLockIndex];
     localBlock[clickBLockIndex] = localBlock[whiteBlockIndex];
     localBlock[whiteBlockIndex] = temp;
-    console.log(localBlock);
 }
 
 function chageCanvas(clickBlock, whiteBlock) {
@@ -229,11 +253,9 @@ function chageCanvas(clickBlock, whiteBlock) {
     temp = clickBlock.style.top;
     clickBlock.style.top = whiteBlock.style.top;
     whiteBlock.style.top = temp;
-    console.log(`test:${temp}`);
     temp = clickBlock.style.left;
     clickBlock.style.left = whiteBlock.style.left;
     whiteBlock.style.left = temp;
-    console.log(temp);
 }
 
 //判斷完成拼圖

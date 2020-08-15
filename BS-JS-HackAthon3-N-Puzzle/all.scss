@@ -5,8 +5,10 @@ body {
 
 
         #puzzle-area {
+            display: none;
             position: relative;
-            border: 1px solid #000;
+            border: 1px solid #aaa;
+
 
             canvas {
                 box-sizing: border-box;
@@ -14,6 +16,9 @@ body {
                 position: absolute;
                 transition: .3s;
 
+                &.moveable {
+                    border: 1px solid #aaa;
+                }
             }
         }
     }
