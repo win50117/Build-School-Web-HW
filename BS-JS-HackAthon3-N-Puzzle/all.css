@@ -1,4 +1,18 @@
-.container #puzzle-area canvas {
+body {
+  background-color: #39c5bb;
+}
+
+body .container #puzzle-area {
+  position: relative;
+  border: 1px solid #000;
+}
+
+body .container #puzzle-area canvas {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   vertical-align: bottom;
+  position: absolute;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 /*# sourceMappingURL=all.css.map */

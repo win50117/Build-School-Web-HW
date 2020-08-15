@@ -31,43 +31,43 @@ var puzzleArea = document.getElementById("puzzle-area");
 
 let baseBlock = [0, 1, 2, 3]; //大區塊的編號，第8為空白格 3*3
 let localBlock = [0, 1, 2, 3];
-let baseBlock22 = [0, 1, 2, 3, 0];
-//每個區塊可移動的位置
-let blockCanMove = new Array(
-    [0], //不使用0的陣列位置，比較好判斷
-    [2, 4], //區塊1可以移動到區塊2、4的位置
-    [1, 3, 5], //區塊2可以移動到區塊1、3、5的位置
-    [2, 6],
-    [1, 5, 7],
-    [2, 4, 6, 8],
-    [3, 5, 9],
-    [4, 8],
-    [5, 7, 9],
-    [6, 8]
-);
+// let baseBlock22 = [0, 1, 2, 3, 0];
+// //每個區塊可移動的位置
+// let blockCanMove = new Array(
+//     [0], //不使用0的陣列位置，比較好判斷
+//     [2, 4], //區塊1可以移動到區塊2、4的位置
+//     [1, 3, 5], //區塊2可以移動到區塊1、3、5的位置
+//     [2, 6],
+//     [1, 5, 7],
+//     [2, 4, 6, 8],
+//     [3, 5, 9],
+//     [4, 8],
+//     [5, 7, 9],
+//     [6, 8]
+// );
 
-let blockCanMove22 = new Array(
-    [0], //不使用0的陣列位置，比較好判斷
-    [2, 3], //區塊1可以移動到區塊2、3的位置
-    [1, 4], //區塊2可以移動到區塊1、4的位置
-    [1, 4],
-    [2, 3]
-);
-let posX; //座標寬
-let posY; //座標高
+// let blockCanMove22 = new Array(
+//     [0], //不使用0的陣列位置，比較好判斷
+//     [2, 3], //區塊1可以移動到區塊2、3的位置
+//     [1, 4], //區塊2可以移動到區塊1、4的位置
+//     [1, 4],
+//     [2, 3]
+// );
+let AreaHeight; //座標寬
+let AreaWidth; //座標高
 
-let blockPosXY = new Array(
-    [0], //不使用index 0
-    [0, 0][(posX, 0)], //第一個表示left,第二個表示top，比如第一塊位置為left:0px ,top:0px
-    [posX * 2, 0],
-    [0, posY],
-    [posX, posY],
-    [posX * 2, posY],
-    [0, posY * 2],
-    [posX, posY * 2],
-    [posX * 2, posY * 2]
-);
-let b = [];
+// let blockPosXY = new Array(
+//     [0], //不使用index 0
+//     [0, 0][(posX, 0)], //第一個表示left,第二個表示top，比如第一塊位置為left:0px ,top:0px
+//     [posX * 2, 0],
+//     [0, posY],
+//     [posX, posY],
+//     [posX * 2, posY],
+//     [0, posY * 2],
+//     [posX, posY * 2],
+//     [posX * 2, posY * 2]
+// );
+// let b = [];
 
 //---設定幾乘幾
 let imgBase = 2;
@@ -102,8 +102,8 @@ puzzleImg.onload = function (e) {
             let canvas = document.createElement("canvas");
             canvas.width = puzzleImg.width / imgBase;
             canvas.height = puzzleImg.height / imgBase;
-            posX = canvas.width; //之後的座標寬
-            posY = canvas.height; //之後的座標高
+            AreaWidth = canvas.width; //之後的座標寬
+            AreaHeight = canvas.height; //之後的座標高
             canvasContent = canvas.getContext("2d");
             //白色區塊的位置
             if (i == imgBase - 1 && j == imgBase - 1) {
@@ -137,80 +137,110 @@ puzzleImg.onload = function (e) {
                 canvas.setAttribute("class", "moveable");
                 canvas.setAttribute("id", `b${d}`);
                 canvas.setAttribute("data-num", d);
+                canvas.addEventListener("click", function () {
+                    move(this.dataset.num);
+                });
+
                 d++;
             }
+            //設定canvas絕對定位的xy軸
+            canvas.style.top = `${canvas.height * i}px`;
+            canvas.style.left = `${canvas.width * j}px`;
             puzzleArea.appendChild(canvas);
         }
     }
+    puzzleArea.style.width = `${AreaWidth * imgBase}px`;
+    puzzleArea.style.height = `${AreaHeight * imgBase}px`;
+    console.log(puzzleArea.style.width);
+    console.log(puzzleArea.style.height);
     document.querySelector(".custom-file-input").disabled = true;
-    addBlockEvent();
+    // addBlockEvent();
 };
 
 //window onload ?? (當圖都長完才抓得到canvas)
-function addBlockEvent() {
-    var canvasBlocks = document.querySelectorAll(".moveable");
-    console.log(canvasBlocks);
+// function addBlockEvent() {
+//     var canvasBlocks = document.querySelectorAll(".moveable");
+//     console.log(canvasBlocks);
 
-    for (let block of canvasBlocks) {
-        block.addEventListener("click", function () {
-            console.log(this.dataset.num);
-            move(this.dataset.num);
-            //判斷是否可以被移動
-            //--1.判斷自己是否在白色塊上下左右???
-            //移動方法
-            //--1.白色塊與自己交換'位置'
-            //判斷輸贏
-        });
-    }
-}
+//     for (let block of canvasBlocks) {
+//         block.addEventListener("click", function () {
+//             console.log(this.dataset.num);
+//             move(this.dataset.num);
+//             //判斷是否可以被移動
+//             //--1.判斷自己是否在白色塊上下左右???
+//             //移動方法
+//             //--1.白色塊與自己交換'位置'
+//             //判斷輸贏
+//         });
+//     }
+// }
 
 function move(clickId) {
     let row = imgBase;
-    let whiteBlock = document.querySelector(".white");
     let clickBlock = document.querySelector(`#b${clickId}`);
+    let whiteBlock = document.querySelector(".white");
     let clickBLockIndex = localBlock.indexOf(Number(clickId));
     let whiteBlockIndex = localBlock.indexOf(Number(imgBase * imgBase - 1));
 
-    console.log(clickBLockIndex);
-    console.log(whiteBlockIndex);
     if (
+        //點擊方塊不在最上排，且上面是空白方塊，可向上移動
         clickBLockIndex / row !== 0 &&
         clickBLockIndex - row === whiteBlockIndex
     ) {
-        //點擊方塊不在最上排，且上面是空白方塊，可向上移動
         changeBlock(clickBLockIndex, whiteBlockIndex);
-    }
-    if (
+        chageCanvas(clickBlock, whiteBlock);
+    } else if (
+        //點擊方塊不在最下排，且下面是空白方塊，可向下移動
         clickBLockIndex / row !== row - 1 &&
         clickBLockIndex + row === whiteBlockIndex
     ) {
-        //點擊方塊不在最下排，且下面是空白方塊，可向下移動
         changeBlock(clickBLockIndex, whiteBlockIndex);
-    }
-    if (
+        chageCanvas(clickBlock, whiteBlock);
+    } else if (
+        //點擊方塊不在最左排，且左面是空白方塊，可向左移動
         clickBLockIndex % row !== 0 &&
         clickBLockIndex - 1 === whiteBlockIndex
     ) {
-        //點擊方塊不在最左排，且左面是空白方塊，可向左移動
         changeBlock(clickBLockIndex, whiteBlockIndex);
-    }
-    if (
+        chageCanvas(clickBlock, whiteBlock);
+    } else if (
+        //點擊方塊不在最右排，且右面是空白方塊，可向右移動
         clickBLockIndex % row !== row - 1 &&
         clickBLockIndex + 1 === whiteBlockIndex
     ) {
-        //點擊方塊不在最右排，且右面是空白方塊，可向右移動
         changeBlock(clickBLockIndex, whiteBlockIndex);
+        chageCanvas(clickBlock, whiteBlock);
+    } else {
+        return;
     }
+    checkWinGame();
 }
 
 function changeBlock(clickBLockIndex, whiteBlockIndex) {
-    // let whiteBlock = document.querySelector(".white");
-    // let clickBlock = document.querySelector(`#b${clickId}`);
     let temp;
     temp = localBlock[clickBLockIndex];
     localBlock[clickBLockIndex] = localBlock[whiteBlockIndex];
     localBlock[whiteBlockIndex] = temp;
     console.log(localBlock);
+}
+
+function chageCanvas(clickBlock, whiteBlock) {
+    let temp;
+    temp = clickBlock.style.top;
+    clickBlock.style.top = whiteBlock.style.top;
+    whiteBlock.style.top = temp;
+    console.log(`test:${temp}`);
+    temp = clickBlock.style.left;
+    clickBlock.style.left = whiteBlock.style.left;
+    whiteBlock.style.left = temp;
+    console.log(temp);
+}
+
+//判斷完成拼圖
+function checkWinGame() {
+    if (localBlock.toString() == baseBlock.toString()) {
+        alert("過關");
+    }
 }
 
 // 兩個陣列一個保存答案的固定位置

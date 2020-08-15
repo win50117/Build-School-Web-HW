@@ -1,7 +1,20 @@
-.container {
-    #puzzle-area {
-        canvas {
-            vertical-align: bottom;
+body {
+    background-color: #39c5bb;
+
+    .container {
+
+
+        #puzzle-area {
+            position: relative;
+            border: 1px solid #000;
+
+            canvas {
+                box-sizing: border-box;
+                vertical-align: bottom;
+                position: absolute;
+                transition: .3s;
+
+            }
         }
     }
 }
