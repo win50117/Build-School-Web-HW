@@ -278,3 +278,185 @@ document.querySelector("#startBtn").addEventListener("click", function () {
     setPuzzleImg("img/Capoo1.jpg");
     imgSrc = "img/Capoo1.jpg";
 });
+
+//轉字串比較會有bug 待fix
+let dictionary = new Dictionary();
+document.querySelector("#bfs-alg").addEventListener("click", BFS);
+function BFS() {
+    dictionary = new Dictionary();
+    let row = imgBase;
+    let queueArray = []; //佇列
+    let visitArray = []; //已探訪
+    let vertex = [];
+    let tempAry;
+    let temp;
+    let whiteBlockIndex;
+    let path = []; //路徑 空白格往：0上 1下 2左 3右
+    queueArray.push(baseBlock.slice(0)); //放入起始節點 完全複製，不然只是參照到原陣列
+    visitArray.push(baseBlock.slice(0)); //起始節點已探訪
+    console.log(queueArray);
+    let i = 0;
+    while (queueArray.length > 0) {
+        console.log(i++);
+        vertex = queueArray.shift().slice(0); //取出的頂點
+        whiteBlockIndex = vertex.indexOf(Number(Math.pow(imgBase, 2) - 1));
+
+        //如果取出的頂點等於目標localBlock 回傳路徑，不把全部路徑可能記錄
+        if (vertex.toString() === localBlock.toString()) {
+            autoMove();
+            return;
+        }
+        // 找出臨節點
+        // 往上的節點
+        if (whiteBlockIndex - row >= 0) {
+            tempAry = vertex.slice(0);
+            temp = tempAry[whiteBlockIndex];
+            tempAry[whiteBlockIndex] = tempAry[whiteBlockIndex - row];
+            tempAry[whiteBlockIndex - row] = temp;
+            if (!visitArray.toString().includes(tempAry.toString())) {
+                //加入queue和已探訪
+                queueArray.push(tempAry.slice(0));
+                visitArray.push(tempAry.slice(0));
+                dictionary.set(tempAry.slice(0), vertex.slice(0));
+                // console.log("TEST0");
+            }
+        }
+        //往下的節點
+        if (whiteBlockIndex + row <= Math.pow(row, 2) - 1) {
+            tempAry = vertex.slice(0);
+            temp = tempAry[whiteBlockIndex];
+            tempAry[whiteBlockIndex] = tempAry[whiteBlockIndex + row];
+            tempAry[whiteBlockIndex + row] = temp;
+            if (!visitArray.toString().includes(tempAry.toString())) {
+                //加入queue和已探訪
+                queueArray.push(tempAry.slice(0));
+                visitArray.push(tempAry.slice(0));
+                dictionary.set(tempAry.slice(0), vertex.slice(0));
+                // console.log("TEST1");
+            }
+        }
+        //往左的節點
+        if (whiteBlockIndex % row !== 0) {
+            tempAry = vertex.slice(0);
+            temp = tempAry[whiteBlockIndex];
+            tempAry[whiteBlockIndex] = tempAry[whiteBlockIndex - 1];
+            tempAry[whiteBlockIndex - 1] = temp;
+            if (!visitArray.toString().includes(tempAry.toString())) {
+                //加入queue和已探訪
+                queueArray.push(tempAry.slice(0));
+                visitArray.push(tempAry.slice(0));
+                dictionary.set(tempAry.slice(0), vertex.slice(0));
+                // console.log("TEST2");
+            }
+        }
+        //往右的節點
+        if (whiteBlockIndex % row !== row - 1) {
+            tempAry = vertex.slice(0);
+            temp = tempAry[whiteBlockIndex];
+            tempAry[whiteBlockIndex] = tempAry[whiteBlockIndex + 1];
+            tempAry[whiteBlockIndex + 1] = temp;
+            if (!visitArray.toString().includes(tempAry.toString())) {
+                //加入queue和已探訪
+                queueArray.push(tempAry.slice(0));
+                visitArray.push(tempAry.slice(0));
+                dictionary.set(tempAry.slice(0), vertex.slice(0));
+                // console.log("TEST3");
+            }
+        }
+        console.log(queueArray);
+    }
+
+    console.log(dictionary.getItems());
+    // console.log(localBlock.toString());
+    // console.log(dictionary.get(localBlock));
+}
+
+//最後移動時 可以找目前節點的whiteIndex值 和 下一個路徑的whiteIndex值
+//相減判斷是移動上下左右
+let timeOpen = false;
+let time;
+function autoMove() {
+    if (timeOpen === false) {
+        time = setInterval(autoMove, 300);
+        timeOpen = true;
+    }
+    if (localBlock.toString() === baseBlock.toString()) {
+        window.clearInterval(time);
+        timeOpen = false;
+        return;
+    }
+    let nextStep;
+    nextStep = dictionary.get(localBlock);
+    let whiteBlockIndex = localBlock.indexOf(Number(imgBase * imgBase - 1));
+    let nextBlockIndex = nextStep.indexOf(Number(imgBase * imgBase - 1));
+    let nextBlock = document.querySelector(`#b${localBlock[nextBlockIndex]}`);
+    let whiteBlock = document.querySelector(".white");
+    changeBlock(nextBlockIndex, whiteBlockIndex);
+    chageCanvas(nextBlock, whiteBlock);
+}
+
+document.querySelector("#go-next").addEventListener("click", function () {
+    let row = imgBase;
+    let nextStep;
+    nextStep = dictionary.get(localBlock);
+    let whiteBlockIndex = localBlock.indexOf(Number(imgBase * imgBase - 1));
+    let nextBlockIndex = nextStep.indexOf(Number(imgBase * imgBase - 1));
+    if (whiteBlockIndex - nextBlockIndex === row) {
+        alert("向下滑動");
+    }
+    if (whiteBlockIndex - nextBlockIndex === -row) {
+        alert("向上滑動");
+    }
+    if (whiteBlockIndex - nextBlockIndex === 1) {
+        alert("向右滑動");
+    }
+    if (whiteBlockIndex - nextBlockIndex === -1) {
+        alert("向左滑動");
+    }
+    autoMove();
+    checkWinGame();
+});
+
+//建立字典
+function Dictionary() {
+    let items = {};
+    this.set = function (key, value) {
+        items[key] = value;
+    };
+    this.remove = function () {
+        if (this.has(key)) {
+            delete items[key];
+            return true;
+        }
+        return false;
+    };
+    this.has = function (key) {
+        return key in items;
+        // 也可以使用 return items.hasOwnProperty(key);
+    };
+    this.get = function (key) {
+        // 先判斷是否存在鍵
+        return this.has(key) ? items[key] : undefinded;
+    };
+    this.clear = function () {
+        items = {};
+    };
+    this.size = function () {
+        return length;
+    };
+    this.keys = function () {
+        return Object.keys(items);
+    };
+    this.values = function () {
+        let values = {};
+        for (let k in items) {
+            if (this.has(k)) {
+                values.push(items[k]);
+            }
+        }
+        return values;
+    };
+    this.getItems = function () {
+        return items;
+    };
+}
