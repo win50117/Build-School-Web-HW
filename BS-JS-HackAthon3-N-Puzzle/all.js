@@ -413,7 +413,7 @@ document.querySelector("#go-next").addEventListener("click", function () {
     if (whiteBlockIndex - nextBlockIndex === -1) {
         alert("向左滑動");
     }
-    autoMove();
+    // autoMove();
     checkWinGame();
 });
 
