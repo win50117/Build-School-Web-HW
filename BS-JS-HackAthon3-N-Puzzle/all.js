@@ -370,6 +370,8 @@ function BFS() {
     // console.log(localBlock.toString());
     // console.log(dictionary.get(localBlock));
 }
+//製作可走範圍 減少搜尋成本
+let canMove = [];
 
 //最後移動時 可以找目前節點的whiteIndex值 和 下一個路徑的whiteIndex值
 //相減判斷是移動上下左右
