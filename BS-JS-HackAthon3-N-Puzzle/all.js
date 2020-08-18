@@ -294,7 +294,6 @@ function BFS() {
     let path = []; //路徑 空白格往：0上 1下 2左 3右
     queueArray.push(baseBlock.slice(0)); //放入起始節點 完全複製，不然只是參照到原陣列
     visitArray.push(baseBlock.slice(0)); //起始節點已探訪
-    console.log(queueArray);
     let i = 0;
     while (queueArray.length > 0) {
         console.log(i++);
@@ -313,7 +312,7 @@ function BFS() {
             temp = tempAry[whiteBlockIndex];
             tempAry[whiteBlockIndex] = tempAry[whiteBlockIndex - row];
             tempAry[whiteBlockIndex - row] = temp;
-            if (!visitArray.toString().includes(tempAry.toString())) {
+            if (!JSON.stringify(visitArray).includes(JSON.stringify(tempAry))) {
                 //加入queue和已探訪
                 queueArray.push(tempAry.slice(0));
                 visitArray.push(tempAry.slice(0));
@@ -327,7 +326,7 @@ function BFS() {
             temp = tempAry[whiteBlockIndex];
             tempAry[whiteBlockIndex] = tempAry[whiteBlockIndex + row];
             tempAry[whiteBlockIndex + row] = temp;
-            if (!visitArray.toString().includes(tempAry.toString())) {
+            if (!JSON.stringify(visitArray).includes(JSON.stringify(tempAry))) {
                 //加入queue和已探訪
                 queueArray.push(tempAry.slice(0));
                 visitArray.push(tempAry.slice(0));
@@ -341,7 +340,7 @@ function BFS() {
             temp = tempAry[whiteBlockIndex];
             tempAry[whiteBlockIndex] = tempAry[whiteBlockIndex - 1];
             tempAry[whiteBlockIndex - 1] = temp;
-            if (!visitArray.toString().includes(tempAry.toString())) {
+            if (!JSON.stringify(visitArray).includes(JSON.stringify(tempAry))) {
                 //加入queue和已探訪
                 queueArray.push(tempAry.slice(0));
                 visitArray.push(tempAry.slice(0));
@@ -355,7 +354,7 @@ function BFS() {
             temp = tempAry[whiteBlockIndex];
             tempAry[whiteBlockIndex] = tempAry[whiteBlockIndex + 1];
             tempAry[whiteBlockIndex + 1] = temp;
-            if (!visitArray.toString().includes(tempAry.toString())) {
+            if (!JSON.stringify(visitArray).includes(JSON.stringify(tempAry))) {
                 //加入queue和已探訪
                 queueArray.push(tempAry.slice(0));
                 visitArray.push(tempAry.slice(0));
@@ -363,10 +362,10 @@ function BFS() {
                 // console.log("TEST3");
             }
         }
-        console.log(queueArray);
+        // console.log(queueArray);
     }
 
-    console.log(dictionary.getItems());
+    // console.log(dictionary.getItems());
     // console.log(localBlock.toString());
     // console.log(dictionary.get(localBlock));
 }
