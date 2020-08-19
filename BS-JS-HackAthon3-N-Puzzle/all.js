@@ -279,30 +279,34 @@ document.querySelector("#startBtn").addEventListener("click", function () {
     imgSrc = "img/Capoo1.jpg";
 });
 
-//轉字串比較會有bug 待fix
 let dictionary = new Dictionary();
 document.querySelector("#bfs-alg").addEventListener("click", BFS);
 function BFS() {
     dictionary = new Dictionary();
+    // let queueDict = new Dictionary();
+    let visitDict = new Dictionary();
     let row = imgBase;
     let queueArray = []; //佇列
-    let visitArray = []; //已探訪
+    // let visitArray = []; //已探訪
     let vertex = [];
     let tempAry;
     let temp;
     let whiteBlockIndex;
-    let path = []; //路徑 空白格往：0上 1下 2左 3右
     queueArray.push(baseBlock.slice(0)); //放入起始節點 完全複製，不然只是參照到原陣列
-    visitArray.push(baseBlock.slice(0)); //起始節點已探訪
-    let i = 0;
+    // visitArray.push(baseBlock.slice(0)); //起始節點已探訪
+    // queueDict.set(baseBlock,ture);
+    visitDict.set(baseBlock, "ture"); //起始節點已探訪
+    // console.log(visitDict.has(baseBlock));
+    // let i = 0;
     while (queueArray.length > 0) {
-        console.log(i++);
+        // i++;
         vertex = queueArray.shift().slice(0); //取出的頂點
         whiteBlockIndex = vertex.indexOf(Number(Math.pow(imgBase, 2) - 1));
 
         //如果取出的頂點等於目標localBlock 回傳路徑，不把全部路徑可能記錄
         if (vertex.toString() === localBlock.toString()) {
             autoMove();
+            // console.log(i);
             return;
         }
         // 找出臨節點
@@ -312,10 +316,11 @@ function BFS() {
             temp = tempAry[whiteBlockIndex];
             tempAry[whiteBlockIndex] = tempAry[whiteBlockIndex - row];
             tempAry[whiteBlockIndex - row] = temp;
-            if (!JSON.stringify(visitArray).includes(JSON.stringify(tempAry))) {
+            if (!visitDict.has(tempAry)) {
                 //加入queue和已探訪
                 queueArray.push(tempAry.slice(0));
-                visitArray.push(tempAry.slice(0));
+                // visitArray.push(tempAry.slice(0));
+                visitDict.set(tempAry, "ture");
                 dictionary.set(tempAry.slice(0), vertex.slice(0));
                 // console.log("TEST0");
             }
@@ -326,10 +331,11 @@ function BFS() {
             temp = tempAry[whiteBlockIndex];
             tempAry[whiteBlockIndex] = tempAry[whiteBlockIndex + row];
             tempAry[whiteBlockIndex + row] = temp;
-            if (!JSON.stringify(visitArray).includes(JSON.stringify(tempAry))) {
+            if (!visitDict.has(tempAry)) {
                 //加入queue和已探訪
                 queueArray.push(tempAry.slice(0));
-                visitArray.push(tempAry.slice(0));
+                // visitArray.push(tempAry.slice(0));
+                visitDict.set(tempAry, "ture");
                 dictionary.set(tempAry.slice(0), vertex.slice(0));
                 // console.log("TEST1");
             }
@@ -340,10 +346,11 @@ function BFS() {
             temp = tempAry[whiteBlockIndex];
             tempAry[whiteBlockIndex] = tempAry[whiteBlockIndex - 1];
             tempAry[whiteBlockIndex - 1] = temp;
-            if (!JSON.stringify(visitArray).includes(JSON.stringify(tempAry))) {
+            if (!visitDict.has(tempAry)) {
                 //加入queue和已探訪
                 queueArray.push(tempAry.slice(0));
-                visitArray.push(tempAry.slice(0));
+                // visitArray.push(tempAry.slice(0));
+                visitDict.set(tempAry, "ture");
                 dictionary.set(tempAry.slice(0), vertex.slice(0));
                 // console.log("TEST2");
             }
@@ -354,10 +361,11 @@ function BFS() {
             temp = tempAry[whiteBlockIndex];
             tempAry[whiteBlockIndex] = tempAry[whiteBlockIndex + 1];
             tempAry[whiteBlockIndex + 1] = temp;
-            if (!JSON.stringify(visitArray).includes(JSON.stringify(tempAry))) {
+            if (!visitDict.has(tempAry)) {
                 //加入queue和已探訪
                 queueArray.push(tempAry.slice(0));
-                visitArray.push(tempAry.slice(0));
+                // visitArray.push(tempAry.slice(0));
+                visitDict.set(tempAry, "ture");
                 dictionary.set(tempAry.slice(0), vertex.slice(0));
                 // console.log("TEST3");
             }
@@ -369,13 +377,10 @@ function BFS() {
     // console.log(localBlock.toString());
     // console.log(dictionary.get(localBlock));
 }
-//製作可走範圍 減少搜尋成本
-let canMove = [];
 
-//最後移動時 可以找目前節點的whiteIndex值 和 下一個路徑的whiteIndex值
-//相減判斷是移動上下左右
 let timeOpen = false;
 let time;
+
 function autoMove() {
     if (timeOpen === false) {
         time = setInterval(autoMove, 300);
@@ -396,27 +401,30 @@ function autoMove() {
     chageCanvas(nextBlock, whiteBlock);
 }
 
-document.querySelector("#go-next").addEventListener("click", function () {
-    let row = imgBase;
-    let nextStep;
-    nextStep = dictionary.get(localBlock);
-    let whiteBlockIndex = localBlock.indexOf(Number(imgBase * imgBase - 1));
-    let nextBlockIndex = nextStep.indexOf(Number(imgBase * imgBase - 1));
-    if (whiteBlockIndex - nextBlockIndex === row) {
-        alert("向下滑動");
-    }
-    if (whiteBlockIndex - nextBlockIndex === -row) {
-        alert("向上滑動");
-    }
-    if (whiteBlockIndex - nextBlockIndex === 1) {
-        alert("向右滑動");
-    }
-    if (whiteBlockIndex - nextBlockIndex === -1) {
-        alert("向左滑動");
-    }
-    // autoMove();
-    checkWinGame();
-});
+//提示下一步
+//移動時 可以找目前節點的whiteIndex值 和 下一個路徑的whiteIndex值
+//相減判斷是移動上下左右
+// document.querySelector("#go-next").addEventListener("click", function () {
+//     let row = imgBase;
+//     let nextStep;
+//     nextStep = dictionary.get(localBlock);
+//     let whiteBlockIndex = localBlock.indexOf(Number(imgBase * imgBase - 1));
+//     let nextBlockIndex = nextStep.indexOf(Number(imgBase * imgBase - 1));
+//     if (whiteBlockIndex - nextBlockIndex === row) {
+//         alert("向下滑動");
+//     }
+//     if (whiteBlockIndex - nextBlockIndex === -row) {
+//         alert("向上滑動");
+//     }
+//     if (whiteBlockIndex - nextBlockIndex === 1) {
+//         alert("向右滑動");
+//     }
+//     if (whiteBlockIndex - nextBlockIndex === -1) {
+//         alert("向左滑動");
+//     }
+//     // autoMove();
+//     checkWinGame();
+// });
 
 //建立字典
 function Dictionary() {
