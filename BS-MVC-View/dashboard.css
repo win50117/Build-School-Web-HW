@@ -4,11 +4,9 @@
 
 .main {
   height: 100%;
-  background-color: #99f3fa;
 }
 
 .main .card {
-  width: 500px;
   margin: 20px 20px;
   -webkit-box-shadow: 0 0 5px #888;
           box-shadow: 0 0 5px #888;
@@ -17,11 +15,11 @@
 
 .main .card #earnings-chart {
   background-color: #fff;
-  width: 500px;
 }
 
 body {
   font-size: .875rem;
+  background-color: #99f3fa;
 }
 
 .feather {

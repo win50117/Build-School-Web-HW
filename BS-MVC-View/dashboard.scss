@@ -1,27 +1,33 @@
 * {
     list-style: none;
+
 }
 
 .main {
     height: 100%;
-    background-color: #99f3fa;
 
     .card {
-        width: 500px;
+        // width: 500px;
         margin: 20px 20px;
         box-shadow: 0 0 5px #888;
         border-radius: 10px;
 
+        &.card-earnings {
+            // width: 500px;
+
+        }
+
         #earnings-chart {
             background-color: #fff;
-            width: 500px;
+            // width: 500px;
+            // height: 10000px;
         }
     }
-
 }
 
 body {
     font-size: .875rem;
+    background-color: #99f3fa;
 }
 
 .feather {
