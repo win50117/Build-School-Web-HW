@@ -103,28 +103,28 @@
 
                 <div class="row">
                     <div class="col-12 col-lg-3">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">總銷售額：</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-3">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">訂單總數：</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-3">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">產品總數：</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-3">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">會員總數：</h5>
                             </div>
@@ -144,12 +144,29 @@
                             This week
                         </button>
                     </div> -->
-                <div class="card">
-                    <div class="card-header">
-                        月銷售額統計
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="card card-earnings">
+                            <div class="card-header">
+                                月銷售額統計
+                            </div>
+                            <div class="card-body">
+                                <canvas class="my-4" id="earnings-chart"></canvas>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <canvas class="my-4 w-100" id="earnings-chart"></canvas>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-lg-4">
+                        <div class="card card-top-products">
+                            <div class="card-header">
+                                TOP 5 產品
+                            </div>
+                            <div class="card-body">
+                                <canvas class="my-4" id="top-products"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

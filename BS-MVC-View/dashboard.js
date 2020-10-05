@@ -1,5 +1,6 @@
-var ctx = document.getElementById("earnings-chart").getContext("2d");
-var myChart = new Chart(ctx, {
+var earnings = document.getElementById("earnings-chart").getContext("2d");
+var topProducts = document.getElementById("top-products").getContext("2d");
+var earningsChart = new Chart(earnings, {
     type: "line",
     data: {
         labels: [
@@ -34,6 +35,45 @@ var myChart = new Chart(ctx, {
                     255000,
                 ],
                 backgroundColor: [
+                    "rgba(0, 0, 0, 1)",
+                    // "rgba(255, 99, 132, 0.2)",
+                ],
+                borderColor: [
+                    "#39c5bb",
+                    // "rgba(255, 99, 132, 1)",
+                ],
+                borderWidth: 3,
+                fill: false,
+                lineTension: 0,
+                pointBackgroundColor: "#39c5bb",
+                pointBorderWidth: 10,
+                pointHitRadius: 10,
+                pointBorderColor: "#39c5bb",
+            },
+        ],
+    },
+    options: {
+        scales: {
+            yAxes: [
+                {
+                    ticks: {
+                        beginAtZero: true,
+                    },
+                },
+            ],
+        },
+    },
+});
+
+var topProductsChart = new Chart(topProducts, {
+    type: "doughnut",
+    data: {
+        labels: ["香水1", "香水2", "香水3", "香水4", "香水5"],
+        datasets: [
+            {
+                label: "# of Votes",
+                data: [5, 10, 3, 7, 15],
+                backgroundColor: [
                     "rgba(255, 99, 132, 0.2)",
                     "rgba(54, 162, 235, 0.2)",
                     "rgba(255, 206, 86, 0.2)",
@@ -56,11 +96,11 @@ var myChart = new Chart(ctx, {
     options: {
         scales: {
             yAxes: [
-                {
-                    ticks: {
-                        beginAtZero: true,
-                    },
-                },
+                // {
+                //     ticks: {
+                //         beginAtZero: true,
+                //     },
+                // },
             ],
         },
     },
