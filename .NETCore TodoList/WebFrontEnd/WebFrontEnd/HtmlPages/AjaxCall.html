@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Ajax Call</h1>
+
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="put">PUT</button>
+    <button id="delete">DELETE</button>
+    <div id="result"></div>
+
+    <script>
+
+        let webapiUrl = "https://localhost:5001/api/TodoItems";
+        let todoitem = { "Name": "溜狗", "IsComplete": true };
+        let getBtn = document.querySelector("#get");
+        let postBtn = document.querySelector("#post");
+        let result = document.querySelector("#result");
+
+        getBtn.addEventListener("click", function () {
+            fetch(webapiUrl,
+                {
+                    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                    mode: 'cors', // no-cors, cors, *same-origin
+                })
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    console.log(myJson);
+                    result.innerText = JSON.stringify(myJson);
+                });
+        })
+        postBtn.addEventListener("click", function () {
+            $.ajax({
+                url: webapiUrl,
+                method: "POST", // > 1.9
+                //type: "POST",  // < 1.9
+                contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+                dataType: "json",
+                data: todoitem,
+                //headers: {
+                //    "Access-Control-Request-Method": "POST",
+                //    "Access-Control-Request-Headers":"X-PINGOTHER, Content-Type"
+                //},
+                success: function (response) {
+                    console.log(response);
+                    $("#result").html(JSON.stringify(response));
+                }
+            });
+            //fetch(webapiUrl,
+            //    {
+            //        body: todoitem, // must match 'Content-Type' header
+
+            //        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            //        mode: 'cors', // no-cors, cors, *same-origin
+            //        headers: {
+            //            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+            //        }
+            //    })
+            //    .then(function (response) {
+            //        return response.json();
+            //    })
+            //    .then(function (myJson) {
+            //        console.log(myJson);
+            //        result.innerText = JSON.stringify(myJson);
+            //    });
+        })
+    </script>
+</body>
+</html>
